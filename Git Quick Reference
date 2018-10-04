@@ -1,0 +1,12 @@
+4D-Development Quick Git Reference
+
+Purpose: To provide an ever present, point blank walk through to assist us in getting git procedures right while we're all still 
+learning.
+
+Please feel free to add to, or correct, this document as we move forward and learn more.
+
+If an update has been made to Development on the remote:
+1. Using your command line of choice (henceforth referred to as cmd) navigate to your local Development branch and perform a 
+<git pull> operation. This will attempt to update your local Development to be on pace with the remote.
+2. Navigate back to 
+
