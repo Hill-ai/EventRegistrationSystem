@@ -47,13 +47,26 @@ CMD(example-branch): git push                           //if local branch is cor
   4.b Function test the changes locally, if successful proceed to upload the changes to the remote.
   
   
- //David's Changes
+//David's Changes
  Git Commands:
  
- Navigating the File System(cd): $ cd [options] [<directory>]
- List the contents of the content directory(folder): $ ls
- List all local branches: $ git branch
- List all remote branches: $ git branch -r
+    Working with the file system:
+        Navigating the File System(cd): $ cd [directory]
+        List the contents of the content directory(folder): $ ls
+    
+    Staging and Committing Changes:
+        Add all new or changed files to the staged changes, including removed items(deletions): $ git add --all 
+        Commits the changes for the specific file(s) and includes the commit message specified: $ git commit [FileName] -m "[Message Text]"
+     
+     Working with Remote Repositores(like Github):
+        List all local branches: $ git branch
+        List all remote branches: $ git branch -r
+        Create a new branch starting at the same point in history as the current branch: $ git branch [BranchName]
+        Switch from the current branch to the indicated branch: $ git checkout [BranchName]
+        Merge the specified branch into the current branch and auto-commit the results: $ git merge [BranchName]
+        
+     Undoing Changes:   
+        Undo everything since the last commit: $ git reset --hard
   
   
   
