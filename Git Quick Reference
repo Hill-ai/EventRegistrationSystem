@@ -44,6 +44,14 @@ CMD(development): git pull origin development
   4.b Function test the changes locally, if successful proceed to upload the changes to the remote.
   
   
+ //David's Changes
+ Git Commands:
+ 
+ Navigating the File System(cd): $ cd [options] [<directory>]
+ List the contents of the content directory(folder): $ ls
+ List all local branches: $ git branch
+ List all remote branches: $ git branch -r
+  
   
   
   
