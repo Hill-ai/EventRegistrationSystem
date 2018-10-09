@@ -7,23 +7,16 @@ Please feel free to add to, or correct, this document as we move forward and lea
 
 
 
-###To sync your local development branch and the remote development branch:
+###If an update has been made to Development on the remote and you wish to integrate the changes locally:
 
 1. Using your command line of choice (henceforth referred to as CLI) navigate to your local Development branch and perform a 
-<git pull> operation. This will attempt to update your local Development to be on pace with the remote. 
-    *It's considered best practice to pull from the remote branch often to minimize merge conflicts.
+<git pull> operation. This will attempt to update your local Development to be on pace with the remote.
 
 CMD(development): git pull origin development
 
     a. You may encounter a conflict while attempting to pull the updates. These conflicts are easiest to resolve in Visual Studio.
          Under the Project Viewer (Check name for accuracy, I'm going from memory) select the merge option near the top and navigate 
          through the process resolving any conflicts that may have arisen. 
-
-###To create a new branch to work on a new feature
-CMD(development):    git checkout -b example-branch     //create new branch and navigate to it
-CMD(example-branch): git add .                          //add to stanging area
-CMD(example-branch): git commit -m "added new-branch"   //commit
-CMD(example-branch): git push origin name-of-new-branch //push new branch onto remote repository
 
 2. Navigate back to the local branch you are working in and merge the updates in Development into it with <git merge Development>.
     a. Repeat conflict resolution as neccasary.
@@ -54,10 +47,19 @@ CMD(example-branch): git push origin name-of-new-branch //push new branch onto r
  //David's Changes
  Git Commands:
  
- Navigating the File System(cd): $ cd [options] [<directory>]
- List the contents of the content directory(folder): $ ls
+    Working with the file system:
+        Navigating the File System(cd): $ cd [directory]
+        List the contents of the content directory(folder): $ ls
+    
+    Staging and Committing Changes:
+        Add all new or changed files to the staged changes, including removed items(deletions): $ git add --all 
+        Commits the changes for the specific file(s) and includes the commit message specified: $ git commit [FileName] -m "[Message Text]"
+        
  List all local branches: $ git branch
  List all remote branches: $ git branch -r
+ Switch from the current branch to the indicated branch: $ git checkout [BranchName]
+ Undo everything since the last commit: $ git reset --hard
+ 
   
   
   
