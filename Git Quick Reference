@@ -54,11 +54,14 @@ CMD(development): git pull origin development
     Staging and Committing Changes:
         Add all new or changed files to the staged changes, including removed items(deletions): $ git add --all 
         Commits the changes for the specific file(s) and includes the commit message specified: $ git commit [FileName] -m "[Message Text]"
+     
+     Working with Remote Repositores(like Github):
+        List all local branches: $ git branch
+        List all remote branches: $ git branch -r
+        Switch from the current branch to the indicated branch: $ git checkout [BranchName]
         
- List all local branches: $ git branch
- List all remote branches: $ git branch -r
- Switch from the current branch to the indicated branch: $ git checkout [BranchName]
- Undo everything since the last commit: $ git reset --hard
+     Undoing Changes:   
+        Undo everything since the last commit: $ git reset --hard
  
   
   
