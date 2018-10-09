@@ -7,7 +7,7 @@ Please feel free to add to, or correct, this document as we move forward and lea
 
 
 
-If an update has been made to Development on the remote and you wish to integrate the changes locally:
+###If an update has been made to Development on the remote and you wish to integrate the changes locally:
 
 1. Using your command line of choice (henceforth referred to as CLI) navigate to your local Development branch and perform a 
 <git pull> operation. This will attempt to update your local Development to be on pace with the remote.
@@ -19,10 +19,9 @@ CMD(development): git pull origin development
          through the process resolving any conflicts that may have arisen. 
 
 2. Navigate back to the local branch you are working in and merge the updates in Development into it with <git merge Development>.
-  2.a Repeat conflict resolution as neccasary.
+    a. Repeat conflict resolution as neccasary.
 
-
-If you have made changes to your local branch and wish to push it to the remote:
+###If you have made changes to your local branch and wish to push it to the remote:
 
 1. In the CLI type <git add .> this will update the local git file and allow us to commit the changes.
 
@@ -32,7 +31,7 @@ If you have made changes to your local branch and wish to push it to the remote:
   3.a Confirm that the changes have been recognized by visiting the GitHub repo.
   
   
-If you have completed a feature and are ready to merge your changes to the Development branch:  
+###If you have completed a feature and are ready to merge your changes to the Development branch:  
 
 1. Complete the steps above to push the local copy of your feature to the remote.
 
@@ -44,16 +43,6 @@ If you have completed a feature and are ready to merge your changes to the Devel
   4.a Resolve any conflicts as neccesary.
   4.b Function test the changes locally, if successful proceed to upload the changes to the remote.
   
-  
- //David's Changes
- Git Commands:
- 
- Navigating the File System(cd): $ cd [options] [<directory>]
- List the contents of the content directory(folder): $ ls
- List all local branches: $ git branch
- List all remote branches: $ git branch -r
- 
- 
   
   
   
