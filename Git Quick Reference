@@ -51,6 +51,9 @@ CMD(development): git pull origin development
  List the contents of the content directory(folder): $ ls
  List all local branches: $ git branch
  List all remote branches: $ git branch -r
+ Switch from the current branch to the indicated branch: $ git checkout [BranchName]
+ Undo everything since the last commit: $ git reset --hard
+ 
   
   
   
