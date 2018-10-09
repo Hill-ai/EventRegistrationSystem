@@ -1,36 +1,39 @@
 4D-Development Quick Git Reference
 
 Purpose: To provide an ever present, point blank walk through to assist us in getting git procedures right while we're all still 
-learning.
-
-Please feel free to add to, or correct, this document as we move forward and learn more.
+learning. Please feel free to add to, or correct, this document as we move forward and learn more.
 
 
-
-###If an update has been made to Development on the remote and you wish to integrate the changes locally:
-
+###To sync your local development branch and the remote development branch:
 1. Using your command line of choice (henceforth referred to as CLI) navigate to your local Development branch and perform a 
-<git pull> operation. This will attempt to update your local Development to be on pace with the remote.
+<git pull> operation. 
 
-CMD(development): git pull origin development
+CMD(development): git pull origin development          // update your local development to be on pace with the remote
 
-    a. You may encounter a conflict while attempting to pull the updates. These conflicts are easiest to resolve in Visual Studio.
-         Under the Project Viewer (Check name for accuracy, I'm going from memory) select the merge option near the top and navigate 
-         through the process resolving any conflicts that may have arisen. 
+Note: You may encounter a conflict while attempting to pull the updates. These conflicts are easiest to resolve in Visual Studio.
+      Under the Project Viewer (Check name for accuracy, I'm going from memory) select the merge option near the top and navigate 
+      through the process resolving any conflicts that may have arisen. 
 
-2. Navigate back to the local branch you are working in and merge the updates in Development into it with <git merge Development>.
-    a. Repeat conflict resolution as neccasary.
 
-###If you have made changes to your local branch and wish to push it to the remote:
+###To create a new branch to work on a new feature
+CMD(development):    git checkout -b example-branch     //create new branch and navigate to it
+CMD(example-branch): git add .                          //add to stanging area
+CMD(example-branch): git commit -m "added new-branch"   //commit
+CMD(example-branch): git push origin name-of-new-branch //push new branch onto remote repository
 
-1. In the CLI type <git add .> this will update the local git file and allow us to commit the changes.
+
+###To push changes from your local feature branch into the remote feature branch
+
+CMD(example-branch): git add .                          //update the local git file and allow us to commit the changes
+CMD(example-branch): git commit -m "message"            //this will get everything staged and ready to be pushed to the remote.
+CMD(example-branch): git push                           //if local branch is correctly pointed at the remote branch this will push your changes upstream
+
 
 2. In the CLI type <git commit -m "Message"> this will get everything staged and ready to be pushed to the remote.
 
 3. in the CLI type <git push> if your local is corretly pointed at the remote this should push your changes upstream
   3.a Confirm that the changes have been recognized by visiting the GitHub repo.
-  
-  
+   
 ###If you have completed a feature and are ready to merge your changes to the Development branch:  
 
 1. Complete the steps above to push the local copy of your feature to the remote.
@@ -47,22 +50,10 @@ CMD(development): git pull origin development
  //David's Changes
  Git Commands:
  
-    Working with the file system:
-        Navigating the File System(cd): $ cd [directory]
-        List the contents of the content directory(folder): $ ls
-    
-    Staging and Committing Changes:
-        Add all new or changed files to the staged changes, including removed items(deletions): $ git add --all 
-        Commits the changes for the specific file(s) and includes the commit message specified: $ git commit [FileName] -m "[Message Text]"
-     
-     Working with Remote Repositores(like Github):
-        List all local branches: $ git branch
-        List all remote branches: $ git branch -r
-        Switch from the current branch to the indicated branch: $ git checkout [BranchName]
-        
-     Undoing Changes:   
-        Undo everything since the last commit: $ git reset --hard
- 
+ Navigating the File System(cd): $ cd [options] [<directory>]
+ List the contents of the content directory(folder): $ ls
+ List all local branches: $ git branch
+ List all remote branches: $ git branch -r
   
   
   
