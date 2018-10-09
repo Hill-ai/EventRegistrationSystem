@@ -43,3 +43,12 @@ If you have completed a feature and are ready to merge your changes to the Devel
 4. Merge your feature into the Developemnt branch <git merge feature_name>
   4.a Resolve any conflicts as neccesary.
   4.b Function test the changes locally, if successful proceed to upload the changes to the remote.
+  
+  
+  
+  
+  
+  
+  
+  
+Helpful youtube video for reference: https://www.youtube.com/watch?v=MnUd31TvBoU&t=266s
