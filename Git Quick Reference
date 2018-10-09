@@ -12,10 +12,11 @@ If an update has been made to Development on the remote and you wish to integrat
 1. Using your command line of choice (henceforth referred to as CLI) navigate to your local Development branch and perform a 
 <git pull> operation. This will attempt to update your local Development to be on pace with the remote.
 
-  1.a You may encounter a conflict while attempting to pull the updates. These conflicts are easiest to resolve in Visual Studio.
-    Under the Project Viewer (Check name for accuracy, I'm going from memory) select the merge option near the top and navigate 
-    through the process resolving any conflicts that may have arisen. 
-  
+CMD(development): git pull origin development
+
+    a. You may encounter a conflict while attempting to pull the updates. These conflicts are easiest to resolve in Visual Studio.
+         Under the Project Viewer (Check name for accuracy, I'm going from memory) select the merge option near the top and navigate 
+         through the process resolving any conflicts that may have arisen. 
 
 2. Navigate back to the local branch you are working in and merge the updates in Development into it with <git merge Development>.
   2.a Repeat conflict resolution as neccasary.
