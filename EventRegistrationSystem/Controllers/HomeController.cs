@@ -26,5 +26,15 @@ namespace EventRegistrationSystem.Controllers
 
             return View();
         }
+
+
+        public ViewResult Events()
+        {
+            ViewBag.Message = "Employees view events here.";
+
+            return View();
+        }
+
+
     }
 }
