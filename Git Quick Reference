@@ -72,5 +72,6 @@ CMD(example-branch): git push                           //if local branch is cor
   
   
   
-  
+Git References: 
 Helpful youtube video for reference: https://www.youtube.com/watch?v=MnUd31TvBoU&t=266s
+https://nvie.com/posts/a-successful-git-branching-model/
