@@ -16,6 +16,5 @@ namespace EventRegistrationSystem.Models
         public string PrimaryContactPhoneNumber { get; set; }
         public string PrimaryContactEmail { get; set; }
         public string CompanyWebLink { get; set; }
-
     }
 }
