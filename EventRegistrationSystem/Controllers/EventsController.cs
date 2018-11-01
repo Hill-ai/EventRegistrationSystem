@@ -22,5 +22,10 @@ namespace EventRegistrationSystem.Controllers
         {
             return View();
         }
+
+        public EventsController()
+        {
+
+        }
     }
 }

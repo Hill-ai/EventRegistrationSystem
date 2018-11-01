@@ -211,7 +211,7 @@
     </Compile>
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\CompanyModels.cs" />
-    <Compile Include="Models\EventModels.cs" />
+    <Compile Include="Models\EventModel.cs" />
     <Compile Include="Models\FakeEventsRepository.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\IEventsRepository.cs" />
@@ -277,6 +277,8 @@
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Views\Home\Events.cshtml" />
+    <Content Include="Views\Events\CreateEvent.cshtml" />
+    <Content Include="Views\Home\CreateEvent.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

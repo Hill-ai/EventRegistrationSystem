@@ -8,6 +8,6 @@ namespace EventRegistrationSystem.Models
 {
     public interface IEventsRepository
     {
-        IEnumerable<EventModels> Events { get; }
+        IEnumerable<EventModel> Events { get; }
     }
 }

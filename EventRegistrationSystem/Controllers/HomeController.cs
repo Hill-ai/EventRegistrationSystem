@@ -35,6 +35,10 @@ namespace EventRegistrationSystem.Controllers
             return View();
         }
 
-
+        public ViewResult CreateEvent()
+        {
+            ViewBag.Message = "Create a new Event here.";
+            return View();
+        }
     }
 }

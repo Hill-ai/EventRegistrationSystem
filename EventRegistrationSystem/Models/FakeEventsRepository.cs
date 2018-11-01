@@ -7,9 +7,9 @@ namespace EventRegistrationSystem.Models
 {
     public class FakeEventsRepository : IEventsRepository
     {
-        public IEnumerable<EventModels> Events => new List<EventModels>
+        public IEnumerable<EventModel> Events => new List<EventModel>
         {
-            new EventModels{ Company = "CSX",
+            new EventModel{ Company = "CSX",
                 NonProfit =  "Helping Hand" ,
                 EventTime = DateTime.Now,
                 RestrictedByCompany = true,
@@ -28,7 +28,7 @@ namespace EventRegistrationSystem.Models
                 EventTotalTime = "3 hours",
                 NonProfitID = 2100 },
 
-            new EventModels{ Company = "Black Knight",
+            new EventModel{ Company = "Black Knight",
                 NonProfit =  "Yogas 4 Change" ,
                 EventTime = DateTime.Now,
                 RestrictedByCompany = true,
