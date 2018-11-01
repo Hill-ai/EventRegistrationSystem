@@ -12,9 +12,15 @@ namespace EventRegistrationSystem.Controllers
         public IEventsRepository repository;
         public EventsController(IEventsRepository repo)
         {
-            repository = repo;
+            this.repository = repo;
         }
 
         public ViewResult List() => View(repository.Events);
+
+
+        public ViewResult CreateEvent()
+        {
+            return View();
+        }
     }
 }
