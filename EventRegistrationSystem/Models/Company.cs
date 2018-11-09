@@ -5,7 +5,7 @@ using System.Web;
 
 namespace EventRegistrationSystem.Models
 {
-    public class Company
+    public class Company 
     {
         public int CompanyID { get; set; }
         public string Name { get; set; }

@@ -1,7 +1,5 @@
 ﻿using System.Collections.Generic;
-using EventRegistrationSystem.Models; // I'm not using an Entity folder within a Domain Project to store the models
-
-
+using EventRegistrationSystem.Models;
 
 namespace EventRegistrationSystem.Abstract
 {
