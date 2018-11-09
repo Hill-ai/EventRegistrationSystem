@@ -7,7 +7,7 @@ using System.Web;
 
 namespace EventRegistrationSystem.DataAccess
 {
-    public class CompanyDbContext : ApplicationDbContext
+    public class CompaniesDbContext : ApplicationDbContext
     {
         public DbSet<Company> Companies { get; set; }
     }
