@@ -2,18 +2,23 @@
 @model IEnumerable<Company>
 @{
     ViewBag.Title = "Companies";
+    ViewBag.Message = "List of all companies registered";
 }
+
+<h2>@ViewBag.Title</h2>
+<h5>@ViewBag.Message</h5>
+
 @foreach (var c in Model)
 {
-<div>
-    <h3>@c.Name</h3>
-    <h4>@c.Address</h4>
-    <h4>@c.PhoneNumber</h4>
-    <h4>@c.Email</h4>
-    <h4>@c.PrimaryContactName</h4>
-    <h4>@c.PrimaryContactPhoneNumber</h4>
-    <h4>@c.PrimaryContactEmail</h4>
-    <h4>@c.PrimaryContactName</h4>
-    <h4>@c.CompanyWebLink</h4>
-</div>
+    <div class="panel">
+        <h3>@c.Name</h3>
+        <h4>@c.Address</h4>
+        <h4>@c.PhoneNumber</h4>
+        <h4>@c.Email</h4>
+        <h4>@c.PrimaryContactName</h4>
+        <h4>@c.PrimaryContactPhoneNumber</h4>
+        <h4>@c.PrimaryContactEmail</h4>
+        <h4>@c.PrimaryContactName</h4>
+        <h4>@c.CompanyWebLink</h4>
+    </div>
 }
