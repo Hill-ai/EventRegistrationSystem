@@ -16,6 +16,23 @@ namespace EventRegistrationSystem.Models
             // Add custom user claims here
             return userIdentity;
         }
+        //Added new change - FirstName attribute when someone Registers
+        public string FirstName { get; set; }
+
+        //Added new change - LastName attribute when someone Registers
+        public string LastName { get; set; }
+
+        //Added new change - HomeAddress attribute when someone Registers
+        public string HomeAddress { get; set; }
+
+        //Added new change - City attribute when someone Registers
+        public string City { get; set; }
+
+        //Added new change - StateZipCode attribute when someone Registers
+        //public int? StateZipCode { get; set; }
+
+        //Added new change - UserName attribute when someone Registers
+        //public string UserName { get; set; }
     }
 
     public class ApplicationDbContext : IdentityDbContext<ApplicationUser>

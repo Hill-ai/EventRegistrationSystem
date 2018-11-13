@@ -151,7 +151,9 @@ namespace EventRegistrationSystem.Controllers
         {
             if (ModelState.IsValid)
             {
-                var user = new ApplicationUser { UserName = model.Email, Email = model.Email };
+                //Added new change - FirstName attribute when someone Registers
+                var user = new ApplicationUser { UserName = model.Email, Email = model.Email, FirstName = model.FirstName,
+                    LastName = model.LastName, HomeAddress = model.HomeAddress, City = model.City };
                 var result = await UserManager.CreateAsync(user, model.Password);
                 if (result.Succeeded)
                 {
