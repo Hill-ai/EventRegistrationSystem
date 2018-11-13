@@ -9,7 +9,7 @@ using EventRegistrationSystem.DataAccess;
 
 namespace EventRegistrationSystem.Controllers
 {
-   
+    /*
     public class CompanyController : Controller
     {
         private ICompanyRepository repository;
@@ -22,8 +22,8 @@ namespace EventRegistrationSystem.Controllers
             return View(repository.Companies);
         }
     }
-    /*  
-     public class CompanyController : Controller
+    **/
+    public class CompanyController : Controller
      {
          [HttpPost]
          public ActionResult Create(Company @company)      
@@ -50,5 +50,5 @@ namespace EventRegistrationSystem.Controllers
              }
          }
      }
-     **/
+     
 }
