@@ -18,7 +18,8 @@ namespace EventRegistrationSystem.Infrastructure
         public IEnumerable<object> GetServices(Type serviceType) { return kernel.GetAll(serviceType); }
 
         private void AddBindings()
-        {            // put bindings here        }    } 
+        {            //
+            //put bindings here        }    } 
         }
     }
 }
