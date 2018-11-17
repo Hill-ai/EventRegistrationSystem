@@ -1,4 +1,5 @@
-﻿<!--  (at) IEnumerable<EventModels>-->
+﻿@model IEnumerable<EventRegistrationSystem.Models.EventModels>
+
 @{
     ViewBag.Title = "Events";
 }
@@ -20,23 +21,39 @@
         Event 3<br />
         Event 4<br />
 
-        need to get the (at) model razor working so that the repository data can be shown
+        <br /> The foreach throws a NullReferenceException -- need to resolve this error but Daniel believes this may be fixed by 
+        adding Ninject   
     </div>
 </body>
 </html>
 
-<!--
 
 
-(at) foreach (var p in Model)
+
+ <!-- at foreach (var p in Model)
 {
-    < div >
-    (at) p.Company
-    (at) p.NonProfit
-    (at) p.EventName
-    (at) p.EventId
-    (at) p.EventDescription
-    (at) p.
+   <!-- < div >
+    at p.Company
+    at p.NonProfit
+    at p.EventName
+    at p.EventID
+    at p.EventDescription
+    at p.EventDate
+    at p.EventTime
     </ div >
-}
-    -->
+     -->
+
+     
+         
+<!--
+         
+         at foreach (var item in Model)
+    {
+        at Html.DisplayFor(modelItem => item.Company)
+        at Html.DisplayFor(modelItem => item.NonProfit)
+        at Html.DisplayFor(modelItem => item.EventName)
+
+    }
+        
+} 
+   -->

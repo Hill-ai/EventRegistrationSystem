@@ -26,7 +26,7 @@ namespace EventRegistrationSystem
 
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddTransient<IEventsRepository, 
+            services.AddTransient<IEventsRepository,
             FakeEventsRepository>();
             //services.AddMvc();
             //unable to add Microsoft.AspNetCore.Mvc package through Nuget 
@@ -34,7 +34,21 @@ namespace EventRegistrationSystem
             //need to find out why
         }
 
+        /*
+        public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory loggerFactory)
+        {
+            app.UseDeveloperExceptionPage();
+            app.UseStatusCodePages();
+            app.UseStaticFiles();
+            app.UseMvc(routes =>
+            {
+                routes.MapRoute(
+                    name: "default",
+                    template: "{controller=Events}/{action=List}/{id?}");
+            });
 
-
+        }
+        */
     }
+    
 }
