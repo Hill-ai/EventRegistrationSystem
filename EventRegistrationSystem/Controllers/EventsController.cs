@@ -23,6 +23,11 @@ namespace EventRegistrationSystem.Controllers
             return View();
         }
 
+        public ActionResult ListEvents()
+        {
+            return View();
+        }
+
         public EventsController()
         {
 

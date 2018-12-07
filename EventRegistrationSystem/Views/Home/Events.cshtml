@@ -23,6 +23,19 @@
         need to get the (at) model razor working so that the repository data can be shown
     </div>
 </body>
+<table>
+    <thead>
+        <th>x</th>
+        <th>x</th>
+        <th>x</th>
+    </thead>
+    @foreach(var row in Model.Rows)
+    {
+        <tr>
+            <td>row.SomeInfo</td>
+        </tr>
+    }
+</table>
 </html>
 
 <!--

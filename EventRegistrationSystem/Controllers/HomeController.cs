@@ -31,6 +31,8 @@ namespace EventRegistrationSystem.Controllers
         public ViewResult Events()
         {
             ViewBag.Message = "Employees view events here.";
+            
+            //todo: go get events
 
             return View();
         }
