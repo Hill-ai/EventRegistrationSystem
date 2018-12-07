@@ -16,10 +16,10 @@ Note: You may encounter a conflict while attempting to pull the updates. These c
 
 
 ###To create a new branch to work on a new feature
-CMD(development):    git checkout -b example-branch     //create new branch and navigate to it
-CMD(example-branch): git add .                          //add to stanging area
-CMD(example-branch): git commit -m "added new-branch"   //commit
-CMD(example-branch): git push origin name-of-new-branch //push new branch onto remote repository
+CMD(development):    git checkout -b example-branch        //create new branch and navigate to it
+CMD(example-branch): git add .                             //add EVERY CHANGE to stanging area **Edited by NCampanini
+CMD(example-branch): git commit -m "added new-branch"      //commit and add message in one command
+CMD(example-branch): git push -u origin name-of-new-branch //push new branch onto remote repository and set the new remote branch as the upstream
 
 
 ###To push changes from your local feature branch into the remote feature branch
@@ -39,6 +39,13 @@ CMD(example-branch): git push                           //if local branch is cor
 1. Complete the steps above to push the local copy of your feature to the remote.
 
 2. Confirm that your local copy of the Development branch is current, updating if neccasary.
+
+***** NCampanini
+2a. Ensure you have latest work from Development
+2b. Merge Development into YOUR branch first.
+2c. Handle merge conflicts if necessary.
+2d. Build and run app, ensure new feature still works and app is stable.
+***** NCampanini
 
 3. Navigate to your local Development branch <git checkout branch_name>
 
