@@ -26,5 +26,12 @@ namespace EventRegistrationSystem.Controllers
 
             return View();
         }
+
+        public ActionResult Gallery()
+        {
+            ViewBag.Message = "Day of Differnece Gallery Page.";
+
+            return View();
+        }
     }
 }
