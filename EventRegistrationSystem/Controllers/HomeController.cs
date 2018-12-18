@@ -27,6 +27,22 @@ namespace EventRegistrationSystem.Controllers
             return View();
         }
 
+
+        public ViewResult Events()
+        {
+            ViewBag.Message = "Employees view events here.";
+            
+            //todo: go get events
+
+            return View();
+        }
+
+        public ViewResult CreateEvent()
+        {
+            ViewBag.Message = "Create a new Event here.";
+            return View();
+        }
+
         public ActionResult Gallery()
         {
             ViewBag.Message = "Day of Differnece Gallery Page.";
