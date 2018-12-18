@@ -1,0 +1,25 @@
+﻿@using EventRegistrationSystem.Models;
+@model IEnumerable<Event>
+@{
+    ViewBag.Title = "Events";
+    ViewBag.Message = "List of all Events";
+}
+
+<h2>@ViewBag.Title</h2>
+<h5>@ViewBag.Message</h5>
+
+@foreach (var p in Model)
+{
+<div class="panel">
+    <h3>@p.EventName</h3>
+    <h4>@p.NonProfit</h4>
+    <h4>@p.EventDescription</h4>
+    <h4>@p.EventDetails</h4>
+    <h4>@p.Company</h4>
+    <h4>@p.EventCapacity</h4>
+    <h4>@p.EventDate</h4>
+    <h4>@p.EventEndTime</h4>
+    
+</div>
+}
+

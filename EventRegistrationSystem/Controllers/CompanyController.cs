@@ -22,7 +22,8 @@ namespace EventRegistrationSystem.Controllers
             return View(repository.Companies);
         }
     }
-    **/
+       */
+
     public class CompanyController : Controller
      {
          [HttpPost]
