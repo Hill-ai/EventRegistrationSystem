@@ -1,0 +1,10 @@
+﻿@model IEnumerable<EventRegistrationSystem.Models.EventModel>
+
+@foreach (var row in Model)
+{
+    <div>
+        <span>@row.</span>
+
+        @Model.SingleOrDefault(x => x.EventID == 2)
+    </div>
+}
