@@ -42,5 +42,12 @@ namespace EventRegistrationSystem.Controllers
             ViewBag.Message = "Create a new Event here.";
             return View();
         }
+
+        public ActionResult Gallery()
+        {
+            ViewBag.Message = "Day of Differnece Gallery Page.";
+
+            return View();
+        }
     }
 }
