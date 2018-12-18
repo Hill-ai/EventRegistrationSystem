@@ -5,7 +5,7 @@ using System.Web;
 
 namespace EventRegistrationSystem.Models
 {
-    public class EventModel
+    public class Event
     {
         public string Company { get; set; }
         public string NonProfit { get; set; }
@@ -15,7 +15,7 @@ namespace EventRegistrationSystem.Models
         public Boolean EventHidden { get; set; }
         public int EventCapacity { get; set; }
 
-        public int EventID { get; set; }
+        public int EventId { get; set; }
         public string EventName { get; set; }
         public string EventDescription { get; set; }
         public DateTime EventDate { get; set; }
@@ -28,7 +28,7 @@ namespace EventRegistrationSystem.Models
         public int NonProfitID { get; set; }
 
 
-        public EventModel() {
+        public Event() {
         }
 
 
