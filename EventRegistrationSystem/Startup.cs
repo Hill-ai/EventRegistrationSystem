@@ -1,16 +1,11 @@
 ﻿using Microsoft.Owin;
 using Owin;
-using Microsoft.Extensions.DependencyInjection;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+//using Microsoft.Extensions.DependencyInjection;
 //using Microsoft.AspNetCore.Builder;
 //using Microsoft.AspNetCore.Hosting;
 //using Microsoft.AspNetCore.Http;
 //using Microsoft.Extensions.DependencyInjection;
 //using Microsoft.Extensions.Logging;
-using EventRegistrationSystem.Models;
 //using System.Web.Mvc;
 
 
@@ -24,7 +19,7 @@ namespace EventRegistrationSystem
             ConfigureAuth(app);
         }
 
-        public void ConfigureServices(IServiceCollection services)
+      /*  public void ConfigureServices(ServiceCollection services)
         {
             services.AddTransient<IEventsRepository, 
             FakeEventsRepository>();
@@ -34,7 +29,7 @@ namespace EventRegistrationSystem
             //need to find out why
         }
 
-
+    */
 
     }
 }
