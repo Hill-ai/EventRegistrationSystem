@@ -28,7 +28,7 @@ namespace EventRegistrationSystem.Controllers
         }
 
 
-        public ViewResult Events()
+        public ViewResult VolunteerEvents()
         {
             ViewBag.Message = "Employees view events here.";
             
@@ -37,7 +37,7 @@ namespace EventRegistrationSystem.Controllers
             return View();
         }
 
-        public ViewResult CreateEvent()
+        public ViewResult CreateVolunteerEvent()
         {
             ViewBag.Message = "Create a new Event here.";
             return View();

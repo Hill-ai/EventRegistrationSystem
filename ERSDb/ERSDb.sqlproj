@@ -63,7 +63,7 @@
     <Folder Include="dbo\Tables\" />
   </ItemGroup>
   <ItemGroup>
-    <Build Include="dbo\Tables\Events.sql" />
+    <Build Include="dbo\Tables\VolunteerEvents.sql" />
     <Build Include="dbo\Tables\NonProfits.sql" />
     <Folder Include="Security\" />
     <Folder Include="dbo\Scripts" />
@@ -81,5 +81,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="dbo\Scripts\PostDeployment\SeedCompanies.sql" />
+    <None Include="dbo\Scripts\PostDeployment\SeedVolunteerEvents.sql" />
   </ItemGroup>
 </Project>

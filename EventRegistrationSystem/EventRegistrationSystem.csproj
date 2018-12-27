@@ -212,7 +212,7 @@
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\CompanyController.cs" />
-    <Compile Include="Controllers\EventsController.cs" />
+    <Compile Include="Controllers\VolunteerEventsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="DataAccess\CompaniesDbContext.cs" />
@@ -223,7 +223,7 @@
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Company.cs" />
     <Compile Include="Models\CompanyModels.cs" />
-    <Compile Include="Models\EventModel.cs" />
+    <Compile Include="Models\VolunteerEvent.cs" />
     <Compile Include="Models\FakeEventsRepository.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\IEventsRepository.cs" />
@@ -293,10 +293,14 @@
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Views\Company\List.cshtml" />
-    <Content Include="Views\Home\Events.cshtml" />
-    <Content Include="Views\Events\CreateEvent.cshtml" />
-    <Content Include="Views\Home\CreateEvent.cshtml" />
-    <Content Include="Views\Events\ListEvents.cshtml" />
+    <Content Include="Views\Home\VolunteerEvents.cshtml" />
+    <Content Include="Views\VolunteerEvents\CreateVolunteerEvent.cshtml" />
+    <Content Include="Views\Home\CreateVolunteerEvent.cshtml" />
+    <Content Include="Views\VolunteerEvents\Create.cshtml" />
+    <Content Include="Views\VolunteerEvents\Delete.cshtml" />
+    <Content Include="Views\VolunteerEvents\Details.cshtml" />
+    <Content Include="Views\VolunteerEvents\Edit.cshtml" />
+    <Content Include="Views\VolunteerEvents\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

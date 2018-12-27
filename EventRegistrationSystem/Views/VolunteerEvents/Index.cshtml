@@ -1,0 +1,134 @@
+﻿@model IEnumerable<EventRegistrationSystem.Models.VolunteerEvent>
+
+@{
+    ViewBag.Title = "Volunteer Events";
+}
+
+<h2>Volunteer Events</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Company)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.NonProfit)
+        </th>
+        <!--
+            <th>
+            (at) Html.DisplayNameFor(model => model.EventTime)
+        </th>
+            -->
+        <th>
+            @Html.DisplayNameFor(model => model.RestrictedByCompany)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.EventLocked)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.EventHidden)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.EventCapacity)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.EventName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.EventDescription)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.EventDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.EventStartTime)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.EventEndTime)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.EventDetails)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.EventInterest)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.EventFiles)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.EventTotalTime)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.NonProfitID)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Company)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.NonProfit)
+        </td>
+        <!--
+            
+        <td>
+            (at) Html.DisplayFor(modelItem => item.EventTime)
+        </td>
+            -->
+        <td>
+            @Html.DisplayFor(modelItem => item.RestrictedByCompany)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.EventLocked)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.EventHidden)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.EventCapacity)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.EventName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.EventDescription)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.EventDate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.EventStartTime)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.EventEndTime)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.EventDetails)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.EventInterest)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.EventFiles)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.EventTotalTime)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.NonProfitID)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.VolunteerEventId }) |
+            @Html.ActionLink("Details", "Details", new { id=item.VolunteerEventId }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.VolunteerEventId })
+        </td>
+    </tr>
+}
+
+</table>
