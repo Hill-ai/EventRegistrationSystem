@@ -14,16 +14,19 @@ namespace EventRegistrationSystem.Models
             // Note the authenticationType must match the one defined in CookieAuthenticationOptions.AuthenticationType
             var userIdentity = await manager.CreateIdentityAsync(this, DefaultAuthenticationTypes.ApplicationCookie);
             // Add custom user claims here
+            userIdentity.AddClaim(new Claim("FirstName", this.FirstName));
+            userIdentity.AddClaim(new Claim("LastName", this.LastName));
+            userIdentity.AddClaim(new Claim("HomeAddress", this.HomeAddress));
             return userIdentity;
         }
         //Added new change - FirstName attribute when someone Registers
-        public string FirstName { get; set; }
+        public string FirstName { get; internal set; }
 
         //Added new change - LastName attribute when someone Registers
-        public string LastName { get; set; }
+        public string LastName { get; internal set; }
 
         //Added new change - HomeAddress attribute when someone Registers
-        public string HomeAddress { get; set; }
+        public string HomeAddress { get; internal set; }
 
         //Added new change - City attribute when someone Registers
         public string City { get; set; }
