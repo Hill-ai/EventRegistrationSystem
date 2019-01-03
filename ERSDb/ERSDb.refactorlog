@@ -1,0 +1,38 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Operations Version="1.0" xmlns="http://schemas.microsoft.com/sqlserver/dac/Serialization/2012/02">
+  <Operation Name="Rename Refactor" Key="73a05f64-71b2-419e-b631-af849248fd8f" ChangeDateTime="12/18/2018 16:00:00">
+    <Property Name="ElementName" Value="[dbo].[NonProfits].[Id]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[NonProfits]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="NonProfitId" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="7a65a1cc-2c30-4768-953e-2b596ca93768" ChangeDateTime="12/18/2018 16:09:22">
+    <Property Name="ElementName" Value="[dbo].[NonProfits].[NonProfitCity]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[NonProfits]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="City" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="36673f25-f140-4242-95a7-b06dc9aff9c4" ChangeDateTime="12/18/2018 16:09:27">
+    <Property Name="ElementName" Value="[dbo].[NonProfits].[NonProfitStreet]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[NonProfits]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="Street" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="520e6057-a9ad-4559-a735-3e7d8b79afdf" ChangeDateTime="12/18/2018 16:09:32">
+    <Property Name="ElementName" Value="[dbo].[NonProfits].[NonProfitName]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[NonProfits]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="Name" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="43f126f6-d0b9-454a-9999-9bb593b36a60" ChangeDateTime="12/18/2018 16:11:11">
+    <Property Name="ElementName" Value="[dbo].[NonProfits].[Street]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[NonProfits]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="Address" />
+  </Operation>
+</Operations>
