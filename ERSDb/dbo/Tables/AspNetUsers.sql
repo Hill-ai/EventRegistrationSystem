@@ -11,6 +11,12 @@
     [LockoutEnabled]       BIT            NOT NULL,
     [AccessFailedCount]    INT            NOT NULL,
     [UserName]             NVARCHAR (256) NOT NULL,
+	[FirstName]            NVARCHAR (128) NOT NULL,
+	[LastName]             NVARCHAR (128) NOT NULL,
+	[Address]              NVARCHAR (128) NULL,
+	[City]                 NVARCHAR (128) NULL,
+	[Zip]                  NVARCHAR (128) NULL,
+	[State]                NVARCHAR (128) NULL,
     CONSTRAINT [PK_dbo.AspNetUsers] PRIMARY KEY CLUSTERED ([Id] ASC)
 );
 

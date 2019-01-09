@@ -80,32 +80,33 @@ namespace EventRegistrationSystem.Models
         [Compare("Password", ErrorMessage = "The password and confirmation password do not match.")]
         public string ConfirmPassword { get; set; }
 
-        //Added new change - FirstName attribute when someone Registers
-        [Required]
-        [Display(Name = "First Name *")]
+        //Tuesday:1/8/19 Adding a new attribute to Asp.NetUsers Table 
+        [Display(Name = "First Name")]
         public string FirstName { get; set; }
 
-        //Added new change - LastName attribute when someone Registers
-        [Required]
-        [Display(Name = "Last Name *")]
+        //Tuesday:1/8/19 Adding a new attribute to Asp.NetUsers Table 
+        [Display(Name = "Last Name")]
         public string LastName { get; set; }
 
-        //Added new change - HomeAddress attribute when someone Registers
-        [Display(Name = "Street Address (optional)")]
-        public string HomeAddress { get; set; }
+        //Tuesday:1/8/19 Adding a new attribute to Asp.NetUsers Table 
+        [Display(Name = "Phone Number")]
+        public string PhoneNumber { get; set; }
 
-        //Added new change - City attribute when someone Registers
-        [Display(Name = "City (optional)")]
+        //Tuesday:1/8/19 Adding a new attribute to Asp.NetUsers Table 
+        [Display(Name = "Address")]
+        public string Address { get; set; }
+
+        //Tuesday:1/8/19 Adding a new attribute to Asp.NetUsers Table 
+        [Display(Name = "City")]
         public string City { get; set; }
 
-        //Added new change - StateZipCode attribute when someone Registers
-        /*[Display(Name = "State Zip Code (optional)")]
-        public int? StateZipCode { get; set; }*/
+        //Tuesday:1/8/19 Adding a new attribute to Asp.NetUsers Table 
+        [Display(Name = "Zip")]
+        public string Zip { get; set; }
 
-        //Added new change - UserName attribute when someone Registers
-        /*[Required]
-        [Display(Name = "Username *")]
-        public string UserName { get; set; }*/
+        //Tuesday:1/8/19 Adding a new attribute to Asp.NetUsers Table 
+        [Display(Name = "State")]
+        public string State { get; set; }
     }
 
     public class ResetPasswordViewModel

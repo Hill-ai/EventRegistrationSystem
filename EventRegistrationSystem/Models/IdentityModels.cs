@@ -9,33 +9,26 @@ namespace EventRegistrationSystem.Models
     // You can add profile data for the user by adding more properties to your ApplicationUser class, please visit https://go.microsoft.com/fwlink/?LinkID=317594 to learn more.
     public class ApplicationUser : IdentityUser
     {
+        //Tuesday:1/8/19 Adding a new attribute to Asp.NetUsers Table
+        public string FirstName { get; internal set; }
+        //Tuesday:1/8/19 Adding a new attribute to Asp.NetUsers Table
+        public string LastName { get; internal set; }
+        //Tuesday:1/8/19 Adding a new attribute to Asp.NetUsers Table
+        public string Address { get; internal set; }
+        //Tuesday:1/8/19 Adding a new attribute to Asp.NetUsers Table
+        public string City { get; internal set; }
+        //Tuesday:1/8/19 Adding a new attribute to Asp.NetUsers Table
+        public string Zip { get; internal set; }
+        //Tuesday:1/8/19 Adding a new attribute to Asp.NetUsers Table
+        public string State { get; internal set; }
+
         public async Task<ClaimsIdentity> GenerateUserIdentityAsync(UserManager<ApplicationUser> manager)
         {
             // Note the authenticationType must match the one defined in CookieAuthenticationOptions.AuthenticationType
             var userIdentity = await manager.CreateIdentityAsync(this, DefaultAuthenticationTypes.ApplicationCookie);
             // Add custom user claims here
-            userIdentity.AddClaim(new Claim("FirstName", this.FirstName));
-            userIdentity.AddClaim(new Claim("LastName", this.LastName));
-            userIdentity.AddClaim(new Claim("HomeAddress", this.HomeAddress));
             return userIdentity;
         }
-        //Added new change - FirstName attribute when someone Registers
-        public string FirstName { get; internal set; }
-
-        //Added new change - LastName attribute when someone Registers
-        public string LastName { get; internal set; }
-
-        //Added new change - HomeAddress attribute when someone Registers
-        public string HomeAddress { get; internal set; }
-
-        //Added new change - City attribute when someone Registers
-        public string City { get; set; }
-
-        //Added new change - StateZipCode attribute when someone Registers
-        //public int? StateZipCode { get; set; }
-
-        //Added new change - UserName attribute when someone Registers
-        //public string UserName { get; set; }
     }
 
     public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
