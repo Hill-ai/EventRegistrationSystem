@@ -15,9 +15,14 @@ namespace EventRegistrationSystem.Controllers
         private ApplicationDbContext db = new ApplicationDbContext();
 
         // GET: Events
-        public ActionResult Index()
+        public ActionResult Index(int? month)
         {
-            return View(db.VolunteerEvents.ToList());
+            if (month == null)
+            {
+                return View(db.VolunteerEvents.Where(c => c.EventDate.Month == 13).ToList());
+            }
+
+            return View(db.VolunteerEvents.Where(c => c.EventDate.Month == month).ToList());
         }
 
         // GET: Events/Details/5

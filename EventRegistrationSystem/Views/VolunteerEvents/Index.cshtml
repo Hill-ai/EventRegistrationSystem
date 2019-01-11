@@ -7,8 +7,26 @@
 <h2>Volunteer Events</h2>
 
 <p>
-    @Html.ActionLink("Create New", "Create")
+
+   
+    @*Html.ActionLink("Create New", "Create")*@
+
+    Select a month to view events:
+    @Html.ActionLink("January", "Index", new { month = 1 }) |
+    @Html.ActionLink("February", "Index", new { month = 2 }) |
+    @Html.ActionLink("March", "Index", new { month = 3 }) |
+    @Html.ActionLink("April", "Index", new { month = 4 }) |
+    @Html.ActionLink("May", "Index", new { month = 5 }) |
+    @Html.ActionLink("June", "Index", new { month = 6 }) |
+    @Html.ActionLink("July", "Index", new { month = 7 }) |
+    @Html.ActionLink("August", "Index", new { month = 8 }) |
+    @Html.ActionLink("September", "Index", new { month = 9 }) |
+    @Html.ActionLink("October", "Index", new { month = 10 }) |
+    @Html.ActionLink("November", "Index", new { month = 11 }) |
+    @Html.ActionLink("December", "Index", new { month = 12 })
+
 </p>
+
 <table class="table">
     <tr>
         <th>
