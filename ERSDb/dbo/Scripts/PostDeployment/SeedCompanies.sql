@@ -2,7 +2,7 @@
 	DROP TABLE #tempCompanies
 
 CREATE TABLE #tempCompanies (
-    [CompanyID]                 INT            IDENTITY (1, 1) NOT NULL,
+    [CompanyID]                 INT            IDENTITY (1, 1) PRIMARY KEY NOT NULL,
     [Name]                      NVARCHAR (100) NOT NULL,
     [Address]                   NVARCHAR (500) NOT NULL,
     [PhoneNumber]               NVARCHAR (50)  NOT NULL,
@@ -13,10 +13,37 @@ CREATE TABLE #tempCompanies (
     [CompanyWebLink]            NVARCHAR (100) NULL
 );
 
-INSERT INTO #tempCompanies (CompanyID, Name, Address, PhoneNumber, Email, PrimaryContactName, PrimaryContactPhoneNumber, PrimaryContactEmail, CompanyWebLink)
-VALUES ('Penatibus Company', 'Ap #565-1530 Elit, Street', '(896) 317-7876', 'dui@nibhPhasellusnulla.org', 'Lawrence', '(669) 844-6856', 'ante.iaculis@est.net', 'Shay');
+INSERT INTO #tempCompanies (Name, Address, PhoneNumber, Email, PrimaryContactName, PrimaryContactPhoneNumber, PrimaryContactEmail, CompanyWebLink)
+VALUES ('Dui LLP','712-4654 Metus Ave','(897) 416-5834','pharetra@euplacerateget.net','Echo','(753) 126-1651','lectus.convallis.est@Vivamusmolestiedapibus.net','Burton');
 
-MERGE INTO  dbo.Company AS target
+INSERT INTO #tempCompanies (Name, Address, PhoneNumber, Email, PrimaryContactName, PrimaryContactPhoneNumber, PrimaryContactEmail, CompanyWebLink)
+VALUES ('Semper Tellus Id PC','P.O. Box 402, 324 Dictum. Road','(608) 299-3147','lacus@elitCurabitur.ca','Isaac','(997) 178-8316','et@egetmassa.net','Bertha');
+
+INSERT INTO #tempCompanies (Name, Address, PhoneNumber, Email, PrimaryContactName, PrimaryContactPhoneNumber, PrimaryContactEmail, CompanyWebLink)
+VALUES ('Lorem Ipsum Sodales Industries','822-9264 Duis Av.','(401) 543-3043','est.Mauris.eu@Craspellentesque.ca','Oren','(248) 830-1628','nibh.Phasellus@necorciDonec.co.uk','Ima');
+
+INSERT INTO #tempCompanies (Name, Address, PhoneNumber, Email, PrimaryContactName, PrimaryContactPhoneNumber, PrimaryContactEmail, CompanyWebLink)
+VALUES ('Nonummy Ut Molestie Ltd','Ap #903-6625 Eget Road','(533) 202-5013','Etiam.gravida.molestie@ornareliberoat.com','Mollie','(298) 192-9200','Aliquam@neccursus.com','Oliver');
+
+INSERT INTO #tempCompanies (Name, Address, PhoneNumber, Email, PrimaryContactName, PrimaryContactPhoneNumber, PrimaryContactEmail, CompanyWebLink)
+VALUES ('Quis Incorporated','Ap #314-5281 Commodo St.','(101) 801-0931','pede.blandit@tellus.com','Catherine','(312) 230-9999','dapibus.quam@interdumligulaeu.co.uk','Quin');
+
+INSERT INTO #tempCompanies (Name, Address, PhoneNumber, Email, PrimaryContactName, PrimaryContactPhoneNumber, PrimaryContactEmail, CompanyWebLink)
+VALUES ('Erat In Consectetuer Incorporated','Ap #238-1013 Massa. Rd.','(694) 687-7855','Quisque.varius.Nam@massaMauris.co.uk','Claudia','(641) 186-1712','Vivamus@fringilla.edu','Oliver');
+
+INSERT INTO #tempCompanies (Name, Address, PhoneNumber, Email, PrimaryContactName, PrimaryContactPhoneNumber, PrimaryContactEmail, CompanyWebLink)
+VALUES ('Nullam Velit Industries','8206 Euismod St.','(896) 526-2542','adipiscing@orcilacusvestibulum.edu','Ian','(298) 696-7869','eget.laoreet.posuere@aliquameu.com','Fleur');
+
+INSERT INTO #tempCompanies (Name, Address, PhoneNumber, Email, PrimaryContactName, PrimaryContactPhoneNumber, PrimaryContactEmail, CompanyWebLink)
+VALUES ('Ac Company','Ap #260-4692 Congue, Avenue','(809) 293-6368','dictum.magna.Ut@DonecegestasDuis.org','James','(760) 179-0114','sit.amet@nec.co.uk','Byron');
+
+INSERT INTO #tempCompanies (Name, Address, PhoneNumber, Email, PrimaryContactName, PrimaryContactPhoneNumber, PrimaryContactEmail, CompanyWebLink)
+VALUES ('Quisque LLP','Ap #938-3676 Ultricies St.','(814) 517-5517','accumsan.convallis.ante@aliquetPhasellusfermentum.org','Fallon','(150) 253-8116','leo.in@mauris.com','Jelani');
+
+INSERT INTO #tempCompanies (Name, Address, PhoneNumber, Email, PrimaryContactName, PrimaryContactPhoneNumber, PrimaryContactEmail, CompanyWebLink)
+VALUES ('Mi Felis Adipiscing LLP','Ap #319-4312 Et Ave','(958) 600-5620','Aliquam@eget.com','Whitney','(834) 788-1610','Duis@augueSedmolestie.net','Echo.net');
+
+MERGE INTO  dbo.Companies AS target
 USING #tempCompanies AS source
 	ON source.CompanyID = target.CompanyID
 WHEN NOT MATCHED BY TARGET THEN 
