@@ -25,6 +25,16 @@ namespace EventRegistrationSystem.Controllers
             return View(db.VolunteerEvents.Where(c => c.EventDate.Month == month).ToList());
         }
 
+
+        public JsonResult GetEvents()
+        {
+            using (db)
+            {
+                var events = db.VolunteerEvents.ToList();
+                return new JsonResult { Data = events, JsonRequestBehavior = JsonRequestBehavior.AllowGet };
+            }
+        }
+
         // GET: Events/Details/5
         public ActionResult Details(int? id)
         {
