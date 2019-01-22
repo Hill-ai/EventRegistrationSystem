@@ -12,23 +12,26 @@ namespace EventRegistrationSystem.Controllers
 {
     public class VolunteerEventsController : Controller
     {
-        private ApplicationDbContext db = new ApplicationDbContext();
+        //private ApplicationDbContext db = new ApplicationDbContext();
 
         // GET: Events
         public ActionResult Index(int? month)
         {
-            if (month == null)
+            using (var db = new ApplicationDbContext())
             {
-                return View(db.VolunteerEvents.Where(c => c.EventDate.Month == 13).ToList());
+                if (month == null)
+                {
+                    return View(db.VolunteerEvents.Where(c => c.EventDate.Month == 13).ToList());
+                }
+
+                return View(db.VolunteerEvents.Where(c => c.EventDate.Month == month).ToList());
+
             }
-
-            return View(db.VolunteerEvents.Where(c => c.EventDate.Month == month).ToList());
         }
-
 
         public JsonResult GetEvents()
         {
-            using (db)
+            using (var db = new ApplicationDbContext())
             {
                 var events = db.VolunteerEvents.ToList();
                 return new JsonResult { Data = events, JsonRequestBehavior = JsonRequestBehavior.AllowGet };
@@ -38,16 +41,20 @@ namespace EventRegistrationSystem.Controllers
         // GET: Events/Details/5
         public ActionResult Details(int? id)
         {
-            if (id == null)
+
+            using (var db = new ApplicationDbContext())
             {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                if (id == null)
+                {
+                    return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                }
+                VolunteerEvent @event = db.VolunteerEvents.Find(id);
+                if (@event == null)
+                {
+                    return HttpNotFound();
+                }
+                return View(@event);
             }
-            VolunteerEvent @event = db.VolunteerEvents.Find(id);
-            if (@event == null)
-            {
-                return HttpNotFound();
-            }
-            return View(@event);
         }
 
         // GET: Events/Create
@@ -63,29 +70,35 @@ namespace EventRegistrationSystem.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include = "EventId,Company,NonProfit,EventTime,RestrictedByCompany,EventLocked,EventHidden,EventCapacity,EventName,EventDescription,EventDate,EventStartTime,EventEndTime,EventDetails,EventInterest,EventFiles,EventTotalTime,NonProfitID")] VolunteerEvent @event)
         {
-            if (ModelState.IsValid)
+            using (var db = new ApplicationDbContext())
             {
-                db.VolunteerEvents.Add(@event);
-                db.SaveChanges();
-                return RedirectToAction("Index");
-            }
+                if (ModelState.IsValid)
+                {
+                    db.VolunteerEvents.Add(@event);
+                    db.SaveChanges();
+                    return RedirectToAction("Index");
+                }
 
-            return View(@event);
+                return View(@event);
+            }
         }
 
         // GET: Events/Edit/5
         public ActionResult Edit(int? id)
         {
-            if (id == null)
+            using (var db = new ApplicationDbContext())
             {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                if (id == null)
+                {
+                    return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                }
+                VolunteerEvent @event = db.VolunteerEvents.Find(id);
+                if (@event == null)
+                {
+                    return HttpNotFound();
+                }
+                return View(@event);
             }
-            VolunteerEvent @event = db.VolunteerEvents.Find(id);
-            if (@event == null)
-            {
-                return HttpNotFound();
-            }
-            return View(@event);
         }
 
         // POST: Events/Edit/5
@@ -95,28 +108,36 @@ namespace EventRegistrationSystem.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Edit([Bind(Include = "EventId,Company,NonProfit,EventTime,RestrictedByCompany,EventLocked,EventHidden,EventCapacity,EventName,EventDescription,EventDate,EventStartTime,EventEndTime,EventDetails,EventInterest,EventFiles,EventTotalTime,NonProfitID")] VolunteerEvent @event)
         {
-            if (ModelState.IsValid)
+            using (var db = new ApplicationDbContext())
             {
-                db.Entry(@event).State = EntityState.Modified;
-                db.SaveChanges();
-                return RedirectToAction("Index");
+                if (ModelState.IsValid)
+                {
+                    db.Entry(@event).State = EntityState.Modified;
+                    db.SaveChanges();
+                    return RedirectToAction("Index");
+                }
+                return View(@event);
+
             }
-            return View(@event);
+
         }
 
         // GET: Events/Delete/5
         public ActionResult Delete(int? id)
         {
-            if (id == null)
+            using (var db = new ApplicationDbContext())
             {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                if (id == null)
+                {
+                    return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                }
+                VolunteerEvent @event = db.VolunteerEvents.Find(id);
+                if (@event == null)
+                {
+                    return HttpNotFound();
+                }
+                return View(@event);
             }
-            VolunteerEvent @event = db.VolunteerEvents.Find(id);
-            if (@event == null)
-            {
-                return HttpNotFound();
-            }
-            return View(@event);
         }
 
         // POST: Events/Delete/5
@@ -124,19 +145,26 @@ namespace EventRegistrationSystem.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            VolunteerEvent @event = db.VolunteerEvents.Find(id);
-            db.VolunteerEvents.Remove(@event);
-            db.SaveChanges();
-            return RedirectToAction("Index");
+
+            using (var db = new ApplicationDbContext())
+            {
+                VolunteerEvent @event = db.VolunteerEvents.Find(id);
+                db.VolunteerEvents.Remove(@event);
+                db.SaveChanges();
+                return RedirectToAction("Index");
+            }
         }
 
         protected override void Dispose(bool disposing)
         {
-            if (disposing)
+            using (var db = new ApplicationDbContext())
             {
-                db.Dispose();
+                if (disposing)
+                {
+                    db.Dispose();
+                }
+                base.Dispose(disposing);
             }
-            base.Dispose(disposing);
         }
     }
 }

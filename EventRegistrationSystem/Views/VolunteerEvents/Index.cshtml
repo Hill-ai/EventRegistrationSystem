@@ -59,7 +59,7 @@
             var events = [];
             $.ajax({
                 type: "GET",
-                url: "/home/GetEvents",
+                url: "/VolunteerEvents/GetEvents",
                 success: function (data) {
                     $.each(data, function (i, v) {
                         events.push({
