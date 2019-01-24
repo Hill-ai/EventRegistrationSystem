@@ -21,7 +21,7 @@ namespace EventRegistrationSystem.Controllers
             {
                 if (month == null)
                 {
-                    return View(db.VolunteerEvents.Where(c => c.EventDate.Month == 13).ToList());
+                    return View(db.VolunteerEvents.Where(c => c.EventDate.Month == DateTime.Today.Month).ToList());
                 }
 
                 return View(db.VolunteerEvents.Where(c => c.EventDate.Month == month).ToList());
