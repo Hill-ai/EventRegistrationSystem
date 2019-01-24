@@ -16,3 +16,9 @@ namespace EventRegistrationSystem.Models
     }
 }
 
+/* The above code is the generic interface which has TEnt and TPk generic type. 
+ * TEnt is set with the constraints as class. This interface defines methods for 
+ * Read/Write operations. We are implementing this interface as generic interface
+ * so that we can use it for all model entities for performing CRUD operations.
+ * https://www.dotnetcurry.com/aspnet-mvc/1155/aspnet-mvc-repository-pattern-perform-database-operations
+ * */
