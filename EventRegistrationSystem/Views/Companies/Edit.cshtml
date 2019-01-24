@@ -1,14 +1,16 @@
 ﻿@model EventRegistrationSystem.Models.Company
 
 @{
+
     ViewBag.Title = "Edit";
+    ViewBag.AlternateTitle = "Create";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Edit</h2>
+<h2>@ViewBag.Title</h2>
 
 
-@using (Html.BeginForm("Edit","Company"))
+@using (Html.BeginForm("Edit","Companies"))
 {
     @Html.AntiForgeryToken()
     

@@ -10,74 +10,77 @@
 <h2>@ViewBag.Title</h2>
 <h5>@ViewBag.Message</h5>
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.Name)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Address)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.PhoneNumber)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Email)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.PrimaryContactName)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.PrimaryContactPhoneNumber)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.PrimaryContactEmail)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.CompanyWebLink)
-        </th>
-        <th></th>
-    </tr>
-
-    @foreach (var item in Model)
-    {
+<div class="container"  style = "overflow: auto;">
+    <p>
+        @Html.ActionLink("Create New", "Create")
+    </p>
+    <table class="table table-striped table-hover table-sm">
         <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Name)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Address)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.PhoneNumber)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Email)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.PrimaryContactName)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.PrimaryContactPhoneNumber)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.PrimaryContactEmail)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.CompanyWebLink)
-            </td>
-            <td>
-                @Html.ActionLink("Edit", "Edit", new { id = item.CompanyID }) |
-                @Html.ActionLink("Details", "Details", new { id = item.CompanyID }) |
-                @Html.ActionLink("Delete", "Delete", new { id = item.CompanyID })
-            </td>
+            <th scope="col">
+                @Html.DisplayNameFor(model => model.Name)
+            </th>
+            <th scope="col">
+                @Html.DisplayNameFor(model => model.Address)
+            </th>
+            <th scope="col">
+                @Html.DisplayNameFor(model => model.PhoneNumber)
+            </th>
+            <th scope="col">
+                @Html.DisplayNameFor(model => model.Email)
+            </th>
+            <th scope="col">
+                @Html.DisplayNameFor(model => model.PrimaryContactName)
+            </th>
+            <th scope="col">
+                @Html.DisplayNameFor(model => model.PrimaryContactPhoneNumber)
+            </th>
+            <th scope="col">
+                @Html.DisplayNameFor(model => model.PrimaryContactEmail)
+            </th>
+            <th scope="col">
+                @Html.DisplayNameFor(model => model.CompanyWebLink)
+            </th>
+            <th scope="col"></th>
         </tr>
-    }
 
-</table>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td scope="row">
+                    @Html.DisplayFor(modelItem => item.Name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Address)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.PhoneNumber)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Email)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.PrimaryContactName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.PrimaryContactPhoneNumber)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.PrimaryContactEmail)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.CompanyWebLink)
+                </td>
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { id = item.CompanyID }) |
+                    @Html.ActionLink("Details", "Details", new { id = item.CompanyID }) |
+                    @Html.ActionLink("Delete", "Delete", new { id = item.CompanyID })
+                </td>
+            </tr>
+        }
+
+    </table>
+
+</div>
 
 @*@using EventRegistrationSystem.Models;
     @model IEnumerable<Company>

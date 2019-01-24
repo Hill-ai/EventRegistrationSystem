@@ -11,6 +11,7 @@ using EventRegistrationSystem.Models;
 
 namespace EventRegistrationSystem.Controllers
 {
+    //[Authorize(Roles ="ADMIN")]
     public class CompaniesController : Controller
     {
         //private ApplicationDbContext db = new ApplicationDbContext();
@@ -56,9 +57,26 @@ namespace EventRegistrationSystem.Controllers
 
         public ViewResult Create()
         {
-            return View("Edit", new Company());
+            return View("Create", new Company());
         }
-       
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Create(Company company)
+        {
+            if (ModelState.IsValid)
+            {
+                repository.SaveCompany(company);
+                TempData["message"] = string.Format("{0} has been saved", company.Name);
+                return RedirectToAction("Index");
+            }
+            else
+            {
+                // there is something wrong with the data values
+                return View(company);
+            }
+        }
+
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult Delete(int companyId)
