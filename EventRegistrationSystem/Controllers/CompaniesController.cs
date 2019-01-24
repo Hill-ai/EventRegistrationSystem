@@ -13,18 +13,23 @@ namespace EventRegistrationSystem.Controllers
 {
     public class CompaniesController : Controller
     {
-        private ApplicationDbContext db = new ApplicationDbContext();
-        private ICompaniesRepository repository;
+        //private ApplicationDbContext db = new ApplicationDbContext();
+        private ICompanyRepository repository;
 
-        public CompaniesController(ICompaniesRepository repo)
+        public CompaniesController(ICompanyRepository repo)
         {
             repository = repo;
         }
         public ActionResult Index()
         {
-            var companyList = db.Companies.ToList();
-            return View(companyList);
+            return View(repository.Companies);
+            //var companyList = db.Companies.ToList();
+            //return View(companyList);
+
         }
+
+
+
 
         // GET: Companies/Details/5
         public ActionResult Details(int? id)
@@ -55,25 +60,25 @@ namespace EventRegistrationSystem.Controllers
         {
             if (ModelState.IsValid)
             {
-                db.AddToCompanies(newCompany);
-                await db.SaveChangesAsync();
+                repository.AddToCompanies(newCompany);
+                db.SaveChanges();
                 return RedirectToAction("Index");
             }
 
-            return View(company);
+            return View(newCompany);
         }
 
         // GET: Companies/Edit/5
-        public async Task<ActionResult> Edit(int? id)
+        public ViewResult Edit(int? companyID)
         {
-            if (id == null)
+            if (companyID == null)
             {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                // return HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Company company = await db.Companies.FindAsync(id);
+            Company company = repository.Companies.FirstOrDefault(c => c.CompanyID == companyID);
             if (company == null)
             {
-                return HttpNotFound();
+                // return HttpNotFound();
             }
             return View(company);
         }
