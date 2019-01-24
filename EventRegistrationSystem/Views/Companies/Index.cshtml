@@ -1,5 +1,6 @@
 ﻿@using EventRegistrationSystem.Models;
 @model IEnumerable<EventRegistrationSystem.Models.Company>
+using System.Data.Entity;
 
 @{
     ViewBag.Title = "Company Index";
@@ -10,7 +11,7 @@
 <h2>@ViewBag.Title</h2>
 <h5>@ViewBag.Message</h5>
 
-<div class="container"  style = "overflow: auto;">
+<div class="container" style="overflow: auto;">
     <p>
         @Html.ActionLink("Create New", "Create")
     </p>

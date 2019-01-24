@@ -4,35 +4,37 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using EventRegistrationSystem.Models;
+using System.Data.Entity;
 
 namespace EventRegistrationSystem.Models
 {
     public class EFCompanyRepository : ICompanyRepository
     {
         private ApplicationDbContext context = new ApplicationDbContext();
+        
         public IEnumerable<Company> Companies
         {
             get { return context.Companies; }
         }
-        public void SaveCompany(Company Company)
+        public void SaveCompany(Company company)
         {
-            if (Company.CompanyID == 0)
+            if (company.CompanyID == 0)
             {
-                context.Companies.Add(Company);
+                context.Companies.Add(company);
             }
             else
             {
-                Company dbEntry = context.Companies.Find(Company.CompanyID);
+                Company dbEntry = context.Companies.Find(company.CompanyID);
                 if (dbEntry != null)
                 {
-                    dbEntry.Name = Company.Name;
-                    dbEntry.Address = Company.Address;
-                    dbEntry.PhoneNumber = Company.PhoneNumber;
-                    dbEntry.Email = Company.Email;
-                    dbEntry.PrimaryContactName = Company.PrimaryContactName;
-                    dbEntry.PrimaryContactPhoneNumber = Company.PrimaryContactPhoneNumber;
-                    dbEntry.PrimaryContactEmail = Company.PrimaryContactEmail;
-                    dbEntry.CompanyWebLink = Company.CompanyWebLink;
+                    dbEntry.Name = company.Name;
+                    dbEntry.Address = company.Address;
+                    dbEntry.PhoneNumber = company.PhoneNumber;
+                    dbEntry.Email = company.Email;
+                    dbEntry.PrimaryContactName = company.PrimaryContactName;
+                    dbEntry.PrimaryContactPhoneNumber = company.PrimaryContactPhoneNumber;
+                    dbEntry.PrimaryContactEmail = company.PrimaryContactEmail;
+                    dbEntry.CompanyWebLink = company.CompanyWebLink;
 
                 }
             }

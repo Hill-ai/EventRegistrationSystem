@@ -62,7 +62,7 @@ namespace EventRegistrationSystem.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create(Company company)
+        public ActionResult Create([Bind(Include = "CompanyID,Name,Address,PhoneNumber,Email,PrimaryContactName,PrimaryContactPhoneNumber,PrimaryContactEmail,CompanyWebLink")] Company company)
         {
             if (ModelState.IsValid)
             {
@@ -77,7 +77,7 @@ namespace EventRegistrationSystem.Controllers
             }
         }
 
-        [HttpPost, ActionName("Delete")]
+        [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Delete(int companyId)
         {

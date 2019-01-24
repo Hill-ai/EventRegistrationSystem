@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Web.Mvc;
 using EventRegistrationSystem.Models;
+using System.Data.Entity;
 
 namespace EventRegistrationSystem.Models
 {
