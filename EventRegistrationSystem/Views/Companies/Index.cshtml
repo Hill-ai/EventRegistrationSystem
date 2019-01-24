@@ -1,77 +1,49 @@
 ﻿@using EventRegistrationSystem.Models;
-@model IEnumerable<Company>
+@model IEnumerable<EventRegistrationSystem.Models.Company>
+
 @{
-    ViewBag.Title = "Companies";
+    ViewBag.Title = "Company Index";
     ViewBag.Message = "List of all companies registered";
+    Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
 <h2>@ViewBag.Title</h2>
 <h5>@ViewBag.Message</h5>
 
-@foreach (var c in Model)
-{
-    <div class="panel">
-        <h3>@c.Name</h3>
-        <h4>@c.Address</h4>
-        <h4>@c.PhoneNumber</h4>
-        <h4>@c.Email</h4>
-        <h4>@c.PrimaryContactName</h4>
-        <h4>@c.PrimaryContactPhoneNumber</h4>
-        <h4>@c.PrimaryContactEmail</h4>
-        <h4>@c.PrimaryContactName</h4>
-        <h4>@c.CompanyWebLink</h4>
-    </div>
-}
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Address)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PhoneNumber)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Email)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PrimaryContactName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PrimaryContactPhoneNumber)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PrimaryContactEmail)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CompanyWebLink)
+        </th>
+        <th></th>
+    </tr>
 
-
-
-
-
-
-
-
-@*@model IEnumerable<EventRegistrationSystem.Models.Company>
-
-    @{
-        ViewBag.Title = "Index";
-        Layout = "~/Views/Shared/_Layout.cshtml";
-    }
-
-    <h2>Index</h2>
-
-    <p>
-        @Html.ActionLink("Create New", "Create")
-    </p>
-    <table class="table">
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.Name)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Address)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.PhoneNumber)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Email)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.PrimaryContactName)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.PrimaryContactPhoneNumber)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.PrimaryContactEmail)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.CompanyWebLink)
-            </th>
-            <th></th>
-        </tr>
-
-    @foreach (var item in Model) {
+    @foreach (var item in Model)
+    {
         <tr>
             <td>
                 @Html.DisplayFor(modelItem => item.Name)
@@ -98,11 +70,43 @@
                 @Html.DisplayFor(modelItem => item.CompanyWebLink)
             </td>
             <td>
-                @Html.ActionLink("Edit", "Edit", new { id=item.CompanyID }) |
-                @Html.ActionLink("Details", "Details", new { id=item.CompanyID }) |
-                @Html.ActionLink("Delete", "Delete", new { id=item.CompanyID })
+                @Html.ActionLink("Edit", "Edit", new { id = item.CompanyID }) |
+                @Html.ActionLink("Details", "Details", new { id = item.CompanyID }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.CompanyID })
             </td>
         </tr>
     }
 
-    </table>*@
+</table>
+
+@*@using EventRegistrationSystem.Models;
+    @model IEnumerable<Company>
+    @{
+        ViewBag.Title = "Companies";
+        ViewBag.Message = "List of all companies registered";
+    }
+
+    <h2>@ViewBag.Title</h2>
+    <h5>@ViewBag.Message</h5>
+
+    @foreach (var c in Model)
+    {
+        <div class="panel">
+            <h3>@c.Name</h3>
+            <h4>@c.Address</h4>
+            <h4>@c.PhoneNumber</h4>
+            <h4>@c.Email</h4>
+            <h4>@c.PrimaryContactName</h4>
+            <h4>@c.PrimaryContactPhoneNumber</h4>
+            <h4>@c.PrimaryContactEmail</h4>
+            <h4>@c.PrimaryContactName</h4>
+            <h4>@c.CompanyWebLink</h4>
+        </div>
+    }*@
+
+
+
+
+
+
+
