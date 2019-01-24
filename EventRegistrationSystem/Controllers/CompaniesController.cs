@@ -46,28 +46,6 @@ namespace EventRegistrationSystem.Controllers
             return View(company);
         }
 
-        public ActionResult Create()
-        {
-            return View();
-        }
-
-        // POST: Companies/Create
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
-        // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "CompanyID,Name,Address,PhoneNumber,Email,PrimaryContactName,PrimaryContactPhoneNumber,PrimaryContactEmail,CompanyWebLink")] Company newCompany)
-        {
-            if (ModelState.IsValid)
-            {
-                repository.AddToCompanies(newCompany);
-                db.SaveChanges();
-                return RedirectToAction("Index");
-            }
-
-            return View(newCompany);
-        }
-
         // GET: Companies/Edit/5
         public ViewResult Edit(int? companyID)
         {
@@ -104,6 +82,29 @@ namespace EventRegistrationSystem.Controllers
             }
             
         }
+
+        public ActionResult Create()
+        {
+            return View("Edit", new Company());
+        }
+        /*
+        // POST: Companies/Create
+        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
+        // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Create([Bind(Include = "CompanyID,Name,Address,PhoneNumber,Email,PrimaryContactName,PrimaryContactPhoneNumber,PrimaryContactEmail,CompanyWebLink")] Company newCompany)
+        {
+            if (ModelState.IsValid)
+            {
+                repository.AddToCompanies(newCompany);
+                db.SaveChanges();
+                return RedirectToAction("Index");
+            }
+
+            return View(newCompany);
+        }
+        */
 
         // GET: Companies/Delete/5
         public async Task<ActionResult> Delete(int? id)

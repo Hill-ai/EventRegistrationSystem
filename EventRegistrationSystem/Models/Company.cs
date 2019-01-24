@@ -9,7 +9,6 @@ namespace EventRegistrationSystem.Models
 {
     public class Company
     {
-
         public int CompanyID { get; set; }
 
         [Required(ErrorMessage = "Please enter a company name")]
@@ -26,7 +25,7 @@ namespace EventRegistrationSystem.Models
         public string Email { get; set; }
 
         [Required(ErrorMessage = "Please enter a primary contact name for the company")]
-        public string PrimaryContactName { get => _primaryContactName; set => _primaryContactName = value; }
+        public string PrimaryContactName { get; set; }
 
         [Required(ErrorMessage = "Please enter a primary contact phone number for the company")]
         public string PrimaryContactPhoneNumber { get; set; }
