@@ -31,5 +31,7 @@ namespace EventRegistrationSystem.Models
         }
 
         public System.Data.Entity.DbSet<EventRegistrationSystem.Models.Event> Events { get; set; }
+
+        public System.Data.Entity.DbSet<EventRegistrationSystem.Models.Company> Companies { get; set; }
     }
 }
