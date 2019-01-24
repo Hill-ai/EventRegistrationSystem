@@ -1,5 +1,5 @@
 ﻿CREATE TABLE [dbo].[AspNetRoles] (
-    [Id]   INT NOT NULL IDENTITY(1,1),
+    [Id]   NVARCHAR (128) NOT NULL,
     [Name] NVARCHAR (256) NOT NULL,
     CONSTRAINT [PK_dbo.AspNetRoles] PRIMARY KEY CLUSTERED ([Id] ASC)
 );

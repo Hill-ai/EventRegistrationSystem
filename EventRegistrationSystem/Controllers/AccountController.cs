@@ -9,6 +9,7 @@ using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
 using EventRegistrationSystem.Models;
+using System.Configuration;
 
 namespace EventRegistrationSystem.Controllers
 {
@@ -137,9 +138,22 @@ namespace EventRegistrationSystem.Controllers
         //
         // GET: /Account/Register
         [AllowAnonymous]
-        public ActionResult Register()
+        public ActionResult Register(string token)
         {
-            return View();
+            var RegisterToken = ConfigurationManager.AppSettings["RegisterToken"];
+
+            if (RegisterToken != token)
+            {
+                return View("UnAuthorizedRegister");
+            }
+            if (string.IsNullOrEmpty(token))
+            {
+                return View("UnAuthorizedRegister");
+            }
+            else
+            {
+                return View();
+            }
         }
 
         //

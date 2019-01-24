@@ -80,5 +80,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="dbo\Scripts\PostDeployment\SeedCompanies.sql" />
+    <None Include="dbo\Scripts\PostDeployment\SeedRoles.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <PostDeploy Include="dbo\Scripts\PostDeployment\Script.PostDeployment.sql" />
   </ItemGroup>
 </Project>
