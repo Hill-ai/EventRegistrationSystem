@@ -88,15 +88,21 @@ namespace EventRegistrationSystem.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Edit([Bind(Include = "CompanyID,Name,Address,PhoneNumber,Email,PrimaryContactName,PrimaryContactPhoneNumber,PrimaryContactEmail,CompanyWebLink")] Company company)
+        public ActionResult Edit([Bind(Include = "CompanyID,Name,Address,PhoneNumber,Email,PrimaryContactName,PrimaryContactPhoneNumber,PrimaryContactEmail,CompanyWebLink")] Company company)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(company).State = EntityState.Modified;
-                await db.SaveChangesAsync();
+                repository.SaveCompany(company);
+                TempData["message"] = string.Format("{0} has been saved", company.Name);
                 return RedirectToAction("Index");
+                //db.Entry(company).State = EntityState.Modified;
+                //await db.SaveChangesAsync();
+            } else
+            {
+                // something wrong with the data values
+                return View(company);
             }
-            return View(company);
+            
         }
 
         // GET: Companies/Delete/5
