@@ -37,9 +37,18 @@ namespace EventRegistrationSystem.Models
                 }
             }
             context.SaveChanges();
-        } 
         }
 
-
-
+        public Company DeleteCompany(int companyID)
+        {
+            Company dbEntry = context.Companies.Find(companyID);
+            if (dbEntry != null)
+            {
+                context.Companies.Remove(dbEntry);
+                context.SaveChanges();
+            }
+            return dbEntry;
+        }
+    }
 }
+

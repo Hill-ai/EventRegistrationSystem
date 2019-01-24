@@ -13,5 +13,7 @@ namespace EventRegistrationSystem.Models
         IEnumerable<Company> Companies { get; }
 
         void SaveCompany(Company company);
+
+        Company DeleteCompany(int companyID);
     }
 }
