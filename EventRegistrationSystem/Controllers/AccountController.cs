@@ -9,6 +9,7 @@ using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
 using EventRegistrationSystem.Models;
+using System.Configuration;
 
 namespace EventRegistrationSystem.Controllers
 {
@@ -137,9 +138,22 @@ namespace EventRegistrationSystem.Controllers
         //
         // GET: /Account/Register
         [AllowAnonymous]
-        public ActionResult Register()
+        public ActionResult Register(string token)
         {
-            return View();
+            var RegisterToken = ConfigurationManager.AppSettings["RegisterToken"];
+
+            if (RegisterToken != token)
+            {
+                return View("UnAuthorizedRegister");
+            }
+            if (string.IsNullOrEmpty(token))
+            {
+                return View("UnAuthorizedRegister");
+            }
+            else
+            {
+                return View();
+            }
         }
 
         //
@@ -151,7 +165,10 @@ namespace EventRegistrationSystem.Controllers
         {
             if (ModelState.IsValid)
             {
-                var user = new ApplicationUser { UserName = model.Email, Email = model.Email };
+                //Tuesday:1/8/19 Adding a new attribute to Asp.NetUsers Table
+                var user = new ApplicationUser { UserName = model.Email, Email = model.Email,
+                FirstName = model.FirstName, LastName = model.LastName, PhoneNumber = model.PhoneNumber,
+                Address = model.Address, City = model.City, Zip = model.Zip, State = model.State};
                 var result = await UserManager.CreateAsync(user, model.Password);
                 if (result.Succeeded)
                 {

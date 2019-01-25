@@ -1,0 +1,89 @@
+﻿@model EventRegistrationSystem.Models.Company
+
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>Company</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Address)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Address)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PhoneNumber)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PhoneNumber)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Email)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Email)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PrimaryContactName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PrimaryContactName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PrimaryContactPhoneNumber)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PrimaryContactPhoneNumber)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PrimaryContactEmail)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PrimaryContactEmail)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CompanyWebLink)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CompanyWebLink)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>

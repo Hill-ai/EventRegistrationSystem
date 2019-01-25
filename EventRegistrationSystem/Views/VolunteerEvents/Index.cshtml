@@ -1,0 +1,269 @@
+﻿@model IEnumerable<EventRegistrationSystem.Models.VolunteerEvent>
+
+@{
+    ViewBag.Title = "Volunteer Events";
+}
+
+<h2>Volunteer Events</h2>
+
+<p>
+
+
+    @*Html.ActionLink("Create New", "Create")*@
+
+    Select a month to view events:
+    @Html.ActionLink("January", "Index", new { month = 1 }) |
+    @Html.ActionLink("February", "Index", new { month = 2 }) |
+    @Html.ActionLink("March", "Index", new { month = 3 }) |
+    @Html.ActionLink("April", "Index", new { month = 4 }) |
+    @Html.ActionLink("May", "Index", new { month = 5 }) |
+    @Html.ActionLink("June", "Index", new { month = 6 }) |
+    @Html.ActionLink("July", "Index", new { month = 7 }) |
+    @Html.ActionLink("August", "Index", new { month = 8 }) |
+    @Html.ActionLink("September", "Index", new { month = 9 }) |
+    @Html.ActionLink("October", "Index", new { month = 10 }) |
+    @Html.ActionLink("November", "Index", new { month = 11 }) |
+    @Html.ActionLink("December", "Index", new { month = 12 })
+
+</p>
+
+
+<div id="calender"></div>
+
+<div id="myModal" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title"><span id="eventTitle"></span></h4>
+            </div>
+            <div class="modal-body">
+                <p id="pDetails"></p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<link href="//cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.4.0/fullcalendar.min.css" rel="stylesheet" />
+<link href="//cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.4.0/fullcalendar.print.css" rel="stylesheet" media="print" />
+
+@section Scripts{
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.18.1/moment.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.4.0/fullcalendar.min.js"></script>
+
+    <script>
+        $(document).ready(function () {
+            var events = [];
+            $.ajax({
+                type: "GET",
+                url: "/VolunteerEvents/GetEvents",
+                success: function (data) {
+                    $.each(data, function (i, v) {
+                        events.push({
+                            title: v.Subject,
+                            description: v.Description,
+                            start: moment(v.Start),
+                            end: v.End != null ? moment(v.End) : null,
+                            color: v.ThemeColor,
+                            allDay : v.IsFullDay
+                        });
+                    })
+
+                    GenerateCalender(events);
+                },
+                error: function (error) {
+                    alert('failed');
+                }
+            })
+
+            function GenerateCalender(events) {
+                $('#calender').fullCalendar('destroy');
+                $('#calender').fullCalendar({
+                    contentHeight: 400,
+                    defaultDate: new Date(),
+                    timeFormat: 'h(:mm)a',
+                    header: {
+                        left: 'prev,next today',
+                        center: 'title',
+                        right: 'month,basicWeek,basicDay,agenda'
+                    },
+                    eventLimit: true,
+                    eventColor: '#378006',
+                    events: events,
+                    eventClick: function (calEvent, jsEvent, view) {
+                        $('#myModal #eventTitle').text(calEvent.title);
+                        var $description = $('<div/>');
+                        $description.append($('<p/>').html('<b>Start:</b>' + calEvent.start.format("DD-MMM-YYYY HH:mm a")));
+                        if (calEvent.end != null) {
+                            $description.append($('<p/>').html('<b>End:</b>' + calEvent.end.format("DD-MMM-YYYY HH:mm a")));
+                        }
+                        $description.append($('<p/>').html('<b>Description:</b>' + calEvent.description));
+                        $('#myModal #pDetails').empty().html($description);
+
+                        $('#myModal').modal();
+                    }
+                })
+            }
+        })
+    </script>
+}
+
+
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.EventDate)
+        </th>
+
+        <th>
+            @Html.DisplayNameFor(model => model.EventName)
+        </th>
+
+
+        <th>
+            @Html.DisplayNameFor(model => model.NonProfitID)
+        </th>
+        @*
+            <th>
+                @Html.DisplayNameFor(model => model.NonProfit)
+            </th>
+        *@
+        <th>
+            @Html.DisplayNameFor(model => model.Company)
+        </th>
+
+
+        <!--
+            <th>
+            (at) Html.DisplayNameFor(model => model.EventTime)
+        </th>
+            -->
+        @*
+            <th>
+                @Html.DisplayNameFor(model => model.RestrictedByCompany)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.EventLocked)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.EventHidden)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.EventCapacity)
+            </th>
+
+
+        *@
+
+        <th>
+            @Html.DisplayNameFor(model => model.EventDescription)
+        </th>
+
+        <th>
+            @Html.DisplayNameFor(model => model.EventStartTime)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.EventEndTime)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.EventDetails)
+        </th>
+        @*
+               <th>
+                @Html.DisplayNameFor(model => model.EventInterest)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.EventFiles)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.EventTotalTime)
+            </th>
+        *@
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+
+            <td>
+                @Html.DisplayFor(modelItem => item.EventDate.Month)/@Html.DisplayFor(modelItem => item.EventDate.Day)/@Html.DisplayFor(modelItem => item.EventDate.Year)
+            </td>
+
+            <td>
+                @Html.DisplayFor(modelItem => item.EventName)
+            </td>
+
+            <td>
+                @Html.DisplayFor(modelItem => item.NonProfitID)
+            </td>
+            @*
+                <td>
+                    @Html.DisplayFor(modelItem => item.NonProfit)
+                </td>
+            *@
+            <td>
+                @Html.DisplayFor(modelItem => item.Company)
+            </td>
+
+
+            <!--
+
+            <td>
+                (at) Html.DisplayFor(modelItem => item.EventTime)
+            </td>
+                -->
+            @*
+                <td>
+                    @Html.DisplayFor(modelItem => item.RestrictedByCompany)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.EventLocked)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.EventHidden)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.EventCapacity)
+                </td>
+
+            *@
+
+
+            <td>
+                @Html.DisplayFor(modelItem => item.EventDescription)
+            </td>
+
+            <td>
+                @Html.DisplayFor(modelItem => item.EventStartTime.TimeOfDay)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.EventEndTime.TimeOfDay)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.EventDetails)
+            </td>
+            @*
+                <td>
+                    @Html.DisplayFor(modelItem => item.EventInterest)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.EventFiles)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.EventTotalTime)
+                </td>
+            *@
+            <td>
+                @*@Html.ActionLink("Edit", "Edit", new { id = item.VolunteerEventId }) |*@
+                @Html.ActionLink("Register", "Details", new { id = item.VolunteerEventId })
+                @* @Html.ActionLink("Delete", "Delete", new { id = item.VolunteerEventId })*@
+            </td>
+        </tr>
+    }
+
+</table>
