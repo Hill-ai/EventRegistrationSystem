@@ -23,6 +23,8 @@ namespace EventRegistrationSystem.Controllers
         }
     }
     **/
+    //1/24/19 - David Munera
+    [Authorize(Roles = "ADMIN")]
     public class CompanyController : Controller
      {
          [HttpPost]

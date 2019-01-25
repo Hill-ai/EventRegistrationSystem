@@ -5,17 +5,17 @@ using System.Web;
 
 namespace EventRegistrationSystem.Models
 {
-    public class Event
+    public class VolunteerEvent
     {
         public string Company { get; set; }
         public string NonProfit { get; set; }
-        public DateTime EventTime { get; set; }
+        //public DateTime EventTime { get; set; }
         public Boolean RestrictedByCompany { get; set; }
         public Boolean EventLocked { get; set; }
         public Boolean EventHidden { get; set; }
         public int EventCapacity { get; set; }
 
-        public int EventId { get; set; }
+        public int VolunteerEventId { get; set; }
         public string EventName { get; set; }
         public string EventDescription { get; set; }
         public DateTime EventDate { get; set; }
@@ -24,11 +24,11 @@ namespace EventRegistrationSystem.Models
         public string EventDetails { get; set; }
         public int EventInterest { get; set; }
         public string EventFiles { get; set; }
-        public string EventTotalTime { get; set; }
+        public int EventTotalTime { get; set; }
         public int NonProfitID { get; set; }
 
 
-        public Event() {
+        public VolunteerEvent() {
         }
 
 
