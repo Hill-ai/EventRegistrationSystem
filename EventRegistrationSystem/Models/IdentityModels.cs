@@ -9,6 +9,19 @@ namespace EventRegistrationSystem.Models
     // You can add profile data for the user by adding more properties to your ApplicationUser class, please visit https://go.microsoft.com/fwlink/?LinkID=317594 to learn more.
     public class ApplicationUser : IdentityUser
     {
+        //Tuesday:1/8/19 Adding a new attribute to Asp.NetUsers Table
+        public string FirstName { get; internal set; }
+        //Tuesday:1/8/19 Adding a new attribute to Asp.NetUsers Table
+        public string LastName { get; internal set; }
+        //Tuesday:1/8/19 Adding a new attribute to Asp.NetUsers Table
+        public string Address { get; internal set; }
+        //Tuesday:1/8/19 Adding a new attribute to Asp.NetUsers Table
+        public string City { get; internal set; }
+        //Tuesday:1/8/19 Adding a new attribute to Asp.NetUsers Table
+        public string Zip { get; internal set; }
+        //Tuesday:1/8/19 Adding a new attribute to Asp.NetUsers Table
+        public string State { get; internal set; }
+
         public async Task<ClaimsIdentity> GenerateUserIdentityAsync(UserManager<ApplicationUser> manager)
         {
             // Note the authenticationType must match the one defined in CookieAuthenticationOptions.AuthenticationType
@@ -31,6 +44,8 @@ namespace EventRegistrationSystem.Models
         }
 
         public System.Data.Entity.DbSet<EventRegistrationSystem.Models.VolunteerEvent> VolunteerEvents { get; set; }
+
+        public virtual System.Data.Entity.DbSet<EventRegistrationSystem.Models.Company> Companies { get; set; }
 
         public System.Data.Entity.DbSet<EventRegistrationSystem.Models.UsersVolunteerEvent> UsersVolunteerEvents { get; set; }
     }

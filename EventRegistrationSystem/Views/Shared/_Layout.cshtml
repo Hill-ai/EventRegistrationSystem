@@ -37,17 +37,29 @@
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
-                    <li>@Html.ActionLink("Home", "Index", "Home")</li>
-                    <li>@Html.ActionLink("About", "About", "Home")</li>
-                    <li>@Html.ActionLink("Gallery", "Gallery", "Home")</li>
-                    <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
-                    <li>@Html.ActionLink("Create Volunteer Event", "Create", "VolunteerEvents")</li>
-                    <li>@Html.ActionLink("View Volunteer Events", "Index", "VolunteerEvents")</li>
-                    @if (Context.User.Identity.IsAuthenticated)
+                    @if (Context.User.Identity.IsAuthenticated && User.IsInRole("ADMIN"))
                     {
-                        <li>
-                            @Html.ActionLink("View Companies", "List", "Company")
-                        </li>
+                        <li>@Html.ActionLink("Home", "Index", "Home")</li>
+                        <li>@Html.ActionLink("About", "About", "Home")</li>
+                        <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
+                        <li>@Html.ActionLink("Gallery", "Gallery", "Home")</li>
+                        <li>@Html.ActionLink("View Companies", "Index", "Companies")</li>
+                        <li>@Html.ActionLink("Create Volunteer Event", "Create", "VolunteerEvents")</li>
+                    }
+                    else if (Context.User.Identity.IsAuthenticated && !User.IsInRole("ADMIN"))
+                    {
+                        <li>@Html.ActionLink("Home", "Index", "Home")</li>
+                        <li>@Html.ActionLink("About", "About", "Home")</li>
+                        <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
+                        <li>@Html.ActionLink("Gallery", "Gallery", "Home")</li>
+                        <li>@Html.ActionLink("View Volunteer Events", "Index", "VolunteerEvents")</li>
+                    }
+                    else if (!Context.User.Identity.IsAuthenticated)
+                    {
+                        <li>@Html.ActionLink("Home", "Index", "Home")</li>
+                        <li>@Html.ActionLink("About", "About", "Home")</li>
+                        <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
+                        <li>@Html.ActionLink("Gallery", "Gallery", "Home")</li>
                     }
                 </ul>
                 @Html.Partial("_LoginPartial")

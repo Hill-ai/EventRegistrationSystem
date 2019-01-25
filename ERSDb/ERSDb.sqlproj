@@ -71,7 +71,6 @@
     <Build Include="UsersVolunteerEvents.sql" />
   </ItemGroup>
   <ItemGroup>
-    <Build Include="dbo\Tables\__MigrationHistory.sql" />
     <Build Include="dbo\Tables\AspNetRoles.sql" />
     <Build Include="dbo\Tables\AspNetUserClaims.sql" />
     <Build Include="dbo\Tables\AspNetUserLogins.sql" />
@@ -82,6 +81,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="dbo\Scripts\PostDeployment\SeedCompanies.sql" />
-    <None Include="dbo\Scripts\PostDeployment\SeedVolunteerEvents.sql" />
+    <None Include="dbo\Scripts\PostDeployment\SeedRoles.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <PostDeploy Include="dbo\Scripts\PostDeployment\Script.PostDeployment.sql" />
   </ItemGroup>
 </Project>

@@ -72,13 +72,41 @@ namespace EventRegistrationSystem.Models
         [Required]
         [StringLength(100, ErrorMessage = "The {0} must be at least {2} characters long.", MinimumLength = 6)]
         [DataType(DataType.Password)]
-        [Display(Name = "Password")]
+        [Display(Name = "Password *")]
         public string Password { get; set; }
 
         [DataType(DataType.Password)]
-        [Display(Name = "Confirm password")]
+        [Display(Name = "Confirm password *")]
         [Compare("Password", ErrorMessage = "The password and confirmation password do not match.")]
         public string ConfirmPassword { get; set; }
+
+        //Tuesday:1/8/19 Adding a new attribute to Asp.NetUsers Table 
+        [Display(Name = "First Name")]
+        public string FirstName { get; set; }
+
+        //Tuesday:1/8/19 Adding a new attribute to Asp.NetUsers Table 
+        [Display(Name = "Last Name")]
+        public string LastName { get; set; }
+
+        //Tuesday:1/8/19 Adding a new attribute to Asp.NetUsers Table 
+        [Display(Name = "Phone Number")]
+        public string PhoneNumber { get; set; }
+
+        //Tuesday:1/8/19 Adding a new attribute to Asp.NetUsers Table 
+        [Display(Name = "Address")]
+        public string Address { get; set; }
+
+        //Tuesday:1/8/19 Adding a new attribute to Asp.NetUsers Table 
+        [Display(Name = "City")]
+        public string City { get; set; }
+
+        //Tuesday:1/8/19 Adding a new attribute to Asp.NetUsers Table 
+        [Display(Name = "Zip")]
+        public string Zip { get; set; }
+
+        //Tuesday:1/8/19 Adding a new attribute to Asp.NetUsers Table 
+        [Display(Name = "State")]
+        public string State { get; set; }
     }
 
     public class ResetPasswordViewModel
