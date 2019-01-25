@@ -226,7 +226,6 @@
     <Compile Include="Models\ICompanyRepository.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\IEventsRepository.cs" />
-    <Compile Include="Models\IRepository.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
@@ -292,7 +291,6 @@
     <Content Include="Views\Manage\VerifyPhoneNumber.cshtml" />
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
-    <Content Include="Views\Company\List.cshtml" />
     <Content Include="Views\Home\Events.cshtml" />
     <Content Include="Views\Events\CreateEvent.cshtml" />
     <Content Include="Views\Home\CreateEvent.cshtml" />
@@ -302,7 +300,6 @@
     <Content Include="Views\Events\Details.cshtml" />
     <Content Include="Views\Events\Edit.cshtml" />
     <Content Include="Views\Events\Index.cshtml" />
-    <Content Include="Views\Company\Create.cshtml" />
     <Content Include="Views\Companies\Create.cshtml" />
     <Content Include="Views\Companies\Delete.cshtml" />
     <Content Include="Views\Companies\Details.cshtml" />
