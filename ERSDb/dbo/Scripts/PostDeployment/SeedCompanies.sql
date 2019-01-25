@@ -43,7 +43,7 @@ VALUES ('Quisque LLP','Ap #938-3676 Ultricies St.','(814) 517-5517','accumsan.co
 INSERT INTO #tempCompanies (Name, Address, PhoneNumber, Email, PrimaryContactName, PrimaryContactPhoneNumber, PrimaryContactEmail, CompanyWebLink)
 VALUES ('Mi Felis Adipiscing LLP','Ap #319-4312 Et Ave','(958) 600-5620','Aliquam@eget.com','Whitney','(834) 788-1610','Duis@augueSedmolestie.net','Echo.net');
 
-MERGE INTO  dbo.Company AS target
+MERGE INTO  dbo.Companies AS target
 USING #tempCompanies AS source
 	ON source.CompanyID = target.CompanyID
 WHEN NOT MATCHED BY TARGET THEN 
