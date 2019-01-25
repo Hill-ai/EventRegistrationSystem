@@ -27,45 +27,45 @@
         </dd>
 
         @*<dt>
-            @Html.DisplayNameFor(model => model.EventTime)
-        </dt>*@
+                @Html.DisplayNameFor(model => model.EventTime)
+            </dt>*@
 
         @*<dd>
-            @Html.DisplayFor(model => model.EventTime)
-        </dd>*@
+                @Html.DisplayFor(model => model.EventTime)
+            </dd>*@
         @*
-        <dt>
-            @Html.DisplayNameFor(model => model.RestrictedByCompany)
-        </dt>
+            <dt>
+                @Html.DisplayNameFor(model => model.RestrictedByCompany)
+            </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.RestrictedByCompany)
-        </dd>
+            <dd>
+                @Html.DisplayFor(model => model.RestrictedByCompany)
+            </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.EventLocked)
-        </dt>
+            <dt>
+                @Html.DisplayNameFor(model => model.EventLocked)
+            </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.EventLocked)
-        </dd>
+            <dd>
+                @Html.DisplayFor(model => model.EventLocked)
+            </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.EventHidden)
-        </dt>
+            <dt>
+                @Html.DisplayNameFor(model => model.EventHidden)
+            </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.EventHidden)
-        </dd>
+            <dd>
+                @Html.DisplayFor(model => model.EventHidden)
+            </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.EventCapacity)
-        </dt>
+            <dt>
+                @Html.DisplayNameFor(model => model.EventCapacity)
+            </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.EventCapacity)
-        </dd>
-            *@
+            <dd>
+                @Html.DisplayFor(model => model.EventCapacity)
+            </dd>
+        *@
         <dt>
             @Html.DisplayNameFor(model => model.EventName)
         </dt>
@@ -114,17 +114,17 @@
             @Html.DisplayFor(model => model.EventDetails)
         </dd>
         @*
-        <dt>
-            @Html.DisplayNameFor(model => model.EventInterest)
-        </dt>
+            <dt>
+                @Html.DisplayNameFor(model => model.EventInterest)
+            </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.EventInterest)
-        </dd>
-            *@
+            <dd>
+                @Html.DisplayFor(model => model.EventInterest)
+            </dd>
+        *@
 
-       
-        
+
+
         <dt>
             @Html.DisplayNameFor(model => model.EventFiles)
         </dt>
@@ -133,25 +133,38 @@
             @Html.DisplayFor(model => model.EventFiles)
         </dd>
         @*
-        <dt>
-            @Html.DisplayNameFor(model => model.EventTotalTime)
-        </dt>
+            <dt>
+                @Html.DisplayNameFor(model => model.EventTotalTime)
+            </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.EventTotalTime)
-        </dd>
+            <dd>
+                @Html.DisplayFor(model => model.EventTotalTime)
+            </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.NonProfitID)
-        </dt>
+            <dt>
+                @Html.DisplayNameFor(model => model.NonProfitID)
+            </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.NonProfitID)
-        </dd>
-            *@
+            <dd>
+                @Html.DisplayFor(model => model.NonProfitID)
+            </dd>
+        *@
     </dl>
 </div>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-actions no-color">
+        <input type="submit" value="Register" class="btn btn-default" /> |
+        @Html.ActionLink("Back To List", "Index")
+    </div>
+}
+
+@*
 <p>
     @Html.ActionLink("Register", "Index", new { id = Model.VolunteerEventId }) |
-    @*@Html.ActionLink("Back to List", "Index")*@
+    @Html.ActionLink("Back to List", "Index")
 </p>
+*@

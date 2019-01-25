@@ -54,7 +54,7 @@
                             company: v.Company,
                             nonprofit: v.NonProfit,
                             details: v.EventDetails,
-                            id: v.VolunteerEventID,
+                            id: v.VolunteerEventId,
                             files: v.EventFiles//,
 
                             //color: v.ThemeColor,
@@ -93,6 +93,9 @@
                         }
                         $description.append($('<p/>').html('<b>Description:</b>' + calEvent.description));
                         $description.append($('<p/>').html('<b>Details:</b>' + calEvent.details));
+                        //$description.append($('<p/>').html('<b>:ID FOR TESTING</b>' + calEvent.id));
+                        /*put a link in the modal that takes user straight to register page for this event*/
+                        $description.append($('<p/>').html('<a href="/VolunteerEvents/Details/' + calEvent.id + '"><button>View Event</button></a>'));
                         @*$description.append($('<p/>').html('<b>' +  @:Html.ActionLink("Register", "Details", new { id = calEvent.id }) + '</b>'));*@
                         $('#myModal #pDetails').empty().html($description);
 
@@ -104,11 +107,12 @@
     </script>
 }
 
-    <p>
+
+    @*<p>
 
 
-        @*Html.ActionLink("Create New", "Create")*@
-
+        Html.ActionLink("Create New", "Create")
+        
         Select a month to view events:
         @Html.ActionLink("January", "Index", new { month = 1 }) |
         @Html.ActionLink("February", "Index", new { month = 2 }) |
@@ -124,10 +128,12 @@
         @Html.ActionLink("December", "Index", new { month = 12 })
 
     </p>
-
+*@
 <table class="table">
     <tr>
-
+        <th>
+            @Html.DisplayNameFor(model => model.EventName)
+        </th>
 
         <th>
             @Html.DisplayNameFor(model => model.EventDate)
@@ -135,9 +141,7 @@
 
 
 
-        <th>
-            @Html.DisplayNameFor(model => model.EventName)
-        </th>
+
 
         @*
         <th>
@@ -210,15 +214,15 @@
     <tr>
 
 
-
+        <td>
+            @Html.DisplayFor(modelItem => item.EventName)
+        </td>
 
         <td>
             @Html.DisplayFor(modelItem => item.EventDate.Month)/@Html.DisplayFor(modelItem => item.EventDate.Day)/@Html.DisplayFor(modelItem => item.EventDate.Year)
         </td>
 
-        <td>
-            @Html.DisplayFor(modelItem => item.EventName)
-        </td>
+
 
         @*
         <td>
@@ -286,8 +290,8 @@
         *@
         <td>
             @*@Html.ActionLink("Edit", "Edit", new { id = item.VolunteerEventId }) |*@
-            @Html.ActionLink("Register", "Details", new { id = item.VolunteerEventId })
-            @* @Html.ActionLink("Delete", "Delete", new { id = item.VolunteerEventId })*@
+            @Html.ActionLink("View Event", "Details", new { id = item.VolunteerEventId })
+           @* @Html.ActionLink("Delete", "Delete", new { id = item.VolunteerEventId })*@
         </td>
     </tr>
     }

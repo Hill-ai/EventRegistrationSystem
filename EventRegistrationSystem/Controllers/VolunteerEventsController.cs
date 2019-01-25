@@ -7,6 +7,7 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using EventRegistrationSystem.Models;
+using Microsoft.AspNet.Identity;
 
 namespace EventRegistrationSystem.Controllers
 {
@@ -21,7 +22,16 @@ namespace EventRegistrationSystem.Controllers
             {
                 if (month == null)
                 {
-                    return View(db.VolunteerEvents.Where(c => c.EventDate.Month == DateTime.Today.Month).ToList());
+
+                    //var volunteerEventsList = db.VolunteerEvents.Where(c => c.EventDate.Month == DateTime.Today.Month).OrderBy(d => d.EventDate).ToList();
+
+
+                    var volunteerEventsList = db.VolunteerEvents.OrderBy(d => d.EventName).ToList();
+
+
+
+
+                    return View(volunteerEventsList);
                 }
 
                 return View(db.VolunteerEvents.Where(c => c.EventDate.Month == month).ToList());
@@ -56,6 +66,38 @@ namespace EventRegistrationSystem.Controllers
                 return View(@event);
             }
         }
+
+        // POST: Events/Delete/5
+        [HttpPost, ActionName("Details")]
+        [ValidateAntiForgeryToken]
+        public ActionResult Details(int id)
+        {
+
+            int eventId = id;
+            var identityUserId = User.Identity.GetUserId();
+
+            UsersVolunteerEvent tempUsersVolunteerEvent = new UsersVolunteerEvent();
+            tempUsersVolunteerEvent.UserId = identityUserId;
+            tempUsersVolunteerEvent.VolunteerEventId = eventId;
+
+
+
+            using (var db = new ApplicationDbContext())
+            {
+
+
+                //VolunteerEvent @event = db.VolunteerEvents.Find(id);
+                //db.VolunteerEvents.Remove(@event);
+
+
+
+                db.UsersVolunteerEvents.Add(@tempUsersVolunteerEvent);
+                db.SaveChanges();
+                return RedirectToAction("Index");
+            }
+        }
+
+
 
         // GET: Events/Create
         public ActionResult Create()
