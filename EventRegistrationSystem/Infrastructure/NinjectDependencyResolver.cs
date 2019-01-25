@@ -3,8 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web.Mvc;
 using Moq;
-using Ninject;
-using EventRegistrationSystem.Abstract; 
+using Ninject; 
 using EventRegistrationSystem.Models;
 
 namespace EventRegistrationSystem.Infrastructure
