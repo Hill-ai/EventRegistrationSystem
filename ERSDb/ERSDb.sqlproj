@@ -81,6 +81,5 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="dbo\Scripts\PostDeployment\SeedCompanies.sql" />
-    <None Include="dbo\Scripts\PostDeployment\Script1.sql" />
   </ItemGroup>
 </Project>
