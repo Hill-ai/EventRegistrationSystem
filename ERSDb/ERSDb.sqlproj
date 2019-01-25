@@ -68,6 +68,7 @@
     <Folder Include="Security\" />
     <Folder Include="dbo\Scripts" />
     <Folder Include="dbo\Scripts\PostDeployment" />
+    <Build Include="UsersVolunteerEvents.sql" />
   </ItemGroup>
   <ItemGroup>
     <Build Include="dbo\Tables\__MigrationHistory.sql" />
