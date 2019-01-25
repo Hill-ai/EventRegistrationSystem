@@ -13,7 +13,7 @@ namespace EventRegistrationSystem.Models
 
         [Required(ErrorMessage = "Please enter a company name")]
         public string Name { get; set; }
-        [DataType(DataType.MultilineText)]
+ 
 
         [Required(ErrorMessage = "Please enter a company address")]
         public string Address { get; set; }

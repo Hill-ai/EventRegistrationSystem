@@ -8,48 +8,73 @@ using System.Data.Entity;
 
 namespace EventRegistrationSystem.Models
 {
+    public interface IFactory<T>
+    {
+        T Create();
+    }
+
     public class EFCompanyRepository : ICompanyRepository
     {
-        private ApplicationDbContext context = new ApplicationDbContext();
-        
+        private ApplicationDbContext ctx = new ApplicationDbContext();
+
+        private IFactory<ApplicationDbContext> m_Factory;
+        public EFCompanyRepository(IFactory<ApplicationDbContext> factory)
+        {
+            m_Factory = factory;
+        }
+
+
         public IEnumerable<Company> Companies
         {
-            get { return context.Companies; }
+
+            get { return ctx.Companies; }
         }
+
         public void SaveCompany(Company company)
         {
             if (company.CompanyID == 0)
             {
-                context.Companies.Add(company);
+                using (var context = m_Factory.Create())
+                {
+                    context.Companies.Add(company);
+                    context.SaveChanges();
+                }
             }
             else
             {
-                Company dbEntry = context.Companies.Find(company.CompanyID);
-                if (dbEntry != null)
+                using (var context = m_Factory.Create())
                 {
-                    dbEntry.Name = company.Name;
-                    dbEntry.Address = company.Address;
-                    dbEntry.PhoneNumber = company.PhoneNumber;
-                    dbEntry.Email = company.Email;
-                    dbEntry.PrimaryContactName = company.PrimaryContactName;
-                    dbEntry.PrimaryContactPhoneNumber = company.PrimaryContactPhoneNumber;
-                    dbEntry.PrimaryContactEmail = company.PrimaryContactEmail;
-                    dbEntry.CompanyWebLink = company.CompanyWebLink;
+                    Company dbEntry = context.Companies.Find(company.CompanyID);
+                    if (dbEntry != null)
+                    {
+                        dbEntry.Name = company.Name;
+                        dbEntry.Address = company.Address;
+                        dbEntry.PhoneNumber = company.PhoneNumber;
+                        dbEntry.Email = company.Email;
+                        dbEntry.PrimaryContactName = company.PrimaryContactName;
+                        dbEntry.PrimaryContactPhoneNumber = company.PrimaryContactPhoneNumber;
+                        dbEntry.PrimaryContactEmail = company.PrimaryContactEmail;
+                        dbEntry.CompanyWebLink = company.CompanyWebLink;
 
+                    }
+                    context.SaveChanges();
                 }
             }
-            context.SaveChanges();
         }
+
 
         public Company DeleteCompany(int companyID)
         {
-            Company dbEntry = context.Companies.Find(companyID);
-            if (dbEntry != null)
+            using (var context = m_Factory.Create())
             {
-                context.Companies.Remove(dbEntry);
-                context.SaveChanges();
+                Company dbEntry = context.Companies.Find(companyID);
+                if (dbEntry != null)
+                {
+                    context.Companies.Remove(dbEntry);
+                    context.SaveChanges();
+                }
+                return dbEntry;
             }
-            return dbEntry;
         }
     }
 }
