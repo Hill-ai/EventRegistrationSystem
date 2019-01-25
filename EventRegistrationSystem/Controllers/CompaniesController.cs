@@ -11,7 +11,7 @@ using EventRegistrationSystem.Models;
 
 namespace EventRegistrationSystem.Controllers
 {
-    //[Authorize(Roles ="ADMIN")]
+
     public class CompaniesController : Controller
     {
         //private ApplicationDbContext db = new ApplicationDbContext();
@@ -41,6 +41,7 @@ namespace EventRegistrationSystem.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Authorize(Roles = "ADMIN")]
         public ActionResult Edit([Bind(Include = "CompanyID,Name,Address,PhoneNumber,Email,PrimaryContactName,PrimaryContactPhoneNumber,PrimaryContactEmail,CompanyWebLink")] Company company)
         {
             if (ModelState.IsValid)
@@ -62,6 +63,7 @@ namespace EventRegistrationSystem.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Authorize(Roles = "ADMIN")]
         public ActionResult Create([Bind(Include = "CompanyID,Name,Address,PhoneNumber,Email,PrimaryContactName,PrimaryContactPhoneNumber,PrimaryContactEmail,CompanyWebLink")] Company company)
         {
             if (ModelState.IsValid)
@@ -79,6 +81,7 @@ namespace EventRegistrationSystem.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Authorize(Roles = "ADMIN")]
         public ActionResult Delete(int companyId)
         {
             Company deletedCompany = repository.DeleteCompany(companyId);
