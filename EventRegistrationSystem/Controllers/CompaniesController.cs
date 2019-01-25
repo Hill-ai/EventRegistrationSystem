@@ -27,13 +27,13 @@ namespace EventRegistrationSystem.Controllers
             return View(repository.Companies);
         }
 
-        public ViewResult Details(int? companyId)
+        public ViewResult Details(int companyId)
         {
             Company company = repository.Companies.FirstOrDefault(c => c.CompanyID == companyId);
             return View(company);
         }
 
-        public ViewResult Edit(int? companyID)
+        public ViewResult Edit(int companyID)
         {
             Company company = repository.Companies.FirstOrDefault(c => c.CompanyID == companyID); 
             return View(company);
