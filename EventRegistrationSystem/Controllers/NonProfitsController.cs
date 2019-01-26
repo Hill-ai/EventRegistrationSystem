@@ -10,8 +10,10 @@ using EventRegistrationSystem.Models;
 
 namespace EventRegistrationSystem.Controllers
 {
+    [Authorize(Roles = "ADMIN")]
     public class NonProfitsController : Controller
     {
+        
         private ApplicationDbContext db = new ApplicationDbContext();
 
         // GET: NonProfits
