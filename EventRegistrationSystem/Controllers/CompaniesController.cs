@@ -1,11 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Data;
-using System.Data.Entity;
 using System.Linq;
-using System.Threading.Tasks;
-using System.Net;
-using System.Web;
 using System.Web.Mvc;
 using EventRegistrationSystem.Models;
 
@@ -24,19 +18,28 @@ namespace EventRegistrationSystem.Controllers
 
         public ViewResult Index()
         {
-            return View(repository.Companies);
+            using (var dbContext = new ApplicationDbContext())
+            {
+                var companies = dbContext.Companies.ToList();
+
+                return View(companies);
+            }
         }
 
-        public ViewResult Details(int companyId)
+        public ViewResult Details(int id)
         {
-            Company company = repository.Companies.FirstOrDefault(c => c.CompanyID == companyId);
+            Company company = repository.Companies.FirstOrDefault(c => c.CompanyID == id);
             return View(company);
         }
 
-        public ViewResult Edit(int companyID)
+        public ActionResult Edit(int id)
         {
-            Company company = repository.Companies.FirstOrDefault(c => c.CompanyID == companyID); 
-            return View(company);
+//            Company company = repository.Companies.FirstOrDefault(c => c.CompanyID == companyID);
+            using (var db = new ApplicationDbContext())
+            {
+                Company company = db.Companies.FirstOrDefault(c => c.CompanyID == id);
+                return View(company);
+            }
         }
 
         [HttpPost]
@@ -58,23 +61,28 @@ namespace EventRegistrationSystem.Controllers
 
         public ViewResult Create()
         {
-            return View("Create", new Company());
+            return View();
         }
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        [Authorize(Roles = "ADMIN")]
-        public ActionResult Create([Bind(Include = "CompanyID,Name,Address,PhoneNumber,Email,PrimaryContactName,PrimaryContactPhoneNumber,PrimaryContactEmail,CompanyWebLink")] Company company)
+//        [Authorize(Roles = "ADMIN")]
+        public ActionResult Create(Company company)
         {
-            if (ModelState.IsValid)
+            try
             {
-                repository.SaveCompany(company);
-                TempData["message"] = string.Format("{0} has been saved", company.Name);
-                return RedirectToAction("Index");
+                using (var dbContext = new ApplicationDbContext())
+                {
+                    dbContext.Companies.Add(company);
+                    dbContext.SaveChanges();
+                    return RedirectToAction("Index");
+                }
+//                repository.SaveCompany(company);
+//                TempData["message"] = string.Format("{0} has been saved", company.Name);
             }
-            else
+            catch (Exception e)
             {
-                // there is something wrong with the data values
+                Console.WriteLine(e);
                 return View(company);
             }
         }

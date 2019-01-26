@@ -1,6 +1,6 @@
 ﻿CREATE TABLE [dbo].[NonProfits]
 (
-	[NonProfitId] INT NOT NULL PRIMARY KEY, 
+	[NonProfitId] INT NOT NULL IDENTITY(1,1) PRIMARY KEY, 
     [Name] NVARCHAR(200) NOT NULL, 
     [Address] NVARCHAR(100) NULL, 
     [City] NVARCHAR(200) NULL, 

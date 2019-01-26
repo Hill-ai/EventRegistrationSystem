@@ -11,7 +11,7 @@ using Microsoft.AspNet.Identity;
 
 namespace EventRegistrationSystem.Controllers
 {
-    [Authorize(Roles = "ADMIN")]
+    //[Authorize(Roles = "ADMIN")]
     public class VolunteerEventsController : Controller
     {
         //private ApplicationDbContext db = new ApplicationDbContext();
@@ -100,10 +100,17 @@ namespace EventRegistrationSystem.Controllers
 
 
 
-        // GET: Events/Create
+        //TODO: protect this method specifically, not the whole controller 
         public ActionResult Create()
         {
-            return View();
+            using (var db = new ApplicationDbContext())
+            {
+                var existingNonprofits = db.NonProfits.ToList();
+
+                ViewBag.ExistingNonprofits = existingNonprofits;
+
+                return View();
+            }
         }
 
         // POST: Events/Create

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Web;
 
@@ -8,7 +9,9 @@ namespace EventRegistrationSystem.Models
     public class VolunteerEvent
     {
         public string Company { get; set; }
+
         public string NonProfit { get; set; }
+
         //public DateTime EventTime { get; set; }
         public Boolean RestrictedByCompany { get; set; }
         public Boolean EventLocked { get; set; }
@@ -28,16 +31,15 @@ namespace EventRegistrationSystem.Models
         public int NonProfitID { get; set; }
 
 
-        public VolunteerEvent() {
+        [NotMapped]
+        public IEnumerable<NonProfit> NonProfits { get; set; }
+
+        public VolunteerEvent()
+        {
         }
-
-
-
     }
 
     public class CreateEventViewModel
     {
-
     }
-    
 }

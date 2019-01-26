@@ -9,5 +9,5 @@ Post-Deployment Script Template
                SELECT * FROM [$(TableName)]					
 --------------------------------------------------------------------------------------
 */
---:r .\SeedCompanies.sql
---:r .\SeedRoles.sql
+:r .\SeedCompanies.sql
+:r .\SeedRoles.sql

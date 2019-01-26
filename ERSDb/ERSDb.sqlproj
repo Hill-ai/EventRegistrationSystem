@@ -68,7 +68,8 @@
     <Folder Include="Security\" />
     <Folder Include="dbo\Scripts" />
     <Folder Include="dbo\Scripts\PostDeployment" />
-    <Build Include="UsersVolunteerEvents.sql" />
+    <Build Include="dbo\Tables\UsersVolunteerEvents.sql" />
+    <None Include="dbo\Scripts\PostDeployment\SeedVolunteerEvents.sql" />
   </ItemGroup>
   <ItemGroup>
     <Build Include="dbo\Tables\AspNetRoles.sql" />
