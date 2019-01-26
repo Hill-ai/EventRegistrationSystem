@@ -1,0 +1,87 @@
+﻿@model IEnumerable<EventRegistrationSystem.Models.NonProfit>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Address)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.City)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Zip)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Phone)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Email)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PrimaryContactName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PrimaryContactPhone)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PrimaryContactEmail)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.WebLink)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Address)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.City)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Zip)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Phone)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Email)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PrimaryContactName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PrimaryContactPhone)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PrimaryContactEmail)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.WebLink)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.NonProfitID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.NonProfitID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.NonProfitID })
+        </td>
+    </tr>
+}
+
+</table>
