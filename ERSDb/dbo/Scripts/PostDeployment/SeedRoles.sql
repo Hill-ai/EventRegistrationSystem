@@ -7,7 +7,7 @@ CREATE TABLE #tempRoles (
 );
 
 INSERT INTO #tempRoles (Id, Name)
-VALUES ( NEWID(), 'ADMIN');
+VALUES ( '9360859A-BA7F-4462-A2DB-07B13889C97C', 'ADMIN');
 
 MERGE INTO  dbo.AspNetRoles AS target
 USING #tempRoles AS source
