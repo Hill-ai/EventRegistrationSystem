@@ -211,6 +211,7 @@
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Attributes\RoleCheckAttribute.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\NonProfitsController.cs" />
     <Compile Include="Controllers\VolunteerEventsController.cs" />
     <Compile Include="Controllers\CompaniesController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
@@ -222,8 +223,8 @@
     <Compile Include="Infrastructure\NinjectDependencyResolver.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Company.cs" />
-    <Compile Include="Models\CompanyModels.cs" />
     <Compile Include="Models\UsersVolunteerEvent.cs" />
+    <Compile Include="Models\NonProfit.cs" />
     <Compile Include="Models\VolunteerEvent.cs" />
     <Compile Include="Models\EFCompanyRepository.cs" />
     <Compile Include="Models\FakeEventsRepository.cs" />
@@ -318,6 +319,11 @@
     <Content Include="Views\VolunteerEvents\Details.cshtml" />
     <Content Include="Views\VolunteerEvents\Edit.cshtml" />
     <Content Include="Views\VolunteerEvents\Index.cshtml" />
+    <Content Include="Views\NonProfits\Create.cshtml" />
+    <Content Include="Views\NonProfits\Delete.cshtml" />
+    <Content Include="Views\NonProfits\Details.cshtml" />
+    <Content Include="Views\NonProfits\Edit.cshtml" />
+    <Content Include="Views\NonProfits\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Abstract\" />
