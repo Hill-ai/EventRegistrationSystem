@@ -222,6 +222,8 @@
     <Compile Include="Infrastructure\NinjectDependencyResolver.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Company.cs" />
+    <Compile Include="Models\CompanyModels.cs" />
+    <Compile Include="Models\UsersVolunteerEvent.cs" />
     <Compile Include="Models\VolunteerEvent.cs" />
     <Compile Include="Models\EFCompanyRepository.cs" />
     <Compile Include="Models\FakeEventsRepository.cs" />
