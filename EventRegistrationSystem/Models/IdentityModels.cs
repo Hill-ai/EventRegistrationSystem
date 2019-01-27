@@ -22,6 +22,10 @@ namespace EventRegistrationSystem.Models
         //Tuesday:1/8/19 Adding a new attribute to Asp.NetUsers Table
         public string State { get; internal set; }
 
+        public int CompanyId { get; set; }
+
+        public bool IsActive { get; set; } = true;
+
         public async Task<ClaimsIdentity> GenerateUserIdentityAsync(UserManager<ApplicationUser> manager)
         {
             // Note the authenticationType must match the one defined in CookieAuthenticationOptions.AuthenticationType

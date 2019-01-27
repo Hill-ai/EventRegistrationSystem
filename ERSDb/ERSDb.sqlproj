@@ -87,4 +87,7 @@
   <ItemGroup>
     <PostDeploy Include="dbo\Scripts\PostDeployment\Script.PostDeployment.sql" />
   </ItemGroup>
+  <ItemGroup>
+    <RefactorLog Include="ERSDb.refactorlog" />
+  </ItemGroup>
 </Project>

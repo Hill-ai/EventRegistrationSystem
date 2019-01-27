@@ -107,6 +107,8 @@ namespace EventRegistrationSystem.Models
         //Tuesday:1/8/19 Adding a new attribute to Asp.NetUsers Table 
         [Display(Name = "State")]
         public string State { get; set; }
+
+        public int CompanyId { get; set; }
     }
 
     public class ResetPasswordViewModel
