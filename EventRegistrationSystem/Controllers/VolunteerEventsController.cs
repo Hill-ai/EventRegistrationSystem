@@ -47,7 +47,7 @@ namespace EventRegistrationSystem.Controllers
                 if (tableOrderBy == 4)
                 {
 
-                    volunteerEventsList = db.VolunteerEvents.OrderBy(d => d.NonProfitID).ToList();
+                    volunteerEventsList = db.VolunteerEvents.OrderBy(d => d.NonProfit).ToList();
 
                 }
 
