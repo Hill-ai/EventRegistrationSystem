@@ -17,25 +17,51 @@ namespace EventRegistrationSystem.Controllers
         //private ApplicationDbContext db = new ApplicationDbContext();
 
         // GET: Events
-        public ActionResult Index(int? month)
+        public ActionResult Index(int? tableOrderBy)
         {
             using (var db = new ApplicationDbContext())
             {
-                if (month == null)
-                {
+                var volunteerEventsList = db.VolunteerEvents.ToList();
 
+                if (tableOrderBy == 1)
+                {
                     //var volunteerEventsList = db.VolunteerEvents.Where(c => c.EventDate.Month == DateTime.Today.Month).OrderBy(d => d.EventDate).ToList();
 
-
-                    var volunteerEventsList = db.VolunteerEvents.OrderBy(d => d.EventName).ToList();
-
-
-
-
-                    return View(volunteerEventsList);
+                    volunteerEventsList = db.VolunteerEvents.OrderBy(d => d.EventName).ToList();
                 }
 
-                return View(db.VolunteerEvents.Where(c => c.EventDate.Month == month).ToList());
+                if (tableOrderBy == 2)
+                {
+
+                    volunteerEventsList = db.VolunteerEvents.OrderBy(d => d.EventDate).ToList();
+
+                }
+
+                if (tableOrderBy == 3)
+                {
+
+                    volunteerEventsList = db.VolunteerEvents.OrderBy(d => d.EventDetails).ToList();
+
+                }
+
+                if (tableOrderBy == 4)
+                {
+
+                    volunteerEventsList = db.VolunteerEvents.OrderBy(d => d.NonProfitID).ToList();
+
+                }
+
+                if (tableOrderBy == 5)
+                {
+
+                    volunteerEventsList = db.VolunteerEvents.OrderBy(d => d.Company).ToList();
+
+                }
+
+                return View(volunteerEventsList);
+
+
+                //return View(db.VolunteerEvents.Where(c => c.EventDate.Month == month).ToList());
 
             }
         }
