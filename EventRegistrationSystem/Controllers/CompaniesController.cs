@@ -46,12 +46,19 @@ namespace EventRegistrationSystem.Controllers
             }
         }
 
-        public ActionResult Edit(int id)
+        public ActionResult Edit(int? id)
         {
-//            Company company = repository.Companies.FirstOrDefault(c => c.CompanyID == companyID);
-            using (var db = new ApplicationDbContext())
+            using (var dbContext = new ApplicationDbContext())
             {
-                Company company = db.Companies.FirstOrDefault(c => c.CompanyID == id);
+                if (id == null)
+                {
+                    return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                }
+                Company @company = dbContext.Companies.Find(id);
+                if (@company == null)
+                {
+                    return HttpNotFound();
+                }
                 return View(company);
             }
         }
