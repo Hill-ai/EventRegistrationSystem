@@ -111,18 +111,39 @@ namespace EventRegistrationSystem.Controllers
             }
         }
 
+        public ActionResult Delete(int? id)
+        {
+            using (var dbContext = new ApplicationDbContext())
+            {
+                if (id == null)
+                {
+                    return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                }
+                Company @company = dbContext.Companies.Find(id);
+                if (@company == null)
+                {
+                    return HttpNotFound();
+                }
+                return View(@company);
+            }
+        }
         [HttpPost]
         [ValidateAntiForgeryToken]
         [Authorize(Roles = "ADMIN")]
-        public ActionResult Delete(int companyId)
+        public ActionResult Delete(int id)
         {
-            Company deletedCompany = repository.DeleteCompany(companyId);
-            if (deletedCompany != null)
+
+            using (var dbContext = new ApplicationDbContext())
             {
-                TempData["message"] = string.Format("{0} was deleted",
-                deletedCompany.Name);
+                Company @company = dbContext.Companies.Find(id);
+                dbContext.Companies.Remove(@company);
+                dbContext.SaveChanges();
+                return RedirectToAction("Index");
+
             }
-            return RedirectToAction("Index");
         }
+
+
+
     }
 }
