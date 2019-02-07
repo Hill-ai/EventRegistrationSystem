@@ -68,17 +68,20 @@ namespace EventRegistrationSystem.Controllers
         [Authorize(Roles = "ADMIN")]
         public ActionResult Edit([Bind(Include = "CompanyID,Name,Address,PhoneNumber,Email,PrimaryContactName,PrimaryContactPhoneNumber,PrimaryContactEmail,CompanyWebLink")] Company company)
         {
-            if (ModelState.IsValid)
+            using (var dbContext = new ApplicationDbContext())
             {
-                repository.SaveCompany(company);
-                TempData["message"] = string.Format("{0} has been saved", company.Name);
-                return RedirectToAction("Index");
-            } else
-            {
+                if (ModelState.IsValid)
+                {
+                    dbContext.Entry(company).State = EntityState.Modified;
+                    dbContext.SaveChanges();
+                    TempData["message"] = string.Format("{0} has been saved", company.Name);
+                    return RedirectToAction("Index");
+                }
                 // there is something wrong with the data values
-                return View(company);
+                return View(@company);
             } 
-        }
+        }    
+        
 
         public ViewResult Create()
         {
