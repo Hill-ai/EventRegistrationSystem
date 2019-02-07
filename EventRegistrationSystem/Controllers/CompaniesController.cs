@@ -1,7 +1,11 @@
 ﻿using System;
 using System.Linq;
+using System.Net;
+using System.Data;
+using System.Data.Entity;
 using System.Web.Mvc;
 using EventRegistrationSystem.Models;
+using Microsoft.AspNet.Identity;
 
 namespace EventRegistrationSystem.Controllers
 {
@@ -21,15 +25,25 @@ namespace EventRegistrationSystem.Controllers
             using (var dbContext = new ApplicationDbContext())
             {
                 var companies = dbContext.Companies.ToList();
-
                 return View(companies);
             }
         }
 
-        public ViewResult Details(int id)
+        public ActionResult Details(int? id)
         {
-            Company company = repository.Companies.FirstOrDefault(c => c.CompanyID == id);
-            return View(company);
+            using (var dbContext = new ApplicationDbContext())
+            {
+                if (id == null)
+                {
+                    return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                }
+                Company @company = dbContext.Companies.Find(id);
+                if (@company == null)
+                {
+                    return HttpNotFound();
+                }
+                return View(company);
+            }
         }
 
         public ActionResult Edit(int id)
