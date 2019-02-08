@@ -1,20 +1,17 @@
 ﻿@model EventRegistrationSystem.Models.Company
-@using System.Data.Entity;
 
 @{
-
     ViewBag.Title = "Edit";
-    ViewBag.AlternateTitle = "Create";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>@ViewBag.Title</h2>
+<h2>Edit</h2>
 
 
-@using (Html.BeginForm("Edit", "Companies"))
+@using (Html.BeginForm())
 {
     @Html.AntiForgeryToken()
-
+    
     <div class="form-horizontal">
         <h4>Company</h4>
         <hr />
@@ -82,6 +79,16 @@
             <div class="col-md-10">
                 @Html.EditorFor(model => model.CompanyWebLink, new { htmlAttributes = new { @class = "form-control" } })
                 @Html.ValidationMessageFor(model => model.CompanyWebLink, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.IsActive, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                <div class="checkbox">
+                    @Html.EditorFor(model => model.IsActive)
+                    @Html.ValidationMessageFor(model => model.IsActive, "", new { @class = "text-danger" })
+                </div>
             </div>
         </div>
 
