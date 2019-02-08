@@ -48,7 +48,7 @@ namespace EventRegistrationSystem.Models
         [Url]
         public string CompanyWebLink { get; set; }
 
-        //public bool isActive { get; set; }
+        public bool IsActive { get; set; }
     }
 
 }
