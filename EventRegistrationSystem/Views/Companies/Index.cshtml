@@ -1,14 +1,14 @@
 ﻿@model IEnumerable<EventRegistrationSystem.Models.Company>
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Company Index";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Index</h2>
+<h2>Company Index</h2>
 
 <p>
-    @Html.ActionLink("Create New", "Create")
+    @Html.ActionLink("Add New Company", "Create")
 </p>
 <table class="table">
     <tr>
@@ -37,7 +37,7 @@
             @Html.DisplayNameFor(model => model.CompanyWebLink)
         </th>*@
         <th>
-            @Html.DisplayNameFor(model => model.IsActive)
+            @*@Html.DisplayNameFor(model => model.IsActive)*@
         </th>
         <th></th>
     </tr>
@@ -66,15 +66,15 @@
             @Html.DisplayFor(modelItem => item.PrimaryContactEmail)
         </td>*@
         <td>
-            @Html.DisplayFor(modelItem => item.CompanyWebLink)
+            @*@Html.DisplayFor(modelItem => item.CompanyWebLink)*@
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.IsActive)
+            @*@Html.DisplayFor(modelItem => item.IsActive)*@
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.CompanyID }) |
-            @Html.ActionLink("Details", "Details", new { id=item.CompanyID }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.CompanyID })
+            @Html.ActionLink("Company Details", "Details", new { id = item.CompanyID }) |
+            @Html.ActionLink("Edit", "Edit", new { id = item.CompanyID }) |
+            @Html.ActionLink("Delete", "Delete", new { id = item.CompanyID })
         </td>
     </tr>
 }

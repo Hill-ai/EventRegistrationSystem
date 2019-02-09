@@ -5,10 +5,10 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Details</h2>
+<h2>@Html.DisplayFor(model => model.Name)</h2>
 
 <div>
-    <h4>Company</h4>
+    <h4>Company Details</h4>
     <hr />
     <dl class="dl-horizontal">
         <dt>
@@ -87,5 +87,5 @@
 </div>
 <p>
     @Html.ActionLink("Edit", "Edit", new { id = Model.CompanyID }) |
-    @Html.ActionLink("Back to List", "Index")
+    @Html.ActionLink("Back to Company List", "Index")
 </p>
