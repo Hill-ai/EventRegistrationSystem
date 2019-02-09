@@ -10,6 +10,7 @@ using EventRegistrationSystem.Models;
 
 namespace EventRegistrationSystem.Controllers
 {
+    [Authorize(Roles = "ADMIN")]
     public class CompaniesController : Controller
     {
         private ApplicationDbContext db = new ApplicationDbContext();
