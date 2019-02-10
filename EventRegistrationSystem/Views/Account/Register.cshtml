@@ -10,7 +10,7 @@
     @Html.AntiForgeryToken()
     <h4>Create a new account.</h4>
                      
-    <input hidden="true" name="CompanyId" value="@ViewBag.CompanyId" />
+@*     <input hidden="true" name="CompanyId" value="@ViewBag.CompanyId" /> *@
                                                                     
     <hr />
     @Html.ValidationSummary("", new { @class = "text-danger" })

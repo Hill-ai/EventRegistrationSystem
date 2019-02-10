@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Data.Entity;
 using System.Linq;
 using System.Security.Claims;
@@ -11,15 +12,32 @@ using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin;
 using Microsoft.Owin.Security;
 using EventRegistrationSystem.Models;
+using SendGrid;
+using SendGrid.Helpers.Mail;
 
 namespace EventRegistrationSystem
 {
     public class EmailService : IIdentityMessageService
     {
-        public Task SendAsync(IdentityMessage message)
+        public async Task SendAsync(IdentityMessage message)
         {
             // Plug in your email service here to send an email.
-            return Task.FromResult(0);
+            var apiKey = ConfigurationManager.AppSettings["SendGridAPIKey"];
+            
+            var client = new SendGridClient(apiKey);
+            
+            var from = new EmailAddress("noreply@dod.com", "DoD");
+
+            var subject = message.Subject;
+            
+            var to = new EmailAddress(message.Destination);
+            
+            var plainTextContent = string.Empty;
+            var htmlContent = message.Body;
+            
+            var msg = MailHelper.CreateSingleEmail(from, to, subject, plainTextContent, htmlContent);
+            
+            await client.SendEmailAsync(msg);
         }
     }
 

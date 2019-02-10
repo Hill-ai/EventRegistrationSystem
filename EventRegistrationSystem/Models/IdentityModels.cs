@@ -47,11 +47,14 @@ namespace EventRegistrationSystem.Models
             return new ApplicationDbContext();
         }
 
-        public System.Data.Entity.DbSet<EventRegistrationSystem.Models.VolunteerEvent> VolunteerEvents { get; set; }
+        public DbSet<VolunteerEvent> VolunteerEvents { get; set; }
 
-        public virtual System.Data.Entity.DbSet<EventRegistrationSystem.Models.Company> Companies { get; set; }
+        public virtual DbSet<Company> Companies { get; set; }
 
-        public System.Data.Entity.DbSet<EventRegistrationSystem.Models.UsersVolunteerEvent> UsersVolunteerEvents { get; set; }
-        public System.Data.Entity.DbSet<EventRegistrationSystem.Models.NonProfit> NonProfits { get; set; }
+        public DbSet<UsersVolunteerEvent> UsersVolunteerEvents { get; set; }
+        
+        public DbSet<NonProfit> NonProfits { get; set; }
+        
+//        public DbSet<ApplicationUser> ApplicationUsers { get; set; } 
     }
 }
