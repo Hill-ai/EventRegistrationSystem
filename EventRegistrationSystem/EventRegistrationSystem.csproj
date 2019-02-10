@@ -327,7 +327,6 @@
     <Folder Include="App_Data\" />
     <Folder Include="DataAccess\" />
     <Folder Include="Views\AdminTest\" />
-    <Folder Include="Views\Registration\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
