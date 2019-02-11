@@ -211,9 +211,9 @@
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Attributes\RoleCheckAttribute.cs" />
     <Compile Include="Controllers\AccountController.cs" />
-    <Compile Include="Controllers\CompaniesController.cs" />
     <Compile Include="Controllers\NonProfitsController.cs" />
     <Compile Include="Controllers\VolunteerEventsController.cs" />
+    <Compile Include="Controllers\CompaniesController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Extensions\IdentityExtensions.cs" />
@@ -298,6 +298,11 @@
     <Content Include="Views\Manage\VerifyPhoneNumber.cshtml" />
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
+    <Content Include="Views\Companies\Create.cshtml" />
+    <Content Include="Views\Companies\Delete.cshtml" />
+    <Content Include="Views\Companies\Details.cshtml" />
+    <Content Include="Views\Companies\Edit.cshtml" />
+    <Content Include="Views\Companies\Index.cshtml" />
     <Content Include="Views\Home\VolunteerEvents.cshtml" />
     <Content Include="Views\VolunteerEvents\CreateVolunteerEvent.cshtml" />
     <Content Include="Views\Home\CreateVolunteerEvent.cshtml" />
@@ -313,11 +318,6 @@
     <Content Include="Views\NonProfits\Index.cshtml" />
     <Content Include="Views\Home\Gallery.cshtml" />
     <Content Include="Views\VolunteerEvents\RegisterForEvent.cshtml" />
-    <Content Include="Views\Companies\Create.cshtml" />
-    <Content Include="Views\Companies\Delete.cshtml" />
-    <Content Include="Views\Companies\Details.cshtml" />
-    <Content Include="Views\Companies\Edit.cshtml" />
-    <Content Include="Views\Companies\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Abstract\" />

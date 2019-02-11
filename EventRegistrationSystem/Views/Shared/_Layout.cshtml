@@ -41,12 +41,13 @@
                     {
                         @*<li>@Html.ActionLink("Home", "Index", "Home")</li>*@
                         @*<li>@Html.ActionLink("About", "About", "Home")</li>
-            <li>@Html.ActionLink("Contact", "Contact", "Home")</li>*@
-                        @*<li>@Html.ActionLink("Gallery", "Gallery", "Home")</li> *@
-                        <li>@Html.ActionLink("Manage Companies", "Index", "Companies")</li>
+                        <li>@Html.ActionLink("Contact", "Contact", "Home")</li>*@
+@*                         <li>@Html.ActionLink("Gallery", "Gallery", "Home")</li> *@
+                        <li>@Html.ActionLink("Create Company", "Create", "Companies")</li>
+                        <li>@Html.ActionLink("View Companies", "Index", "Companies")</li>
                         <li>@Html.ActionLink("View Volunteer Event", "Index", "VolunteerEvents")</li>
                         <li>@Html.ActionLink("Create Nonprofit", "Create", "NonProfits")</li>
-                        <li>@Html.ActionLink("View Nonprofits", "Index", "NonProfits")</li>
+                        <li>@Html.ActionLink("View Nonprofits", "Index", "NonProfits")</li>                                                                                        
                     }
                     else if (Context.User.Identity.IsAuthenticated && !User.IsInRole("ADMIN"))
                     {

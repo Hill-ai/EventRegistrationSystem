@@ -7,6 +7,5 @@
 	[PrimaryContactName] [nvarchar](100) NOT NULL,
 	[PrimaryContactPhoneNumber] [nvarchar](100) NULL,
 	[PrimaryContactEmail] [nvarchar](100) NOT NULL,
-	[CompanyWebLink] [nvarchar](100) NULL, 
-    [IsActive] BIT NOT NULL,
+	[CompanyWebLink] [nvarchar](100) NULL,
 );
