@@ -76,6 +76,14 @@
             @Html.DisplayFor(model => model.CompanyWebLink)
         </dd>
 
+        <dt>
+            @Html.DisplayNameFor(model => model.IsActive)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IsActive)
+        </dd>
+
     </dl>
 
     @using (Html.BeginForm()) {
@@ -83,7 +91,7 @@
 
         <div class="form-actions no-color">
             <input type="submit" value="Delete" class="btn btn-default" /> |
-            @Html.ActionLink("Back to List", "Index")
+            @Html.ActionLink("Back to Company List", "Index")
         </div>
     }
 </div>
