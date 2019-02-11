@@ -14,11 +14,14 @@ namespace EventRegistrationSystem.Controllers
     public class CompaniesController : Controller
     {
         private ApplicationDbContext db = new ApplicationDbContext();
-
+        public int PageSize = 4;
         // GET: Companies
-        public ActionResult Index()
+        public ActionResult Index(int page = 1)
         {
-            return View(db.Companies.ToList());
+            return View(db.Companies
+                .OrderBy(p => p.CompanyID)   // order by ID
+                .Skip((page - 1) * PageSize) // skip over companies inteded for preceding pages
+                .Take(PageSize));            // Take x company objects and pass them to the view
         }
 
         // GET: Companies/Details/5
