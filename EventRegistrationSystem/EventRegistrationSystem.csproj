@@ -223,6 +223,7 @@
     <Compile Include="Infrastructure\NinjectDependencyResolver.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Company.cs" />
+    <Compile Include="ViewModels\PagingInfo.cs" />
     <Compile Include="Models\UsersVolunteerEvent.cs" />
     <Compile Include="Models\NonProfit.cs" />
     <Compile Include="Models\VolunteerEvent.cs" />
