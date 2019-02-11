@@ -93,7 +93,8 @@
                             $description.append($('<p/>').html('<b>End Time: </b>' + calEvent.end.format("h:mm")));
                         }
                         $description.append($('<p/>').html('<b>Description: </b>' + calEvent.description));
-                        $description.append($('<p/>').html('<b>Cause: </b>' + calEvent.details));
+                       // $description.append($('<p/>').html('<b>Cause: </b>' + calEvent.details));
+                        
                         //$description.append($('<p/>').html('<b>:ID FOR TESTING</b>' + calEvent.id));
                         /*put a link in the modal that takes user straight to register page for this event*/
                         $description.append($('<p/>').html('<a href="/VolunteerEvents/Details/' + calEvent.id + '"><button>View Event</button></a>'));

@@ -76,7 +76,8 @@
             </dt>
 
             <dd>
-                @Html.DisplayFor(model => model.EventDate)
+               @* @Html.DisplayFor(model => model.EventDate)*@
+                @Html.DisplayFor(model => model.EventDate.Month)/@Html.DisplayFor(model => model.EventDate.Day)/@Html.DisplayFor(model => model.EventDate.Year)
             </dd>
 
             <dt>
@@ -86,7 +87,7 @@
 
             <dd>
 
-                @Html.DisplayFor(model => model.EventStartTime)
+                @Html.DisplayFor(model => model.EventStartTime.TimeOfDay)          
             </dd>
 
             <dt>
@@ -96,7 +97,7 @@
 
             <dd>
 
-                @Html.DisplayFor(model => model.EventEndTime)
+                @Html.DisplayFor(model => model.EventEndTime.TimeOfDay)
             </dd>
 
 
@@ -217,7 +218,7 @@
         @Html.AntiForgeryToken()
 
         <div class="form-actions no-color">
-            <input type="submit" value="Register" class="btn btn-default" onclick="return AcceptTerms();" /> |
+            <input type="submit" value="Register" class="btn btn-default" onclick="return AcceptTerms();" /> 
             @*@Html.ActionLink("Back To List", "Index")*@
         </div>
     }
