@@ -223,6 +223,9 @@
     <Compile Include="Infrastructure\NinjectDependencyResolver.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Company.cs" />
+    <Compile Include="HtmlHelpers\PagingHelpers.cs" />
+    <Compile Include="ViewModels\CompanyIndexViewModel.cs" />
+    <Compile Include="ViewModels\PagingInfo.cs" />
     <Compile Include="Models\UsersVolunteerEvent.cs" />
     <Compile Include="Models\NonProfit.cs" />
     <Compile Include="Models\VolunteerEvent.cs" />
@@ -318,6 +321,8 @@
     <Content Include="Views\Companies\Details.cshtml" />
     <Content Include="Views\Companies\Edit.cshtml" />
     <Content Include="Views\Companies\Index.cshtml" />
+    <Content Include="Views\Shared\_CompanySummary.cshtml" />
+    <Content Include="Views\Companies\_CompanySummary.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Abstract\" />

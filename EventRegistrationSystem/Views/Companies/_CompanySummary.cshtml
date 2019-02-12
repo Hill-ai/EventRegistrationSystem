@@ -1,0 +1,20 @@
+﻿@*@model EventRegistrationSystem.ViewModels.CompanyIndexViewModel
+
+<div class="panel">
+    <h3>@Model.Company.Name</h3>
+    <h4>@Model.Company.PhoneNumber</h4>
+    <h4>@Model.Company.Email</h4>
+    <h4>@Model.Company.PrimaryContactName</h4>
+</div>*@
+
+@*@foreach (var c in Model.Companies)
+    {
+        <div class="panel">
+            <h3>@c.Name</h3>
+            <h4>@c.PhoneNumber</h4>
+            <h4>@c.Email</h4>
+            <h4>@c.PrimaryContactName</h4>
+        </div>
+    }*@
+
+@*@foreach (var c in Model.Companies)

@@ -7,6 +7,7 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using EventRegistrationSystem.Models;
+using EventRegistrationSystem.ViewModels;
 
 namespace EventRegistrationSystem.Controllers
 {
@@ -14,11 +15,24 @@ namespace EventRegistrationSystem.Controllers
     public class CompaniesController : Controller
     {
         private ApplicationDbContext db = new ApplicationDbContext();
-
+        public int PageSize = 7;
         // GET: Companies
-        public ActionResult Index()
+        public ActionResult Index(int page = 1)
         {
-            return View(db.Companies.ToList());
+            CompanyIndexViewModel model = new CompanyIndexViewModel
+            {
+                Companies = db.Companies
+                .OrderBy(p => p.CompanyID)   // order by ID
+                .Skip((page - 1) * PageSize) // skip over companies inteded for preceding pages
+                .Take(PageSize),             // Take x company objects 
+                PagingInfo = new PagingInfo
+                {
+                    CurrentPage = page,
+                    ItemsPerPage = PageSize,
+                    TotalItems = db.Companies.Count()
+                }
+            };
+            return View(model);  // Pass CompanyIndexViewModel object to the view      
         }
 
         // GET: Companies/Details/5
