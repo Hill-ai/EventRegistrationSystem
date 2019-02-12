@@ -1,5 +1,4 @@
 ﻿@model EventRegistrationSystem.ViewModels.CompanyIndexViewModel
-@*@model IEnumerable<EventRegistrationSystem.Models.Company>*@
 @{
     ViewBag.Title = "Company Index";
     Layout = "~/Views/Shared/_Layout.cshtml";
@@ -82,3 +81,5 @@
 
 </table>
 <div>    @Html.PageLinks(Model.PagingInfo, x => Url.Action("Index", new { page = x })) </div>
+
+
