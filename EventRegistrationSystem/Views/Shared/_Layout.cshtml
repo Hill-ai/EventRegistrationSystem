@@ -42,21 +42,7 @@
                         @*<li>@Html.ActionLink("Home", "Index", "Home")</li>*@
                         @*<li>@Html.ActionLink("About", "About", "Home")</li>
             <li>@Html.ActionLink("Contact", "Contact", "Home")</li>*@
-                        @*                         <li>@Html.ActionLink("Gallery", "Gallery", "Home")</li> *@
-                        <li class="dropdown">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
-                               aria-expanded="false">Dropdown<span class="caret"></span></a>
-                            <ul class="dropdown-menu">
-                                <li>@Html.ActionLink("Create Company", "Create", "Companies")</li>
-                                <li>@Html.ActionLink("View Companies", "Index", "Companies")</li>
-                                <li>@Html.ActionLink("View Volunteer Event", "Index", "VolunteerEvents")</li>
-                                <li>@Html.ActionLink("Create Nonprofit", "Create", "NonProfits")</li>
-                                <li>@Html.ActionLink("View Nonprofits", "Index", "NonProfits")</li>
-                                <li>@Html.ActionLink("Registration Links", "Index", "Registration")</li>
-                                <li>@Html.ActionLink("Create Event", "Create", "VolunteerEvents")</li>
-                                <li>@Html.ActionLink("View Event", "Index", "VolunteerEvents")</li>
-                            </ul>
-                        </li>
+                        @*                         <li>@Html.ActionLink("Gallery", "Gallery", "Home")</li> *@                 
                         <li class="dropdown">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
                                aria-expanded="false">Companies<span class="caret"></span></a>
@@ -69,18 +55,19 @@
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
                                aria-expanded="false">NonProfits<span class="caret"></span></a>
                             <ul class="dropdown-menu">
-                                <li>@Html.ActionLink("Create Nonprofit", "Create", "NonProfits")</li>
                                 <li>@Html.ActionLink("View Nonprofits", "Index", "NonProfits")</li>
+                                <li>@Html.ActionLink("Create Nonprofit", "Create", "NonProfits")</li>
                             </ul>
                         </li>
                         <li class="dropdown">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
-                               aria-expanded="false">NonProfits<span class="caret"></span></a>
+                               aria-expanded="false">Events<span class="caret"></span></a>
                             <ul class="dropdown-menu">
-                                <li>@Html.ActionLink("View Volunteer Events", "Index", "VolunteerEvents")</li>
-           
+                                <li>@Html.ActionLink("View Events", "Index", "VolunteerEvents")</li>
+                                <li>@Html.ActionLink("Create Event", "Create", "VolunteerEvents")</li>
                             </ul>
                         </li>
+                        <li>@Html.ActionLink("Employees", "ViewEmployees", "Administrative")</li>
                         <li>@Html.ActionLink("Registration Links", "Index", "Registration")</li>
                     }
                     else if (Context.User.Identity.IsAuthenticated && !User.IsInRole("ADMIN"))

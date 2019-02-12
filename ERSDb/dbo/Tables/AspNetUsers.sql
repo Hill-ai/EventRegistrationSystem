@@ -1,7 +1,7 @@
 ﻿CREATE TABLE [dbo].[AspNetUsers] (
     [Id]					NVARCHAR (128)	NOT NULL,
     [Email]					NVARCHAR (256)	NULL,
-    [EmailConfirmed]		BIT				NOT NULL,
+    [EmailConfirmed]		BIT				NOT NULL DEFAULT 1,
     [PasswordHash]			NVARCHAR (MAX)	NULL,
     [SecurityStamp]			NVARCHAR (MAX)	NULL,
     [PhoneNumber]			NVARCHAR (MAX)	NULL,
