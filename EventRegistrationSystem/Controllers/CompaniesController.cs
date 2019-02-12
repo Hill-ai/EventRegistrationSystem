@@ -15,7 +15,7 @@ namespace EventRegistrationSystem.Controllers
     public class CompaniesController : Controller
     {
         private ApplicationDbContext db = new ApplicationDbContext();
-        public int PageSize = 4;
+        public int PageSize = 7;
         // GET: Companies
         public ActionResult Index(int page = 1)
         {
