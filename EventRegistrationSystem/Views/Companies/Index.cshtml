@@ -54,6 +54,44 @@
 
 
 @*@foreach (var c in Model.Companies)
-{
-    @Html.Partial("CompanySummary", c)
-}*@
+    {
+        @Html.Partial("CompanySummary", c)
+    }*@
+
+
+
+@*@model EventRegistrationSystem.ViewModels.CompanyIndexViewModel
+
+    <div class="panel">
+        <h3>@Model.Company.Name</h3>
+        <h4>@Model.Company.PhoneNumber</h4>
+        <h4>@Model.Company.Email</h4>
+        <h4>@Model.Company.PrimaryContactName</h4>
+    </div>*@
+
+@*<h3>
+    @Html.DisplayNameFor(model => model.Company.Name)
+</h3>
+<h4>
+    @Html.DisplayNameFor(model => model.Company.PhoneNumber)
+</h4>
+<h4>
+    @Html.DisplayNameFor(model => model.Company.Email)
+</h4>
+<h4>
+    @Html.DisplayNameFor(model => model.Company.Email)
+</h4>
+<h4>
+    @Html.DisplayNameFor(model => model.Company.PrimaryContactName)
+</h4>
+
+
+    @foreach (var c in Model.Companies)
+    {
+        <div class="panel">
+            <h3>@c.Name</h3>
+            <h4>@c.PhoneNumber</h4>
+            <h4>@c.Email</h4>
+            <h4>@c.PrimaryContactName</h4>
+        </div>
+    }*@
