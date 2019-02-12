@@ -15,26 +15,26 @@
             @Html.DisplayNameFor(model => model.Company.Name)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Company.Address)
-        </th>
-        <th>
             @Html.DisplayNameFor(model => model.Company.PhoneNumber)
         </th>
         <th>
             @Html.DisplayNameFor(model => model.Company.Email)
         </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Company.PrimaryContactName)
+        </th>
         @*<th>
-                @Html.DisplayNameFor(model => model.PrimaryContactName)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.PrimaryContactPhoneNumber)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.PrimaryContactEmail)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.CompanyWebLink)
-            </th>*@
+            @Html.DisplayNameFor(model => model.PrimaryContactName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PrimaryContactPhoneNumber)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PrimaryContactEmail)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CompanyWebLink)
+        </th>*@
         <th>
             @*@Html.DisplayNameFor(model => model.IsActive)*@
         </th>
@@ -43,40 +43,40 @@
 
     @foreach (var item in Model.Companies)
     {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Name)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Address)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.PhoneNumber)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Email)
-            </td>
-            @*<td>
-                    @Html.DisplayFor(modelItem => item.PrimaryContactName)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.PrimaryContactPhoneNumber)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.PrimaryContactEmail)
-                </td>*@
-            <td>
-                @*@Html.DisplayFor(modelItem => item.CompanyWebLink)*@
-            </td>
-            <td>
-                @*@Html.DisplayFor(modelItem => item.IsActive)*@
-            </td>
-            <td>
-                @Html.ActionLink("Company Details", "Details", new { id = item.CompanyID }) |
-                @Html.ActionLink("Edit", "Edit", new { id = item.CompanyID }) |
-                @Html.ActionLink("Delete", "Delete", new { id = item.CompanyID })
-            </td>
-        </tr>
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PhoneNumber)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Email)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PrimaryContactName)
+        </td>
+        @*<td>
+            @Html.DisplayFor(modelItem => item.PrimaryContactName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PrimaryContactPhoneNumber)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PrimaryContactEmail)
+        </td>*@
+        <td>
+            @*@Html.DisplayFor(modelItem => item.CompanyWebLink)*@
+        </td>
+        <td>
+            @*@Html.DisplayFor(modelItem => item.IsActive)*@
+        </td>
+        <td>
+            @Html.ActionLink("Company Details", "Details", new { id = item.CompanyID }) |
+            @Html.ActionLink("Edit", "Edit", new { id = item.CompanyID }) |
+            @Html.ActionLink("Delete", "Delete", new { id = item.CompanyID })
+        </td>
+    </tr>
     }
 
 </table>
