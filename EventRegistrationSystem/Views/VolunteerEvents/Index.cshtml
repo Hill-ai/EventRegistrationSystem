@@ -4,7 +4,7 @@
     ViewBag.Title = "Volunteer Events";
 }
 
-<h2>Volunteer Events</h2>
+<h2>Volunteer Events Calender</h2>
 
 
 
@@ -87,13 +87,14 @@
                     eventClick: function (calEvent, jsEvent, view) {
                         $('#myModal #eventTitle').text(calEvent.title);
                         var $description = $('<div/>');
-                        $description.append($('<p/>').html('<b>Date:</b>' + calEvent.date.format("DD-MMM-YYYY")));
-                        $description.append($('<p/>').html('<b>Start Time:</b>' + calEvent.start.format("HH:mm a")));
+                        $description.append($('<p/>').html('<b>Date: </b>' + calEvent.date.format("MM-DD-YYYY")));
+                        $description.append($('<p/>').html('<b>Start Time: </b>' + calEvent.start.format("h:mm")));
                         if (calEvent.end != null) {
-                            $description.append($('<p/>').html('<b>End Time:</b>' + calEvent.end.format("HH:mm a")));
+                            $description.append($('<p/>').html('<b>End Time: </b>' + calEvent.end.format("h:mm")));
                         }
-                        $description.append($('<p/>').html('<b>Description:</b>' + calEvent.description));
-                        $description.append($('<p/>').html('<b>Details:</b>' + calEvent.details));
+                        $description.append($('<p/>').html('<b>Description: </b>' + calEvent.description));
+                       // $description.append($('<p/>').html('<b>Cause: </b>' + calEvent.details));
+                        
                         //$description.append($('<p/>').html('<b>:ID FOR TESTING</b>' + calEvent.id));
                         /*put a link in the modal that takes user straight to register page for this event*/
                         $description.append($('<p/>').html('<a href="/VolunteerEvents/Details/' + calEvent.id + '"><button>View Event</button></a>'));
@@ -109,11 +110,11 @@
 }
 
 
-    @*<p>
+@*<p>
 
 
         Html.ActionLink("Create New", "Create")
-        
+
         Select a month to view events:
         @Html.ActionLink("January", "Index", new { month = 1 }) |
         @Html.ActionLink("February", "Index", new { month = 2 }) |
@@ -130,42 +131,64 @@
 
     </p>
 *@
+
+    <h2>Volunteer Events Table</h2>
+<p>
+    <br />
+    Order Events By:
+    @Html.ActionLink("Name", "Index", new { tableOrderBy = 1 }) |
+    @Html.ActionLink("Date", "Index", new { tableOrderBy = 2 }) |
+    @Html.ActionLink("Cause", "Index", new { tableOrderBy = 3 }) |
+    @Html.ActionLink("Non-Profit", "Index", new { tableOrderBy = 4 }) |
+    @Html.ActionLink("Company Participating", "Index", new { tableOrderBy = 5 }) 
+    
+</p>
+<br />
+
 <table class="table">
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.EventName)
+           @* @Html.DisplayNameFor(model => model.EventName)*@
+            Name
         </th>
 
         <th>
-            @Html.DisplayNameFor(model => model.EventDate)
+            @*@Html.DisplayNameFor(model => model.EventDate)*@
+            Date
         </th>
 
 
 
-
+        <th>
+            @*@Html.DisplayNameFor(model => model.EventDetails)*@
+            Cause
+        </th>
 
         @*
         <th>
             @Html.DisplayNameFor(model => model.NonProfitID)
         </th>
+            *@
 
-        *@
-        @*
+        
         <th>
-            @Html.DisplayNameFor(model => model.NonProfit)
+            @*@Html.DisplayNameFor(model => model.NonProfit)*@
+            Non-Profit
         </th>
-        *@
-        @*
+        
+
         <th>
-            @Html.DisplayNameFor(model => model.Company)
+            @*@Html.DisplayNameFor(model => model.Company)*@
+            Company Participating
         </th>
-        *@
+
 
         <!--
         <th>
-        (at) Html.DisplayNameFor(model => model.EventTime)
-    </th>
+            @*@Html.DisplayNameFor(model => model.EventTime)*@
+         </th>
         -->
+
         @*
         <th>
             @Html.DisplayNameFor(model => model.RestrictedByCompany)
@@ -179,23 +202,25 @@
         <th>
             @Html.DisplayNameFor(model => model.EventCapacity)
         </th>
-
-
         *@
 
+        @*
         <th>
             @Html.DisplayNameFor(model => model.EventDescription)
         </th>
-
+            *@
+        
+        @*
         <th>
             @Html.DisplayNameFor(model => model.EventStartTime)
+            Start Time
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.EventEndTime)
+           @Html.DisplayNameFor(model => model.EventEndTime)
+            End Time
         </th>
-        <th>
-            @Html.DisplayNameFor(model => model.EventDetails)
-        </th>
+        *@
+
         @*
            <th>
             @Html.DisplayNameFor(model => model.EventInterest)
@@ -207,7 +232,10 @@
             @Html.DisplayNameFor(model => model.EventTotalTime)
         </th>
         *@
-        <th></th>
+
+        <!--<th>
+            </th>-->
+
     </tr>
 
     @foreach (var item in Model)
@@ -224,23 +252,25 @@
         </td>
 
 
-
+        <td>
+            @Html.DisplayFor(modelItem => item.EventDetails)
+        </td>
         @*
         <td>
             @Html.DisplayFor(modelItem => item.NonProfitID)
         </td>
         *@
-        @*
+        
         <td>
             @Html.DisplayFor(modelItem => item.NonProfit)
         </td>
-        *@
+        
 
-        @*
+
         <td>
             @Html.DisplayFor(modelItem => item.Company)
         </td>
-        *@
+
 
         <!--
 
@@ -264,20 +294,20 @@
 
         *@
 
-
+        @*
         <td>
             @Html.DisplayFor(modelItem => item.EventDescription)
         </td>
-
+            *@
+        @*
         <td>
-            @Html.DisplayFor(modelItem => item.EventStartTime.TimeOfDay)
+            @Html.DisplayFor(modelItem => item.EventStartTime.TimeOfDay) 
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.EventEndTime.TimeOfDay)
         </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.EventDetails)
-        </td>
+            *@
+
         @*
         <td>
             @Html.DisplayFor(modelItem => item.EventInterest)
@@ -292,7 +322,7 @@
         <td>
             @*@Html.ActionLink("Edit", "Edit", new { id = item.VolunteerEventId }) |*@
             @Html.ActionLink("View Event", "Details", new { id = item.VolunteerEventId })
-           @* @Html.ActionLink("Delete", "Delete", new { id = item.VolunteerEventId })*@
+            @* @Html.ActionLink("Delete", "Delete", new { id = item.VolunteerEventId })*@
         </td>
     </tr>
     }

@@ -4,167 +4,228 @@
     ViewBag.Title = "Details";
 }
 
-<h2>Details</h2>
 
-<div>
-    <h4>Event</h4>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.Company)
-        </dt>
+@section Scripts{
 
-        <dd>
-            @Html.DisplayFor(model => model.Company)
-        </dd>
+    <script language="javascript" type="text/javascript">
+        function AcceptTerms() {
 
-        <dt>
-            @Html.DisplayNameFor(model => model.NonProfit)
-        </dt>
+            if ($("#CheckBox1").is(':checked')) {
+                return true;
+            }
+            else {
+                alert("Registration cannot be completed without agreeing to the event's waiver of liability");
+                return false;
+            }
+        }
+    </script>
+    }
 
-        <dd>
-            @Html.DisplayFor(model => model.NonProfit)
-        </dd>
+    <h2>Event Details</h2>
 
-        @*<dt>
-                @Html.DisplayNameFor(model => model.EventTime)
-            </dt>*@
+    <div>
+      
+        <hr />
+        <dl class="dl-horizontal">
 
-        @*<dd>
-                @Html.DisplayFor(model => model.EventTime)
-            </dd>*@
-        @*
+
             <dt>
-                @Html.DisplayNameFor(model => model.RestrictedByCompany)
+                @*@Html.DisplayNameFor(model => model.EventName)*@
+                Event Name
             </dt>
 
             <dd>
-                @Html.DisplayFor(model => model.RestrictedByCompany)
+                @Html.DisplayFor(model => model.EventName)
             </dd>
 
             <dt>
-                @Html.DisplayNameFor(model => model.EventLocked)
+                @*@Html.DisplayNameFor(model => model.Company)*@
+                Company Participating
             </dt>
 
             <dd>
-                @Html.DisplayFor(model => model.EventLocked)
+                @Html.DisplayFor(model => model.Company)
             </dd>
 
             <dt>
-                @Html.DisplayNameFor(model => model.EventHidden)
+
+                @*@Html.DisplayNameFor(model => model.NonProfit)*@
+                Non-Profit
             </dt>
 
-            <dd>
-                @Html.DisplayFor(model => model.EventHidden)
-            </dd>
-
-            <dt>
-                @Html.DisplayNameFor(model => model.EventCapacity)
-            </dt>
 
             <dd>
-                @Html.DisplayFor(model => model.EventCapacity)
+                @Html.DisplayFor(model => model.NonProfit)
             </dd>
-        *@
-        <dt>
-            @Html.DisplayNameFor(model => model.EventName)
-        </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.EventName)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.EventDescription)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.EventDescription)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.EventDate)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.EventDate)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.EventStartTime)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.EventStartTime)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.EventEndTime)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.EventEndTime)
-        </dd>
-
+            @*
         <dt>
             @Html.DisplayNameFor(model => model.EventDetails)
+            Cause
         </dt>
 
         <dd>
             @Html.DisplayFor(model => model.EventDetails)
         </dd>
-        @*
+
+            *@
+
             <dt>
-                @Html.DisplayNameFor(model => model.EventInterest)
+                @*@Html.DisplayNameFor(model => model.EventDate)*@
+                Date
             </dt>
 
             <dd>
-                @Html.DisplayFor(model => model.EventInterest)
+               @* @Html.DisplayFor(model => model.EventDate)*@
+                @Html.DisplayFor(model => model.EventDate.Month)/@Html.DisplayFor(model => model.EventDate.Day)/@Html.DisplayFor(model => model.EventDate.Year)
             </dd>
-        *@
+
+            <dt>
+                @*@Html.DisplayNameFor(model => model.EventStartTime)*@
+                Start Time
+            </dt>
+
+            <dd>
+
+                @Html.DisplayFor(model => model.EventStartTime.TimeOfDay)          
+            </dd>
+
+            <dt>
+                @* @Html.DisplayNameFor(model => model.EventEndTime)*@
+                End Time
+            </dt>
+
+            <dd>
+
+                @Html.DisplayFor(model => model.EventEndTime.TimeOfDay)
+            </dd>
 
 
+            <dt>
+                @*
+            @Html.DisplayNameFor(model => model.EventDescription)
+                *@
+                Description
+            </dt>
 
+            <dd>
+                @Html.DisplayFor(model => model.EventDescription)
+            </dd>
+
+           
+
+            @*<dt>
+            @Html.DisplayNameFor(model => model.EventTime)
+        </dt>*@
+
+            @*<dd>
+            @Html.DisplayFor(model => model.EventTime)
+        </dd>*@
+            @*
         <dt>
-            @Html.DisplayNameFor(model => model.EventFiles)
+            @Html.DisplayNameFor(model => model.RestrictedByCompany)
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.EventFiles)
+            @Html.DisplayFor(model => model.RestrictedByCompany)
         </dd>
-        @*
-            <dt>
-                @Html.DisplayNameFor(model => model.EventTotalTime)
-            </dt>
 
-            <dd>
-                @Html.DisplayFor(model => model.EventTotalTime)
-            </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.EventLocked)
+        </dt>
 
-            <dt>
-                @Html.DisplayNameFor(model => model.NonProfitID)
-            </dt>
+        <dd>
+            @Html.DisplayFor(model => model.EventLocked)
+        </dd>
 
-            <dd>
-                @Html.DisplayFor(model => model.NonProfitID)
-            </dd>
-        *@
-    </dl>
-</div>
+        <dt>
+            @Html.DisplayNameFor(model => model.EventHidden)
+        </dt>
 
-@using (Html.BeginForm())
-{
-    @Html.AntiForgeryToken()
+        <dd>
+            @Html.DisplayFor(model => model.EventHidden)
+        </dd>
 
-    <div class="form-actions no-color">
-        <input type="submit" value="Register" class="btn btn-default" /> |
-        @Html.ActionLink("Back To List", "Index")
+        <dt>
+            @Html.DisplayNameFor(model => model.EventCapacity)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.EventCapacity)
+        </dd>
+            *@
+
+
+
+
+
+
+
+            @*
+        <dt>
+            @Html.DisplayNameFor(model => model.EventInterest)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.EventInterest)
+        </dd>
+            *@
+
+
+
+
+            @*
+        <dt>
+            @Html.DisplayNameFor(model => model.EventTotalTime)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.EventTotalTime)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NonProfitID)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NonProfitID)
+        </dd>
+            *@
+        </dl>
     </div>
-}
+    <br />
+    
+        <h4>
+            @*@Html.DisplayNameFor(model => model.EventFiles)*@
+            Event Wiaver of Liability
+        </h4>
 
-@*
-<p>
-    @Html.ActionLink("Register", "Index", new { id = Model.VolunteerEventId }) |
-    @Html.ActionLink("Back to List", "Index")
-</p>
-*@
+        <p>
+            @Html.DisplayFor(model => model.EventFiles)
+        </p>
+        
+        <input id="CheckBox1" name="CheckBox1" type="checkbox" value="true" /> I agree to this event's waiver of liability
+
+   
+
+<br />
+<br />
+
+<!--<input type="submit" value="New" onclick="Enable();">-->
+
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Register" class="btn btn-default" onclick="return AcceptTerms();" /> 
+            @*@Html.ActionLink("Back To List", "Index")*@
+        </div>
+    }
+
+    @*
+        <p>
+            @Html.ActionLink("Register", "Index", new { id = Model.VolunteerEventId }) |
+            @Html.ActionLink("Back to List", "Index")
+        </p>
+    *@
