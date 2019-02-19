@@ -62,8 +62,17 @@ namespace EventRegistrationSystem.Controllers
                 return View(model);
             }
 
+            var existingUser = UserManager.FindByEmail(model.Email);
+            if (existingUser != null && !existingUser.IsActive)
+            {
+                ModelState.AddModelError("", "User account/email has been deactivated.");
+                return View(model);
+            }
+
             // This doesn't count login failures towards account lockout
             // To enable password failures to trigger account lockout, change to shouldLockout: true
+
+
             var result = await SignInManager.PasswordSignInAsync(model.Email, model.Password, model.RememberMe,
                 shouldLockout: false);
             switch (result)
@@ -131,22 +140,21 @@ namespace EventRegistrationSystem.Controllers
         [AllowAnonymous]
         public ActionResult Register(string contractToken)
         {
-            return View();
-//            using (var db = new ApplicationDbContext())
-//            {
-//                var company = db.Companies.FirstOrDefault(
-//                    comp => string.Equals(contractToken, comp.ContractToken.ToString()));
-//
-//                if (company == null)
-//                {
-//                    return View("UnAuthorizedRegister");
-//                }
-//
-//                ViewBag.CompanyId = company.CompanyID;
-//                ViewBag.CompanyName = company.Name;
-//
-//                return View();
-//            }
+            using (var db = new ApplicationDbContext())
+            {
+                var company = db.Companies.FirstOrDefault(
+                    comp => string.Equals(contractToken, comp.ContractToken.ToString()));
+
+                if (company == null)
+                {
+                    return View("UnAuthorizedRegister");
+                }
+
+                ViewBag.CompanyId = company.CompanyID;
+                ViewBag.CompanyName = company.Name;
+
+                return View();
+            }
         }
 
         //
