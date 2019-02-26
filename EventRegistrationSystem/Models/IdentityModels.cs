@@ -49,5 +49,7 @@ namespace EventRegistrationSystem.Models
 
         public System.Data.Entity.DbSet<EventRegistrationSystem.Models.UsersVolunteerEvent> UsersVolunteerEvents { get; set; }
         public System.Data.Entity.DbSet<EventRegistrationSystem.Models.NonProfit> NonProfits { get; set; }
+
+        public System.Data.Entity.DbSet<EventRegistrationSystem.Models.Tag> Tags { get; set; }
     }
 }
