@@ -11,4 +11,4 @@ Post-Deployment Script Template
 */
 :r .\SeedCompanies.sql 
 :r .\SeedRoles.sql
-:r .\SeedVolunteerEvents.sql
+:r .\SeedTags.sql
