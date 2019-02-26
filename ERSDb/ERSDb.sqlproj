@@ -87,6 +87,7 @@
   </ItemGroup>
   <ItemGroup>
     <PostDeploy Include="dbo\Scripts\PostDeployment\Script.PostDeployment.sql" />
+    <None Include="dbo\Scripts\PostDeployment\SeedTags.sql" />
   </ItemGroup>
   <ItemGroup>
     <RefactorLog Include="ERSDb.refactorlog" />
