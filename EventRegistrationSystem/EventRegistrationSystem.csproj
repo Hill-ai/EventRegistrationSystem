@@ -237,10 +237,9 @@
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Attributes\RoleCheckAttribute.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\AdminTestController.cs" />
     <Compile Include="Controllers\CompaniesController.cs" />
-    <Compile Include="Controllers\AdministrativeController.cs" />
     <Compile Include="Controllers\NonProfitsController.cs" />
-    <Compile Include="Controllers\RegistrationController.cs" />
     <Compile Include="Controllers\VolunteerEventsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
@@ -256,8 +255,6 @@
     <Compile Include="ViewModels\PagingInfo.cs" />
     <Compile Include="Models\UsersVolunteerEvent.cs" />
     <Compile Include="Models\NonProfit.cs" />
-    <Compile Include="Models\ViewModels\BasicEmployee.cs" />
-    <Compile Include="Models\ViewModels\BasicEmployeeCompanyGroup.cs" />
     <Compile Include="Models\VolunteerEvent.cs" />
     <Compile Include="Models\EFCompanyRepository.cs" />
     <Compile Include="Models\FakeEventsRepository.cs" />
@@ -409,6 +406,7 @@
     <Folder Include="Abstract\" />
     <Folder Include="App_Data\" />
     <Folder Include="DataAccess\" />
+    <Folder Include="Models\ViewModels\" />
     <Folder Include="Views\AdminTest\" />
   </ItemGroup>
   <ItemGroup>
