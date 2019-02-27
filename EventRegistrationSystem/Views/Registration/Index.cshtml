@@ -1,0 +1,27 @@
+@model System.Collections.Generic.List<EventRegistrationSystem.Models.Company>
+
+@{
+    ViewBag.Title = "Register Links";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>title</h2>
+<div class="container">
+@foreach (var company in @Model)
+{
+    <div class="panel panel-default">
+        
+        <div class="panel-title">
+            @company.Name            
+        </div>
+        
+        <div class="panel-body">
+            <a>
+                www.DayOfDifference.azurewebsites.net/Account/Register?contractToken=@company.ContractToken
+            </a>            
+                
+        </div>
+    </div>    
+}
+    
+</div>

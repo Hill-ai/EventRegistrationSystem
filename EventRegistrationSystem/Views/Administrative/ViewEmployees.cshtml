@@ -1,0 +1,32 @@
+@model System.Collections.Generic.IEnumerable<EventRegistrationSystem.Models.ViewModels.BasicEmployeeCompanyGroup>
+
+@{
+}
+
+@foreach (var group in Model)
+{
+    <div>
+        <h3>@group.CompanyName</h3>
+        <table class="table table-hover table-bordered">
+            <tr>
+                <td>Email</td>
+                <td>First Name</td>
+                <td>Last Name</td>
+                <td>Active</td>
+            </tr>
+            @foreach (var employee in group.BasicEmployees)
+            {
+                <tr>
+                    <td>@employee.Email</td>
+                    <td>@employee.FirstName</td>
+                    <td>@employee.LastName</td>
+                    <td>@employee.IsActive</td>
+                    <td>
+                        @Html.ActionLink("Toggle Employee Active", "ToggleEmployeeIsActive",
+                                 new {userId = employee.Id})
+                    </td>
+                </tr>
+            }
+        </table>
+    </div>
+}
