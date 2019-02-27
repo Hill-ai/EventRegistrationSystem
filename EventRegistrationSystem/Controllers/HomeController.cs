@@ -49,5 +49,12 @@ namespace EventRegistrationSystem.Controllers
 
             return View();
         }
+
+        public ActionResult GenerateReport()
+        {
+            ViewBag.Message = "Report Generation Dashboard";
+
+            return View();
+        }
     }
 }

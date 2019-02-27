@@ -401,6 +401,7 @@
     <Content Include="Views\Companies\Index.cshtml" />
     <Content Include="Views\Shared\_CompanySummary.cshtml" />
     <Content Include="Views\Companies\_CompanySummary.cshtml" />
+    <Content Include="Views\Home\GenerateReport.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Abstract\" />
