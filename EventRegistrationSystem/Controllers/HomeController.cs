@@ -50,6 +50,7 @@ namespace EventRegistrationSystem.Controllers
             return View();
         }
 
+        [Authorize(Roles = "ADMIN")]
         public ActionResult GenerateReport()
         {
             ViewBag.Message = "Report Generation Dashboard";
