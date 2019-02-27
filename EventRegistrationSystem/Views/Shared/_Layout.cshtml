@@ -193,8 +193,12 @@
     * Call the updateReportDashboard function as well as any other necessary functions
     * returns {boolean} Always return false
     */
-    function submitForm(){
-    return false;
+    function submitForm() {
+        var reportView = document.getElementById("report-view");
+        if (reportView.style.display === "none") {
+            reportView.style.display = "block";
+        }   
+        return false;
     }
     </script>
 
