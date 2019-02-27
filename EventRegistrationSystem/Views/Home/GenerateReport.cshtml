@@ -21,44 +21,71 @@
 <h4>
     Select Report Type
 </h4>
-<!-- Material unchecked -->
-<div class="form-check">
-    <input type="radio" class="form-check-input" id="materialUnchecked" name="materialExampleRadios">
-    <label class="form-check-label" for="materialUnchecked">Overall hours volunteered at each non-profit</label>
-</div>
 
-<!-- Material unchecked -->
-<div class="form-check">
-    <input type="radio" class="form-check-input" id="materialUnchecked" name="materialExampleRadios">
-    <label class="form-check-label" for="materialUnchecked">Hours volunteered by each employee at each non-profit</label>
-</div>
+<form name="reportDashboardForm" action="" onsubmit="return SubmitForm()" method="post">
+    <div id="payment-form">
+        <fieldset class="payment-selection">
 
-<!-- Material unchecked -->
-<div class="form-check">
-    <input type="radio" class="form-check-input" id="materialUnchecked" name="materialExampleRadios">
-    <label class="form-check-label" for="materialUnchecked">Overall hours volunteered by each employee</label>
-</div>
+            <div class="form-check">
+                <input type="radio" class="form-check-input" id="reportType1" value="reportType1" name="reportType" onclick="updateReportDashboard(this);">
+                <label class="form-check-label" for="materialUnchecked">Overall hours volunteered at each non-profit</label>
+            </div>
 
-<!-- Material unchecked -->
-<div class="form-check">
-    <input type="radio" class="form-check-input" id="materialUnchecked" name="materialExampleRadios">
-    <label class="form-check-label" for="materialUnchecked">Hours volunteered by each company at each non-profit</label>
-</div>
+            <div class="form-check">
+                <input type="radio" class="form-check-input" id="reportType2" value="reportType2" name="reportType" onclick="updateReportDashboard(this);">
+                <label class="form-check-label" for="materialUnchecked">Hours volunteered by each employee at each non-profit</label>
+            </div>
 
-<!-- Material unchecked -->
-<div class="form-check">
-    <input type="radio" class="form-check-input" id="materialUnchecked" name="materialExampleRadios">
-    <label class="form-check-label" for="materialUnchecked">Overall hours volunteered by each company</label>
-</div>
+            <div class="form-check">
+                <input type="radio" class="form-check-input" id="reportType3" value="reportType3" name="reportType" onclick="updateReportDashboard(this);">
+                <label class="form-check-label" for="materialUnchecked">Overall hours volunteered by each employee</label>
+            </div>
 
-<!-- Material unchecked -->
-<div class="form-check">
-    <input type="radio" class="form-check-input" id="materialUnchecked" name="materialExampleRadios">
-    <label class="form-check-label" for="materialUnchecked">Event attendance/registration related reports</label>
-</div>
+            <div class="form-check">
+                <input type="radio" class="form-check-input" id="reportType4" value="reportType4" name="reportType" onclick="updateReportDashboard(this);">
+                <label class="form-check-label" for="materialUnchecked">Hours volunteered by each company at each non-profit</label>
+            </div>
+
+            <div class="form-check">
+                <input type="radio" class="form-check-input" id="reportType5" value="reportType5" name="reportType" onclick="updateReportDashboard(this);">
+                <label class="form-check-label" for="materialUnchecked">Overall hours volunteered by each company</label>
+            </div>
+
+            <div class="form-check">
+                <input type="radio" class="form-check-input" id="reportType6" value="reportType6" name="reportType" onclick="updateReportDashboard(this);">
+                <label class="form-check-label" for="materialUnchecked">Event attendance/registration related reports</label>
+            </div>
+
+        </fieldset>
+    </div>
+</form>
 
 <hr />
-<span> The corresponding partial for the selected report type renders here</span>
+
+<div id="reportType1Div" class="jumbotron" style="display: none;">
+    <p>More options for "Overall hours volunteered at each non-profit" report </p>
+</div>
+
+<div id="reportType2Div" class="jumbotron" style="display: none;"> 
+    <p>More options for "Hours volunteered by each employee at each non-profit" report </p>
+</div>
+
+<div id="reportType3Div" class="jumbotron" style="display: none;"> 
+    <p>More options for "Overall hours volunteered by each employee</p>
+ </div>
+
+<div id="reportType4Div" class="jumbotron" style="display: none;">
+    <p>More options for "Hours volunteered by each company at each non-profit" report</p>
+</div>
+
+<div id="reportType5Div" class="jumbotron" style="display: none;">
+    <p>More options for "Overall hours volunteered by each company" report</p>
+</div>
+
+<div id="reportType6Div" class="jumbotron" style="display: none;">
+    <p>More options for "Event attendance/registration related reports" report </p>
+</div>
+
 <hr />
 
 <button type="button" class="btn btn-primary btn-lg">Generate Report</button>

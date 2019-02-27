@@ -127,6 +127,77 @@
         });
     </script>
 
+    <!-- Report Dashboard Show/Hide Element Script-->
+    <script>
+    /*jslint node: true */
+    "use strict";
+
+    /**
+    * Update the Report Dashboard to show partial views relevant to the report type; based on which radio button control was clicked
+    * param {} control The radio button control clicked
+    */
+    function updateReportDashboard(control){
+    var x = control.value;
+    var reportType1Div = document.getElementById("reportType1Div");
+    var reportType2Div = document.getElementById("reportType2Div");
+    var reportType3Div = document.getElementById("reportType3Div");
+    var reportType4Div = document.getElementById("reportType4Div");
+    var reportType5Div = document.getElementById("reportType5Div");
+    var reportType6Div = document.getElementById("reportType6Div");
+
+    if(x == "reportType1"){
+    reportType1Div.style.display = "block";
+    reportType2Div.style.display = "none";
+    reportType3Div.style.display = "none";
+    reportType4Div.style.display = "none";
+    reportType5Div.style.display = "none";
+    reportType6Div.style.display = "none";
+    } else if(x == "reportType2") {
+    reportType1Div.style.display = "none";
+    reportType2Div.style.display = "block";
+    reportType3Div.style.display = "none";
+    reportType4Div.style.display = "none";
+    reportType5Div.style.display = "none";
+    reportType6Div.style.display = "none";
+    } else if(x == "reportType3") {
+    reportType1Div.style.display = "none";
+    reportType2Div.style.display = "none";
+    reportType3Div.style.display = "block";
+    reportType4Div.style.display = "none";
+    reportType5Div.style.display = "none";
+    reportType6Div.style.display = "none";
+    } else if(x == "reportType4") {
+    reportType1Div.style.display = "none";
+    reportType2Div.style.display = "none";
+    reportType3Div.style.display = "none";
+    reportType4Div.style.display = "block";
+    reportType5Div.style.display = "none";
+    reportType6Div.style.display = "none";
+    } else if(x == "reportType5") {
+    reportType1Div.style.display = "none";
+    reportType2Div.style.display = "none";
+    reportType3Div.style.display = "none";
+    reportType4Div.style.display = "none";
+    reportType5Div.style.display = "block";
+    reportType6Div.style.display = "none";
+    } else if(x == "reportType6") {
+    reportType1Div.style.display = "none";
+    reportType2Div.style.display = "none";
+    reportType3Div.style.display = "none";
+    reportType4Div.style.display = "none";
+    reportType5Div.style.display = "none";
+    reportType6Div.style.display = "block";
+    }
+    }
+    /**
+    * Call the updateReportDashboard function as well as any other necessary functions
+    * returns {boolean} Always return false
+    */
+    function submitForm(){
+    return false;
+    }
+    </script>
+
     @RenderSection("scripts", required: false)
 </body>
 </html>
