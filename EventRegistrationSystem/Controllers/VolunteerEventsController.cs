@@ -129,6 +129,8 @@ namespace EventRegistrationSystem.Controllers
         //TODO: protect this method specifically, not the whole controller 
         public ActionResult Create()
         {
+            //Attempt: To create a list of tags to select from
+
             using (var db = new ApplicationDbContext())
             {
                 var existingNonprofits = db.NonProfits.ToList();

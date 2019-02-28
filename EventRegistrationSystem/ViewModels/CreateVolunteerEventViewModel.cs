@@ -12,6 +12,7 @@ namespace EventRegistrationSystem.ViewModels
     {
         public VolunteerEvent VolunteerEvent { get; set; }
         public   SelectList Tag { get; set; }
+        public int IdTag { get; set; }
             
             public CreateVolunteerEventViewModel (VolunteerEvent volunteerEvent,List<Tag>tag)
         {
