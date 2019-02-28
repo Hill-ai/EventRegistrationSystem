@@ -227,6 +227,7 @@
     <Compile Include="HtmlHelpers\PagingHelpers.cs" />
     <Compile Include="Models\Tag.cs" />
     <Compile Include="ViewModels\CompanyIndexViewModel.cs" />
+    <Compile Include="ViewModels\CreateVolunteerEventViewModel.cs" />
     <Compile Include="ViewModels\PagingInfo.cs" />
     <Compile Include="Models\UsersVolunteerEvent.cs" />
     <Compile Include="Models\NonProfit.cs" />
