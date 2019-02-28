@@ -10,7 +10,8 @@ CREATE TABLE #tempCompanies (
     [PrimaryContactName]        NVARCHAR (100) NOT NULL,
     [PrimaryContactPhoneNumber] NVARCHAR (100) NULL,
     [PrimaryContactEmail]       NVARCHAR (100) NOT NULL,
-    [CompanyWebLink]            NVARCHAR (100) NULL
+    [CompanyWebLink]            NVARCHAR (100) NULL,
+	[IsActive]                  Bit            NOT NULL DEFAULT 1
 );
 
 INSERT INTO #tempCompanies (Name, Address, PhoneNumber, Email, PrimaryContactName, PrimaryContactPhoneNumber, PrimaryContactEmail, CompanyWebLink)
