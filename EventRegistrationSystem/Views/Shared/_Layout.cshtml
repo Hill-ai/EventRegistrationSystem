@@ -6,6 +6,7 @@
     <title>@ViewBag.Title - My ASP.NET Application</title>
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
+    @Styles.Render("~/Content/jqueryui")
 
 
 
@@ -41,34 +42,13 @@
                     {
                         @*<li>@Html.ActionLink("Home", "Index", "Home")</li>*@
                         @*<li>@Html.ActionLink("About", "About", "Home")</li>
-            <li>@Html.ActionLink("Contact", "Contact", "Home")</li>*@
-                        @*                         <li>@Html.ActionLink("Gallery", "Gallery", "Home")</li> *@                 
-                        <li class="dropdown">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
-                               aria-expanded="false">Companies<span class="caret"></span></a>
-                            <ul class="dropdown-menu">
-                                <li>@Html.ActionLink("View Companies", "Index", "Companies")</li>
-                                <li>@Html.ActionLink("Create Company", "Create", "Companies")</li>
-                            </ul>
-                        </li>
-                        <li class="dropdown">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
-                               aria-expanded="false">NonProfits<span class="caret"></span></a>
-                            <ul class="dropdown-menu">
-                                <li>@Html.ActionLink("View Nonprofits", "Index", "NonProfits")</li>
-                                <li>@Html.ActionLink("Create Nonprofit", "Create", "NonProfits")</li>
-                            </ul>
-                        </li>
-                        <li class="dropdown">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
-                               aria-expanded="false">Events<span class="caret"></span></a>
-                            <ul class="dropdown-menu">
-                                <li>@Html.ActionLink("View Events", "Index", "VolunteerEvents")</li>
-                                <li>@Html.ActionLink("Create Event", "Create", "VolunteerEvents")</li>
-                            </ul>
-                        </li>
-                        <li>@Html.ActionLink("Employees", "ViewEmployees", "Administrative")</li>
-                        <li>@Html.ActionLink("Registration Links", "Index", "Registration")</li>
+                            <li>@Html.ActionLink("Contact", "Contact", "Home")</li>*@
+                        @*<li>@Html.ActionLink("Gallery", "Gallery", "Home")</li> *@
+                        <li>@Html.ActionLink("Manage Companies", "Index", "Companies")</li>
+                        <li>@Html.ActionLink("Report Dashboard", "GenerateReport", "Home")</li>
+                        <li>@Html.ActionLink("View Volunteer Event", "Index", "VolunteerEvents")</li>
+                        <li>@Html.ActionLink("Create Nonprofit", "Create", "NonProfits")</li>
+                        <li>@Html.ActionLink("View Nonprofits", "Index", "NonProfits")</li>
                     }
                     else if (Context.User.Identity.IsAuthenticated && !User.IsInRole("ADMIN"))
                     {
@@ -100,6 +80,7 @@
 
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")
+    @Scripts.Render("~/bundles/jqueryui")
 
     <!-- Include moment-->
     <script type="text/javascript" src="//cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
@@ -111,6 +92,115 @@
     <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/fullcalendar/2.9.1/fullcalendar.min.js"></script>
     @Scripts.Render("~/bundles/Script-calendar")
 
+    <!-- Date Range Picker -->
+    <script>
+        $(function () {
+            var dateFormat = "mm/dd/yy",
+                from = $("#from")
+                    .datepicker({
+                        defaultDate: "+1w",
+                        changeMonth: true,
+                        numberOfMonths: 3
+                    })
+                    .on("change", function () {
+                        to.datepicker("option", "minDate", getDate(this));
+                    }),
+                to = $("#to").datepicker({
+                    defaultDate: "+1w",
+                    changeMonth: true,
+                    numberOfMonths: 3
+                })
+                    .on("change", function () {
+                        from.datepicker("option", "maxDate", getDate(this));
+                    });
+
+            function getDate(element) {
+                var date;
+                try {
+                    date = $.datepicker.parseDate(dateFormat, element.value);
+                } catch (error) {
+                    date = null;
+                }
+
+                return date;
+            }
+        });
+    </script>
+
+    <!-- Report Dashboard Show/Hide Element Script-->
+    <script>
+    /*jslint node: true */
+    "use strict";
+
+    /**
+    * Update the Report Dashboard to show partial views relevant to the report type; based on which radio button control was clicked
+    * param {} control The radio button control clicked
+    */
+    function updateReportDashboard(control){
+    var x = control.value;
+    var reportType1Div = document.getElementById("reportType1Div");
+    var reportType2Div = document.getElementById("reportType2Div");
+    var reportType3Div = document.getElementById("reportType3Div");
+    var reportType4Div = document.getElementById("reportType4Div");
+    var reportType5Div = document.getElementById("reportType5Div");
+    var reportType6Div = document.getElementById("reportType6Div");
+
+    if(x == "reportType1"){
+    reportType1Div.style.display = "block";
+    reportType2Div.style.display = "none";
+    reportType3Div.style.display = "none";
+    reportType4Div.style.display = "none";
+    reportType5Div.style.display = "none";
+    reportType6Div.style.display = "none";
+    } else if(x == "reportType2") {
+    reportType1Div.style.display = "none";
+    reportType2Div.style.display = "block";
+    reportType3Div.style.display = "none";
+    reportType4Div.style.display = "none";
+    reportType5Div.style.display = "none";
+    reportType6Div.style.display = "none";
+    } else if(x == "reportType3") {
+    reportType1Div.style.display = "none";
+    reportType2Div.style.display = "none";
+    reportType3Div.style.display = "block";
+    reportType4Div.style.display = "none";
+    reportType5Div.style.display = "none";
+    reportType6Div.style.display = "none";
+    } else if(x == "reportType4") {
+    reportType1Div.style.display = "none";
+    reportType2Div.style.display = "none";
+    reportType3Div.style.display = "none";
+    reportType4Div.style.display = "block";
+    reportType5Div.style.display = "none";
+    reportType6Div.style.display = "none";
+    } else if(x == "reportType5") {
+    reportType1Div.style.display = "none";
+    reportType2Div.style.display = "none";
+    reportType3Div.style.display = "none";
+    reportType4Div.style.display = "none";
+    reportType5Div.style.display = "block";
+    reportType6Div.style.display = "none";
+    } else if(x == "reportType6") {
+    reportType1Div.style.display = "none";
+    reportType2Div.style.display = "none";
+    reportType3Div.style.display = "none";
+    reportType4Div.style.display = "none";
+    reportType5Div.style.display = "none";
+    reportType6Div.style.display = "block";
+    }
+    }
+    /**
+    * Call the updateReportDashboard function as well as any other necessary functions
+    * returns {boolean} Always return false
+    */
+    function submitForm() {
+        var reportView = document.getElementById("report-view");
+        if (reportView.style.display === "none") {
+            reportView.style.display = "block";
+        }   
+        return false;
+    }
+    </script>
 
     @RenderSection("scripts", required: false)
 </body>
