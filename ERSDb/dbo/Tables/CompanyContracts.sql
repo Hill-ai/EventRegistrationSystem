@@ -1,11 +1,11 @@
 ﻿CREATE TABLE [dbo].[CompanyContracts]
 (
-	[CompanyContractID]		INT				    NOT NULL,
+	[CompanyContractID]		INT				    NOT NULL	IDENTITY,
 	[CompanyID]				INT                 NOT NULL,
 	[ContractToken]			UNIQUEIDENTIFIER	NOT NULL DEFAULT NEWID(),
 	[IsActive]				BIT				    NOT NULL DEFAULT 1,	
-	[ContractStartDate]		DATETIME			NULL,
-	[ContractEndDate]		DATETIME			NULL,
+	[ContractStartDate]		DATETIME			NOT NULL,
+	[ContractEndDate]		DATETIME			NOT NULL,
 	[ContractCapacity]		INT					NOT NULL DEFAULT 0,
 
 	CONSTRAINT [PK_dbo.CompanyContracts] PRIMARY KEY CLUSTERED ([CompanyContractID] ASC),

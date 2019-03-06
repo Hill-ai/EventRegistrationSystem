@@ -142,16 +142,16 @@ namespace EventRegistrationSystem.Controllers
         {
             using (var db = new ApplicationDbContext())
             {
-                var company = db.Companies.FirstOrDefault(
-                    comp => string.Equals(contractToken, comp.ContractToken.ToString()));
-
-                if (company == null)
-                {
-                    return View("UnAuthorizedRegister");
-                }
-
-                ViewBag.CompanyId = company.CompanyID;
-                ViewBag.CompanyName = company.Name;
+//                var company = db.Companies.FirstOrDefault(
+//                    comp => string.Equals(contractToken, comp.ContractToken.ToString()));
+//
+//                if (company == null)
+//                {
+//                    return View("UnAuthorizedRegister");
+//                }
+//
+//                ViewBag.CompanyId = company.CompanyID;
+//                ViewBag.CompanyName = company.Name;
 
                 return View();
             }

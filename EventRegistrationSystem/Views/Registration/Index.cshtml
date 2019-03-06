@@ -1,4 +1,5 @@
-@model System.Collections.Generic.List<EventRegistrationSystem.Models.Company>
+@* @model System.Collections.Generic.List<EventRegistrationSystem.Models.Company> *@
+@model IEnumerable<EventRegistrationSystem.Controllers.RegistrationController.CompanyAndContracts>
 
 @{
     ViewBag.Title = "Register Links";
@@ -7,21 +8,25 @@
 
 <h2>title</h2>
 <div class="container">
-@foreach (var company in @Model)
-{
-    <div class="panel panel-default">
-        
-        <div class="panel-title">
-            @company.Name            
+
+    @foreach (var companyAndItsContracts in Model)
+    {
+        <div class="panel panel-default">
+
+            <div class="panel-title">
+                @companyAndItsContracts.Company.Name
+            </div>
+
+            @if (!companyAndItsContracts.HasActiveContract)
+            {
+                <div>No active contracts! Please create one</div>
+            }
+            else
+            {
+                <span>
+                    www.DayOfDifference.azurewebsites.net/Account/Register?contractToken=@companyAndItsContracts.CurrentContract.ContractToken
+                </span>
+            }
         </div>
-        
-        <div class="panel-body">
-            <a>
-                www.DayOfDifference.azurewebsites.net/Account/Register?contractToken=@company.ContractToken
-            </a>            
-                
-        </div>
-    </div>    
-}
-    
+    }
 </div>
