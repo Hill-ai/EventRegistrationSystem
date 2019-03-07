@@ -7,6 +7,7 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using EventRegistrationSystem.Models;
+using EventRegistrationSystem.ViewModels;
 using Microsoft.AspNet.Identity;
 
 namespace EventRegistrationSystem.Controllers
@@ -130,15 +131,17 @@ namespace EventRegistrationSystem.Controllers
         public ActionResult Create()
         {
             //Attempt: To create a list of tags to select from
-
+            VolunteerEvent volunteerEvent = new VolunteerEvent();
+            List<Tag> tag;
             using (var db = new ApplicationDbContext())
             {
-                var existingNonprofits = db.NonProfits.ToList();
+                //var existingNonprofits = db.NonProfits.ToList();
 
-                ViewBag.ExistingNonprofits = existingNonprofits;
-
-                return View();
+                // ViewBag.ExistingNonprofits = existingNonprofits;
+                tag = db.Tags.ToList();
             }
+            CreateVolunteerEventViewModel model = new CreateVolunteerEventViewModel();
+            return View(model);
         }
 
         // POST: Events/Create
