@@ -140,7 +140,7 @@ namespace EventRegistrationSystem.Controllers
                 // ViewBag.ExistingNonprofits = existingNonprofits;
                 tag = db.Tags.ToList();
             }
-            CreateVolunteerEventViewModel model = new CreateVolunteerEventViewModel();
+            CreateVolunteerEventViewModel model = new CreateVolunteerEventViewModel(volunteerEvent,tag);
             return View(model);
         }
 
