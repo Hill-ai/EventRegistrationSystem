@@ -7,6 +7,7 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using EventRegistrationSystem.Models;
+using EventRegistrationSystem.ViewModels;
 using Microsoft.AspNet.Identity;
 
 namespace EventRegistrationSystem.Controllers
@@ -22,6 +23,7 @@ namespace EventRegistrationSystem.Controllers
             using (var db = new ApplicationDbContext())
             {
                 var volunteerEventsList = db.VolunteerEvents.ToList();
+               
 
                 if (tableOrderBy == 1)
                 {
@@ -58,6 +60,7 @@ namespace EventRegistrationSystem.Controllers
 
                 }
 
+
                 return View(volunteerEventsList);
 
 
@@ -72,6 +75,84 @@ namespace EventRegistrationSystem.Controllers
             {
                 var events = db.VolunteerEvents.ToList();
                 return new JsonResult { Data = events, JsonRequestBehavior = JsonRequestBehavior.AllowGet };
+            }
+        }
+
+
+        // GET: Events
+        public ActionResult VolunteerEventsTable(int? tableOrderBy, string eventTypeID, string eventNonProfitID)
+        {
+            using (var db = new ApplicationDbContext())
+            {
+                var volunteerEventsList = db.VolunteerEvents.ToList();
+                var eventTypes = volunteerEventsList.Select(e => e.EventDetails).Distinct();
+                var eventNonProfits = volunteerEventsList.Select(e => (e.NonProfit.Trim())).Distinct();
+                var model = new VolunteerEventsTableViewModel();
+
+                if (tableOrderBy == 1)
+                {
+                    //var volunteerEventsList = db.VolunteerEvents.Where(c => c.EventDate.Month == DateTime.Today.Month).OrderBy(d => d.EventDate).ToList();
+
+                    volunteerEventsList = db.VolunteerEvents.OrderBy(d => d.EventName).ToList();
+                }
+
+                if (tableOrderBy == 2)
+                {
+
+                    volunteerEventsList = db.VolunteerEvents.OrderBy(d => d.EventDate).ToList();
+
+                }
+
+                if (tableOrderBy == 3)
+                {
+
+                    volunteerEventsList = db.VolunteerEvents.OrderBy(d => d.EventDetails).ToList();
+
+                }
+
+                if (tableOrderBy == 4)
+                {
+
+                    volunteerEventsList = db.VolunteerEvents.OrderBy(d => d.NonProfit).ToList();
+
+                }
+
+                if (tableOrderBy == 5)
+                {
+
+                    volunteerEventsList = db.VolunteerEvents.OrderBy(d => d.Company).ToList();
+
+                }
+
+                if (!string.IsNullOrWhiteSpace(eventTypeID))
+                {
+                    volunteerEventsList = volunteerEventsList.Where(e => string.Equals(eventTypeID, e.EventDetails)).ToList();
+                    model.CurrentEventTypeFilter = eventTypeID;
+
+                }
+
+                if (!string.IsNullOrWhiteSpace(eventNonProfitID))
+                {
+                    volunteerEventsList = volunteerEventsList.Where(e => string.Equals(eventNonProfitID, e.NonProfit.Trim())).ToList();
+                    model.CurrentEventNonProfitFilter = eventNonProfitID;
+
+                }
+
+
+                model.Events = volunteerEventsList;
+                model.EventTypes = eventTypes;
+                model.EventNonProfits = eventNonProfits;
+
+               
+
+                return View(model);
+
+
+
+
+
+                //return View(db.VolunteerEvents.Where(c => c.EventDate.Month == month).ToList());
+
             }
         }
 
