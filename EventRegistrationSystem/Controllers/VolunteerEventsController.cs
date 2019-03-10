@@ -133,14 +133,16 @@ namespace EventRegistrationSystem.Controllers
             //Attempt: To create a list of tags to select from
             VolunteerEvent volunteerEvent = new VolunteerEvent();
             List<Tag> tag;
+            List<NonProfit> npro;
             using (var db = new ApplicationDbContext())
             {
                 //var existingNonprofits = db.NonProfits.ToList();
 
                 // ViewBag.ExistingNonprofits = existingNonprofits;
                 tag = db.Tags.ToList();
+                npro = db.NonProfits.ToList();
             }
-            CreateVolunteerEventViewModel model = new CreateVolunteerEventViewModel(volunteerEvent,tag);
+            CreateVolunteerEventViewModel model = new CreateVolunteerEventViewModel(volunteerEvent,tag,npro);
             return View(model);
         }
 

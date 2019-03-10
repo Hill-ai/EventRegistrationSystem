@@ -14,11 +14,13 @@ namespace EventRegistrationSystem.ViewModels
         public   SelectList Tag { get; set; }
         public   SelectList NPro { get; set; }
         public int IdTag { get; set; }
+        public int IdNPro { get; set; }
             
-            public CreateVolunteerEventViewModel (VolunteerEvent volunteerEvent,List<Tag>tag)
+            public CreateVolunteerEventViewModel (VolunteerEvent volunteerEvent,List<Tag>tag, List<NonProfit>npro)
         {
             this.VolunteerEvent = volunteerEvent;
             this.Tag = new SelectList(tag, "TagId", "TagDescription");
+            this.NPro = new SelectList(npro, "NonProfitId", "Name");
         }
         public CreateVolunteerEventViewModel() { }
 
