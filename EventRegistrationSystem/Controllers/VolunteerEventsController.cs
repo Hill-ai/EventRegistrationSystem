@@ -134,6 +134,7 @@ namespace EventRegistrationSystem.Controllers
             VolunteerEvent volunteerEvent = new VolunteerEvent();
             List<Tag> tag;
             List<NonProfit> npro;
+            List<Company> com;
             using (var db = new ApplicationDbContext())
             {
                 //var existingNonprofits = db.NonProfits.ToList();
@@ -141,8 +142,10 @@ namespace EventRegistrationSystem.Controllers
                 // ViewBag.ExistingNonprofits = existingNonprofits;
                 tag = db.Tags.ToList();
                 npro = db.NonProfits.ToList();
+                com = db.Companies.ToList();
+
             }
-            CreateVolunteerEventViewModel model = new CreateVolunteerEventViewModel(volunteerEvent,tag,npro);
+            CreateVolunteerEventViewModel model = new CreateVolunteerEventViewModel(volunteerEvent,tag,npro, com);
             return View(model);
         }
 
