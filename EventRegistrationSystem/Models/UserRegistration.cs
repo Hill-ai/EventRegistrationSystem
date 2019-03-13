@@ -9,10 +9,13 @@ namespace EventRegistrationSystem.Models
 {
     public class UserRegistration
     {
+        //TODO DAVID: constructor for DateCreated - default to DateTime.Now
+        
         public int UserRegistrationID { get; set; }
 
         public int CompanyContractID { get; set; }
 
+        //TODO DAVID: change to UserId because that's what it's representing
         public string Id { get; set; }
 
         public DateTime DateCreated { get; set; }

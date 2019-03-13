@@ -282,9 +282,8 @@ namespace EventRegistrationSystem.Controllers
         [AllowAnonymous]
         public ActionResult EventRegistrationEmailSent()
         {
-            return View();
+            return null;
         }
-
 
         /*
          * working code for saving event registration to DB (no email confirm)

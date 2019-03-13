@@ -1,0 +1,48 @@
+@model System.Collections.Generic.List<EventRegistrationSystem.Models.CompanyContract>
+
+@{
+    ViewBag.Title = "Company Contracts";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div style="display: flex; align-items: center; justify-content: space-between">
+    <h3>Contracts for: @ViewBag.CompanyName </h3>
+    <h4 class="pull-right">
+        @Html.ActionLink("Create Contract", "CreateContract", new
+        {
+            companyId = @ViewBag.CompanyId,
+            companyName = @ViewBag.CompanyName
+        })
+        
+    </h4>
+</div>
+
+<table class="table table-striped table-bordered">
+    <tr>
+        <td>Start Date</td>
+        <td>End Date</td>
+        <td>Employee Limit</td>
+        <td>Is Active</td>
+    </tr>
+    
+    @foreach (var contract in Model)
+    {
+        <tr>
+            <td>
+                @contract.ContractStartDate
+            </td>
+            <td>
+                @contract.ContractEndDate
+            </td>
+            <td>
+                @contract.ContractCapacity
+            </td>
+            <td>
+                @contract.IsActive
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new {contractId= @contract.CompanyContractID})
+            </td>
+        </tr>
+    }
+</table>

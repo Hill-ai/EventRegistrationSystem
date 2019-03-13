@@ -58,7 +58,5 @@ namespace EventRegistrationSystem.Models
         public DbSet<CompanyContract> CompanyContracts { get; set; }
 
         public DbSet<UserRegistration> UserRegistrations { get; set; }
-
-        //        public DbSet<ApplicationUser> ApplicationUsers { get; set; } 
     }
 }

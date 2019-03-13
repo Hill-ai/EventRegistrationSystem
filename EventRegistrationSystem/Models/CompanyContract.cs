@@ -9,6 +9,11 @@ namespace EventRegistrationSystem.Models
 {
     public class CompanyContract
     {
+        public CompanyContract()
+        {
+            ContractToken = Guid.NewGuid();
+        }
+
         public int CompanyContractID { get; set; }
 
         public int CompanyID { get; set; }

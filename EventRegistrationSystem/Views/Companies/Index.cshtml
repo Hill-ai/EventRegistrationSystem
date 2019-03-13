@@ -26,25 +26,27 @@
         <th></th>
     </tr>
 
-    @foreach (var item in Model.Companies)
+    @foreach (var company in Model.Companies)
     {
         <tr>
             <td>
-                @Html.DisplayFor(modelItem => item.Name)
+                @Html.DisplayFor(modelItem => company.Name)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.PhoneNumber)
+                @Html.DisplayFor(modelItem => company.PhoneNumber)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Email)
+                @Html.DisplayFor(modelItem => company.Email)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.PrimaryContactName)
+                @Html.DisplayFor(modelItem => company.PrimaryContactName)
             </td>
             <td>
-                @Html.ActionLink("Company Details", "Details", new { id = item.CompanyID }) |
-                @Html.ActionLink("Edit", "Edit", new { id = item.CompanyID }) |
-                @Html.ActionLink("Delete", "Delete", new { id = item.CompanyID })
+                @Html.ActionLink("Contracts", "ContractsForCompany", "Contract", 
+                    new {companyId = company.CompanyID},null) | 
+                @Html.ActionLink("Company Details", "Details", new {id = company.CompanyID}) |
+                @Html.ActionLink("Edit", "Edit", new {id = company.CompanyID}) |
+                @Html.ActionLink("Delete", "Delete", new {id = company.CompanyID})
             </td>
         </tr>
     }
