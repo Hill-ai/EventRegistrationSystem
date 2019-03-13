@@ -12,7 +12,6 @@ namespace EventRegistrationSystem.Models
         public int CompanyID { get; set; }
 
         public string Name { get; set; }
- 
 
         public string Address { get; set; }
 
@@ -28,13 +27,13 @@ namespace EventRegistrationSystem.Models
 
         public string CompanyWebLink { get; set; }
 
-        public DateTime ContractStartDate { get; set; }
-        
-        public DateTime ContractEndDate { get; set; }
-
-        public int ContractCapacity { get; set; }
-
-        public Guid ContractToken { get; set; }
+//        public DateTime ContractStartDate { get; set; }
+//        
+//        public DateTime ContractEndDate { get; set; }
+//
+//        public int ContractCapacity { get; set; }
+//
+//        public Guid ContractToken { get; set; }
     }
 
 }

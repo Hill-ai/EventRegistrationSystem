@@ -8,8 +8,4 @@
 	[PrimaryContactPhoneNumber] [nvarchar](100)		NULL,
 	[PrimaryContactEmail]		[nvarchar](100)		NOT NULL,
 	[CompanyWebLink]			[nvarchar](100)		NULL,
-	[ContractStartDate]			DATE				NOT NULL DEFAULT GETDATE(),
-	[ContractEndDate]			DATE				NOT NULL DEFAULT GETDATE(),
-	[ContractCapacity]			INT					NOT NULL DEFAULT 0,
-	[ContractToken]				UNIQUEIDENTIFIER	NOT NULL DEFAULT NEWID()
 );

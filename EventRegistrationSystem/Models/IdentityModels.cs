@@ -54,7 +54,9 @@ namespace EventRegistrationSystem.Models
         public DbSet<UsersVolunteerEvent> UsersVolunteerEvents { get; set; }
         
         public DbSet<NonProfit> NonProfits { get; set; }
-        
-//        public DbSet<ApplicationUser> ApplicationUsers { get; set; } 
+
+        public DbSet<CompanyContract> CompanyContracts { get; set; }
+
+        public DbSet<UserRegistration> UserRegistrations { get; set; }
     }
 }
