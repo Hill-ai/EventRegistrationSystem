@@ -406,6 +406,7 @@
     <Content Include="Views\Shared\_CompanySummary.cshtml" />
     <Content Include="Views\Companies\_CompanySummary.cshtml" />
     <Content Include="Views\VolunteerEvents\VolunteerEventsTable.cshtml" />
+    <Content Include="Views\Home\GenerateReport.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Abstract\" />
