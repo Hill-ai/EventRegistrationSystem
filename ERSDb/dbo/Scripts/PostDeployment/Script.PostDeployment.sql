@@ -12,4 +12,5 @@ Post-Deployment Script Template
 :r .\SeedRoles.sql
 :r .\SeedCompanies.sql
 :r .\SeedAspNetUsers.sql
+:r .\SeedAspNetUserRoles.sql
 
